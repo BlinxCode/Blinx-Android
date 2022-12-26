@@ -3,20 +3,25 @@ package com.example.blinxapp.ui.theme
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 
 private val DarkColorPalette = darkColorScheme(
-    surface = lightGray,
-    onSurface = electricBlue,
-    primary = electricBlue,
-    onPrimary = lightGray
+    surface = whiteBlinx,
+    onSurface = Color.White,
+    primary = Color.Black,
+    onPrimary = whiteBlinx,
+    outline = Color.White,
+    onSecondary = Color.White,
 )
 
 private val LightColorPalette = lightColorScheme(
-    surface = lightGray,
-    onSurface = whiteBlinx,
-    primary = lightGray,
+    surface = Color.Black,
+    onSurface = Color.Black,
+    primary = whiteBlinx,
+    outline = Color.Black,
     onPrimary = whiteBlinx,
-    background = lightGray
+    onSecondary = Color.Black,
+
 
     /* Other default colors to override
     background = Color.White,

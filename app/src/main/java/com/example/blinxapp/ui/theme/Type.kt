@@ -10,42 +10,38 @@ import com.example.blinxapp.R
 
 
 //Set font family
-val sfProFont = FontFamily(
-    Font(R.font.lato_bold, FontWeight.Bold),
-    Font(R.font.kulim_park_light, FontWeight.Light),
-    Font(R.font.lato_bold, FontWeight.Medium),
-    Font(R.font.lato_regular, FontWeight.Normal),
+val jakartaFont = FontFamily(
+    Font(R.font.jakarta_bold, FontWeight.Bold),
+    Font(R.font.jakarta_light, FontWeight.Light),
+    Font(R.font.jakarta_medium, FontWeight.Medium),
+    Font(R.font.jakarta_regular, FontWeight.Normal),
 
 )
 // Set of Material typography styles to start with
 val Typography = Typography(
-    bodyLarge = TextStyle(
-        fontFamily = sfProFont,
-        fontWeight = FontWeight.Medium,
+    labelMedium = TextStyle(
+        fontFamily = jakartaFont,
+        fontWeight = FontWeight.Light,
         fontSize = 16.sp,
         letterSpacing = 0.5.sp
     ),
     titleLarge = TextStyle(
-        fontFamily = sfProFont,
+        fontFamily =  jakartaFont,
         fontWeight = FontWeight.Bold,
         fontSize = 22.sp,
-        lineHeight = 28.sp,
         letterSpacing = 0.sp
     ),
     labelSmall = TextStyle(
-        fontFamily = sfProFont,
+        fontFamily = jakartaFont,
         fontWeight = FontWeight.Light,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
+        fontSize = 14.sp,
         letterSpacing = 0.5.sp
     ),
 
     displayLarge = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = jakartaFont,
         fontWeight = FontWeight.Bold,
-        fontSize = 30.sp,
-        lineHeight = 30.sp,
+        fontSize = 25.sp,
         letterSpacing = 0.5.sp
-
     )
 )

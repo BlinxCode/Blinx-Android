@@ -140,3 +140,24 @@ fun GetStartedButton() {
     }
 }
 
+@Composable
+fun BackButton() {
+    val buttonColors = ButtonDefaults.buttonColors(
+        containerColor = primaryGreen,
+        contentColor = contentColorFor(backgroundColor = whiteBlinx)
+    )
+    Button(
+        modifier = Modifier
+            .height(60.dp)
+            .width(60.dp),
+        onClick = { },
+        colors = buttonColors,
+        shape = RoundedCornerShape(20)
+    ) {
+        Icon(
+            imageVector = Icons.Filled.ArrowForwardIos,
+            contentDescription = stringResource(R.string.getStarted)
+
+        )
+    }
+}

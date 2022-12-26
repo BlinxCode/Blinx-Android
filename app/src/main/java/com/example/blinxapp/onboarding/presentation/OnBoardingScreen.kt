@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.example.blinxapp.R
@@ -22,16 +23,17 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
 
-class MainActivity : ComponentActivity() {
+class OnBoardingScreen : ComponentActivity() {
 
     @OptIn(ExperimentalPagerApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //Change color status bar.
-        window.statusBarColor = ContextCompat.getColor(this, R.color.lightGrey)
         setContent {
             BlinxAppTheme {
+
+                //Change color status bar.
+                window.statusBarColor = ContextCompat.getColor(this, R.color.lightGrey)
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -50,6 +52,7 @@ class MainActivity : ComponentActivity() {
                         OnBoardingData(
                             R.drawable.blinx_background0,
                             "Create &",
+
                             "Fund a wallet of your choice"
                         )
                     )
