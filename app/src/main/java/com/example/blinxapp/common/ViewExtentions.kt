@@ -2,13 +2,16 @@ package com.example.blinxapp.common
 
 import android.content.Context
 import android.view.Window
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material.icons.rounded.ArrowBackIosNew
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -66,4 +69,34 @@ fun BlinxStatusBarColor(window: Window, context: Context) {
             true
         window.statusBarColor = ContextCompat.getColor(context, R.color.white)
     }
+}
+
+// A function which will receive a
+// callback to trigger to go previous page
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TopBar(onMenuClicked: () -> Unit) {
+    val buttonColors = TopAppBarDefaults.mediumTopAppBarColors(
+        containerColor =  Color.Transparent
+    )
+    // TopAppBar Composable
+    TopAppBar(
+        // Provide Title
+        colors = buttonColors,
+        title = {},
+        // Provide the navigation Icon (Icon on the left to toggle drawer)
+        navigationIcon = {
+
+            IconButton(onClick = { }) {
+                Icon(
+                    imageVector = Icons.Rounded.ArrowBackIosNew,
+                    contentDescription = "Arrow Back",
+                    modifier = Modifier.clickable(onClick = onMenuClicked)
+                )
+
+            }
+        },
+        // background color of topAppBar
+        // colors = TopAppBarDefaults.largeTopAppBarColors(containerColor = Color.Transparent)
+    )
 }

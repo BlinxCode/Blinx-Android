@@ -1,4 +1,4 @@
-package com.example.blinxapp.signup
+package com.example.blinxapp.signup.form
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,13 +8,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.ArrowBackIosNew
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -25,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.blinxapp.R
 import com.example.blinxapp.common.BlinxStatusBarColor
+import com.example.blinxapp.common.TopBar
 import com.example.blinxapp.ui.theme.*
 
 class SignupFormScreen : ComponentActivity() {
@@ -48,37 +46,6 @@ class SignupFormScreen : ComponentActivity() {
                 }
             }
         }
-    }
-
-
-    // A function which will receive a
-// callback to trigger to opening the drawer
-    @OptIn(ExperimentalMaterial3Api::class)
-    @Composable
-    fun TopBar(onMenuClicked: () -> Unit) {
-        val buttonColors = TopAppBarDefaults.mediumTopAppBarColors(
-            containerColor =  Color.Transparent
-        )
-        // TopAppBar Composable
-        TopAppBar(
-            // Provide Title
-            colors = buttonColors,
-            title = {},
-            // Provide the navigation Icon (Icon on the left to toggle drawer)
-            navigationIcon = {
-
-                IconButton(onClick = { }) {
-                    Icon(
-                        imageVector = Icons.Rounded.ArrowBackIosNew,
-                        contentDescription = "Arrow Back",
-                        modifier =Modifier.clickable(onClick = onMenuClicked)
-                        )
-
-                }
-            },
-            // background color of topAppBar
-            // colors = TopAppBarDefaults.largeTopAppBarColors(containerColor = Color.Transparent)
-        )
     }
 
 
