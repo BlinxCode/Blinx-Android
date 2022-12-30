@@ -2,7 +2,6 @@ package com.example.blinxapp.common
 
 import android.content.Context
 import android.view.Window
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
@@ -13,11 +12,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.example.blinxapp.R
 import com.example.blinxapp.ui.theme.containerColorBlack
 import com.example.blinxapp.ui.theme.containerColorWhite
+import com.example.blinxapp.ui.theme.electricBlue
 import com.example.blinxapp.ui.theme.primaryGreen
 
 
@@ -37,13 +38,8 @@ fun outlineColors(): TextFieldColors {
 
 // Return color state based on SystemInDarkTheme
 @Composable
-fun sytemColor(): Color {
-    var colorStr =  if (isSystemInDarkTheme()){
-        Color.White
-    }else{
-        Color.Black
-    }
-    return colorStr
+fun SystemColorInverse(): Color {
+    return  Color.White.takeIf { isSystemInDarkTheme() }?: electricBlue
 }
 
 @Composable
@@ -52,9 +48,10 @@ fun PasswordIconSetup(passwordVisibility: MutableState<Boolean>) {
         passwordVisibility.value = !passwordVisibility.value
     }) {
         Icon(
-            imageVector = if (passwordVisibility.value) Icons.Default.VisibilityOff else Icons.Default.Visibility,
+            imageVector = Icons.Default.VisibilityOff.takeIf {
+                passwordVisibility.value }?:  Icons.Default.Visibility,
             contentDescription = "visibility",
-            tint = sytemColor()
+            tint = SystemColorInverse()
         )
     }
 }
@@ -71,32 +68,35 @@ fun BlinxStatusBarColor(window: Window, context: Context) {
     }
 }
 
-// A function which will receive a
-// callback to trigger to go previous page
+//TopBar setup
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopBar(onMenuClicked: () -> Unit) {
-    val buttonColors = TopAppBarDefaults.mediumTopAppBarColors(
-        containerColor =  Color.Transparent
-    )
-    // TopAppBar Composable
-    TopAppBar(
-        // Provide Title
-        colors = buttonColors,
-        title = {},
-        // Provide the navigation Icon (Icon on the left to toggle drawer)
-        navigationIcon = {
+fun TopBar(
+    isGettingStarted: Boolean,
+    canNavigateBack: Boolean,
+    navigateUp: () -> Unit,
+    modifier: Modifier = Modifier
+) {
 
-            IconButton(onClick = { }) {
-                Icon(
-                    imageVector = Icons.Rounded.ArrowBackIosNew,
-                    contentDescription = "Arrow Back",
-                    modifier = Modifier.clickable(onClick = onMenuClicked)
-                )
+    val buttonColors =  TopAppBarDefaults.smallTopAppBarColors(
+        containerColor =  MaterialTheme.colorScheme.primary)
 
+    if (!isGettingStarted){
+        TopAppBar(
+            colors = buttonColors,
+            title = {},
+            modifier = modifier,
+            navigationIcon = {
+                if (canNavigateBack){
+                    IconButton(onClick = navigateUp) {
+                        Icon(
+                            imageVector = Icons.Rounded.ArrowBackIosNew,
+                            contentDescription = stringResource(R.string.back_button)
+                        )
+                    }
+                }
             }
-        },
-        // background color of topAppBar
-        // colors = TopAppBarDefaults.largeTopAppBarColors(containerColor = Color.Transparent)
-    )
+        )
+    }
+
 }

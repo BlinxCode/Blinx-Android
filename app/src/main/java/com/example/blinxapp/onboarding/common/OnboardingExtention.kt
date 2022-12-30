@@ -18,7 +18,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstrainedLayoutReference
 import com.example.blinxapp.R
+import com.example.blinxapp.common.SystemColorInverse
 import com.example.blinxapp.onboarding.data.model.OnBoardingData
 import com.example.blinxapp.ui.theme.*
 
@@ -46,7 +48,7 @@ fun OnboardingItems(
     item: List<OnBoardingData>,
     page: Int
 ) {
-    Box() {
+    Box {
         //Image modifier
         Image(
             painter = painterResource(id = item[page].image),
@@ -56,33 +58,38 @@ fun OnboardingItems(
             alignment = Alignment.Center
         )
 
-        Column(
+    }
+}
+
+@Composable
+fun PagerTexts(
+    item: List<OnBoardingData>,
+    page: Int,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier =modifier
+    ) {
+        //Title modifier
+        Text(
+            text = item[page].title,
+            modifier = Modifier.padding(end = 20.dp, start = 20.dp),
+            color = secondaryGrey,
+            style = Typography.displayLarge,
+            textAlign = TextAlign.Start
+        )
+
+        //Description modifier
+        Text(
+            text = item[page].description,
             modifier = Modifier
-                .align(Alignment.BottomStart)
-                .padding(bottom = 100.dp)
-                .fillMaxWidth()
-        ) {
-            //Title modifier
-            Text(
-                text = item[page].title,
-                modifier = Modifier.padding(end = 20.dp, start = 20.dp),
-                color = secondaryGrey,
-                style = Typography.displayLarge,
-                textAlign = TextAlign.Start
-            )
+                .padding(top = 10.dp, start = 20.dp, end = 20.dp)
+                .fillMaxWidth(),
+            color = SystemColorInverse(),
+            style = Typography.displayLarge,
+            textAlign = TextAlign.Start
 
-            //Description modifier
-            Text(
-                text = item[page].description,
-                modifier = Modifier
-                    .padding(top = 10.dp, start = 20.dp, end = 20.dp)
-                    .fillMaxWidth(),
-                color = electricBlue,
-                style = Typography.displayLarge,
-                textAlign = TextAlign.Start
-
-            )
-        }
+        )
     }
 }
 
@@ -119,7 +126,7 @@ fun Indicator(isSelected: Boolean) {
 }
 
 @Composable
-fun GetStartedButton() {
+fun GetStartedButton(onNextButtonClicked: () -> Unit) {
     val buttonColors = ButtonDefaults.buttonColors(
         containerColor = primaryGreen,
         contentColor = contentColorFor(backgroundColor = whiteBlinx)
@@ -128,7 +135,7 @@ fun GetStartedButton() {
         modifier = Modifier
             .height(60.dp)
             .width(60.dp),
-        onClick = { },
+        onClick = { onNextButtonClicked()},
         colors = buttonColors,
         shape = RoundedCornerShape(20)
     ) {

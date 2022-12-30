@@ -34,7 +34,7 @@ val Typography = Typography(
     labelSmall = TextStyle(
         fontFamily = jakartaFont,
         fontWeight = FontWeight.Light,
-        fontSize = 14.sp,
+        fontSize = 12.sp,
         letterSpacing = 0.5.sp
     ),
 

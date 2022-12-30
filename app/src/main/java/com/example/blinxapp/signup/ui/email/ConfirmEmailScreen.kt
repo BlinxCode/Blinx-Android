@@ -1,4 +1,4 @@
-package com.example.blinxapp.signup.email
+package com.example.blinxapp.signup.ui.email
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -21,7 +21,7 @@ class ConfirmEmailScreen: ComponentActivity() {
         super.onCreate(savedInstanceState)
         
         setContent { 
-            BlinxAppTheme() {
+            BlinxAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),

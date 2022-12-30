@@ -37,7 +37,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.1.1'
+        kotlinCompilerExtensionVersion compose_ui_version
     }
     packagingOptions {
         resources {
@@ -55,7 +55,6 @@ dependencies {
     implementation "androidx.core:core-ktx:1.9.0"
 
     implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
     implementation 'androidx.activity:activity-compose:1.6.1'
     implementation "androidx.compose.ui:ui"
     implementation "androidx.compose.ui:ui-tooling-preview"
@@ -71,4 +70,11 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
     def nav_version = "2.5.3"
     implementation "androidx.navigation:navigation-compose:$nav_version"
+
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation "androidx.navigation:navigation-compose:2.5.3"
 }

@@ -1,108 +1,156 @@
 package com.example.blinxapp.onboarding.presentation
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat
+import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.blinxapp.R
-import com.example.blinxapp.onboarding.common.GetStartedButton
-import com.example.blinxapp.onboarding.common.ImageWithBackground
-import com.example.blinxapp.onboarding.common.OnboardingItems
-import com.example.blinxapp.onboarding.common.PagerIndicator
+import com.example.blinxapp.onboarding.common.*
 import com.example.blinxapp.onboarding.data.model.OnBoardingData
-import com.example.blinxapp.ui.theme.*
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
 
-class OnBoardingScreen : ComponentActivity() {
 
     @OptIn(ExperimentalPagerApi::class)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    @Composable
+    fun OnBoardingScreen(
+        onNextButtonClicked: () -> Unit
+    ){
 
-        setContent {
-            BlinxAppTheme {
+        Box(){
 
-                //Change color status bar.
-                window.statusBarColor = ContextCompat.getColor(this, R.color.lightGrey)
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.primary
-                ) {
+            //Create a list of items to display in pager.
+            val items = ArrayList<OnBoardingData>()
+            items.add(
+                OnBoardingData(
+                    R.drawable.blinx_background0,
+                    "Fund wallet",
 
-                    ImageWithBackground(
-                        backgroundDrawableResId = R.drawable.blinx_logo,
-                        modifier = Modifier.fillMaxSize()
-                    )
+                    "Create and fund a wallet of your choice"
+                )
+            )
+            items.add(
+                OnBoardingData(
+                    R.drawable.blinx_background1,
+                    "Pay bills",
+                    "Automation your payments"
+                )
+            )
+            items.add(
+                OnBoardingData(
+                    R.drawable.blinx_background2,
+                    "Save and Invest",
+                    "Start saving early and invest regularly"
+                )
+            )
 
 
-                    //Create a list of items to display in pager.
-                    val items = ArrayList<OnBoardingData>()
-                    items.add(
-                        OnBoardingData(
-                            R.drawable.blinx_background0,
-                            "Create &",
-
-                            "Fund a wallet of your choice"
-                        )
-                    )
-                    items.add(
-                        OnBoardingData(
-                            R.drawable.blinx_background1,
-                            "Pay bills",
-                            "Automation your payments"
-                        )
-                    )
-
-                    //Call rememberPageState Function
-                    val pagerState = rememberPagerState(initialPage = 0)
-                    OnBoardingPager(
-                        item = items,
-                        pagerState = pagerState
-                    )
-                }
-            }
+            //Call rememberPageState Function
+            val pagerState = rememberPagerState(initialPage = 0)
+            OnBoardingPager(
+                onNextButtonClicked,
+                item = items,
+                pagerState = pagerState
+            )
         }
+
+
     }
 
     @ExperimentalPagerApi
     @Composable
     fun OnBoardingPager(
+        onNextButtonClicked: () -> Unit,
         item: List<OnBoardingData>,
         pagerState: PagerState
     ) {
-        Box {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                HorizontalPager(state = pagerState, count = 2) { page ->
+
+        ConstraintLayout(modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.primary)) {
+            // Creating a sample Row and setting is
+            // background with above Gradient Color
+            //Declaring a reference
+            val (backgroundImg, gradientBackground, columnViews, pageImages, pageMessages ) = createRefs()
+
+            ImageWithBackground(
+                backgroundDrawableResId = R.drawable.blinx_logo,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .constrainAs(backgroundImg) {
+                    }
+            )
+
+            //Show full screen of onboarding items
+            Column(horizontalAlignment = Alignment.CenterHorizontally,  modifier = Modifier
+                .fillMaxWidth()
+                .constrainAs(pageImages) {
+                    bottom.linkTo(parent.bottom)
+                }) {
+                HorizontalPager(state = pagerState, count = 3) { page ->
 
                     // A function that house arrangement of views for the PageList to display
                     OnboardingItems(item, page)
                 }
             }
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .constrainAs(gradientBackground) {
+                        bottom.linkTo(parent.bottom)
+                    }
+                    .height(500.dp)
+                    .background(
+                        if (isSystemInDarkTheme()) {
+                            Brush.verticalGradient(
+                                listOf(Color.Transparent, Color.Black),
+                                0f,  // TODO: set start
+                                750f,  // TODO: set end
+                            )
+                        } else {
+                            Brush.verticalGradient(
+                                listOf(Color.Transparent, Color.White),
+                                0f,  // TODO: set start
+                                750f,  // TODO: set end
+                            )
+                        }
 
-            Box(modifier = Modifier.align(Alignment.BottomStart)) {
-                Row(
+                    )) {
+
+            }
+
+            //Show screen messages
+            PagerTexts(item, pagerState.currentPage,
+                modifier = Modifier.constrainAs(pageMessages) {
+                bottom.linkTo(parent.bottom)
+            }.padding(bottom = 100.dp).fillMaxWidth())
+
+
+            //Page indication horizontal to next button
+            Row(
                     modifier = Modifier
                         .padding(bottom = 40.dp, end = 20.dp, start = 20.dp)
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .constrainAs(columnViews) {
+                            bottom.linkTo(parent.bottom)
+                        },
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     PagerIndicator(item.size, pagerState.currentPage)
-                    GetStartedButton()
+                    GetStartedButton(onNextButtonClicked)
                 }
-
-            }
         }
+
     }
 
     @ExperimentalPagerApi
@@ -113,5 +161,11 @@ class OnBoardingScreen : ComponentActivity() {
         PagerState(
             currentPage = initialPage
         )
+    }
+
+@Composable
+@Preview(showBackground = true)
+fun previewOnboarding(){
+    OnBoardingScreen {
     }
 }

@@ -1,4 +1,4 @@
-package com.example.blinxapp.signup.form
+package com.example.blinxapp.signup.ui.form
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
