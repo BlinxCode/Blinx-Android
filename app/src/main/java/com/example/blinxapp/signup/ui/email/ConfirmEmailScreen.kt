@@ -110,6 +110,7 @@ fun EmailForm(
 
     Spacer(Modifier.size(16.dp))
     PasswordField(passwordVisibility, password, passwordErrorState)
+    Spacer(Modifier.size(16.dp))
     ConfirmEmailButton(onEmailConfirmButtonClicked, onEmailConfirmResendButtonClicked)
 
 }

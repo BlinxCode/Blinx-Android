@@ -15,7 +15,8 @@ import com.example.blinxapp.onboarding.presentation.OnBoardingScreen
 import com.example.blinxapp.signup.ui.email.ConfirmEmailScreen
 import com.example.blinxapp.signup.ui.form.SignupFormScreen
 import com.example.blinxapp.signup.ui.get_started.GettingStartedScreen
-import com.example.blinxapp.signup.ui.phone.ConfirmPhoneScreen
+import com.example.blinxapp.signup.ui.phone.ConfirmPhoneNumberScreen
+import com.example.blinxapp.signup.ui.phone.PhoneNumberScreen
 import com.example.blinxapp.signup.ui.viewmodel.SignUpViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -81,15 +82,23 @@ fun SignupNavigation(modifier: Modifier = Modifier, viewModel: SignUpViewModel =
                 isGettingStarted = false
                 canNavigateBack = true
                 ConfirmEmailScreen(
-                    onEmailConfirmButtonClicked ={navController.navigate(NavigationRoute.ConfirmPhoneNumber.name) },
+                    onEmailConfirmButtonClicked ={navController.navigate(NavigationRoute.PhoneNumber.name) },
                     onEmailConfirmResendButtonClicked={}
+                )
+            }
+            composable(route = NavigationRoute.PhoneNumber.name){
+                isGettingStarted = false
+                canNavigateBack = true
+                PhoneNumberScreen(
+                    onInputPhoneNumberButtonClicked = {navController.navigate((NavigationRoute.ConfirmPhoneNumber.name))}
                 )
             }
             composable(route = NavigationRoute.ConfirmPhoneNumber.name){
                 isGettingStarted = false
                 canNavigateBack = true
-                ConfirmPhoneScreen(
-                    onInputPhoneNumberButtonClicked = {}
+                ConfirmPhoneNumberScreen(
+                    onPhoneConfirmButtonClicked ={},
+                    onPhoneConfirmResendButtonClicked ={}
                 )
             }
 

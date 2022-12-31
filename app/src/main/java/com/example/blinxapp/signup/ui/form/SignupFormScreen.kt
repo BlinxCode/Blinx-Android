@@ -58,6 +58,7 @@ import com.example.blinxapp.ui.theme.whiteBlinx
             )
             SignupForm()
             //Getting started button
+            Spacer(Modifier.size(16.dp))
             RegisterButtonButton(onSignupButtonClicked)
 
         }
@@ -73,9 +74,8 @@ private fun RegisterButtonButton(onSignupButtonClicked: () -> Unit) {
         containerColor = primaryGreen,
         contentColor = contentColorFor(backgroundColor = whiteBlinx)
     )
-
     Column(modifier = Modifier
-        .padding(bottom = 40.dp, top = 27.dp)
+        .padding(bottom = 40.dp)
         .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally) {
         Button(

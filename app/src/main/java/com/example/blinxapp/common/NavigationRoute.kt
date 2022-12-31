@@ -5,5 +5,6 @@ enum class NavigationRoute {
 	GetStarted,
     SignupForm,
     ConfirmEmail,
+    PhoneNumber,
     ConfirmPhoneNumber
 }
