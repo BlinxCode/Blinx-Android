@@ -2,4 +2,7 @@
     <string name="app_name">BlinxApp</string>
     <string name="getStarted">GET STARTED</string>
     <string name="back_button">Back</string>
+    <string name="register">REGISTER</string>
+    <string name="confirmCode">CONFIRM CODE</string>
+    <string name="continue_txt">CONTINUE</string>
 </resources>

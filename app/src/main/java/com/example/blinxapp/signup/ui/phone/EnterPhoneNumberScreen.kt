@@ -1,26 +1,22 @@
-package com.example.blinxapp.signup.ui.email
+package com.example.blinxapp.signup.ui.phone
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.blinxapp.R
+import com.example.blinxapp.common.outlineColors
 import com.example.blinxapp.signup.ui.form.*
 import com.example.blinxapp.ui.theme.Typography
 import com.example.blinxapp.ui.theme.primaryGreen
@@ -28,9 +24,8 @@ import com.example.blinxapp.ui.theme.secondaryGrey
 import com.example.blinxapp.ui.theme.whiteBlinx
 
 @Composable
-fun ConfirmEmailScreen(
-    onEmailConfirmButtonClicked: ()-> Unit,
-    onEmailConfirmResendButtonClicked: ()  -> Unit
+fun ConfirmPhoneScreen(
+    onInputPhoneNumberButtonClicked: ()-> Unit,
 ) {
 
     val scrollState = rememberScrollState()
@@ -48,7 +43,7 @@ fun ConfirmEmailScreen(
         ) {
             //Title modifier
             Text(
-                text = "Confirm your",
+                text = "What’s your",
                 color = secondaryGrey,
                 style = Typography.displayLarge,
                 textAlign = TextAlign.Start
@@ -56,12 +51,12 @@ fun ConfirmEmailScreen(
 
             //Description modifier
             Text(
-                text = "Email Address",
+                text = "Phone Number?",
                 style = Typography.displayLarge,
                 textAlign = TextAlign.Start
 
             )
-            EmailForm(onEmailConfirmButtonClicked,onEmailConfirmResendButtonClicked )
+            PhoneForm(onInputPhoneNumberButtonClicked )
         }
 
 
@@ -70,31 +65,15 @@ fun ConfirmEmailScreen(
 }
 
 @Composable
-fun EmailForm(
-    onEmailConfirmButtonClicked: () -> Unit,
-    onEmailConfirmResendButtonClicked: () -> Unit
+fun PhoneForm(
+    onInputPhoneNumberButtonClicked: () -> Unit
 ) {
-
-    val password = remember { mutableStateOf(TextFieldValue()) }
-    val passwordVisibility = remember { mutableStateOf(true) }
-    val passwordErrorState = remember { mutableStateOf(false) }
-
-    // Adding a Spacer of height 20dp
-    Spacer(modifier = Modifier.height(25.dp))
-
-    //Email
-    Text(
-        text = "aboabaoladotun@gmail.com",
-        style = Typography.labelMedium,
-        textAlign = TextAlign.Start,
-        color = primaryGreen
-    )
 
     // Adding a Spacer of height 20dp
     Spacer(modifier = Modifier.height(25.dp))
     //Password
     Text(
-        text = "We have sent a code to your email address to confirm that it’s actually yours.",
+        text = "Please share your personal phone number",
         style = Typography.labelMedium,
         textAlign = TextAlign.Start
     )
@@ -103,19 +82,33 @@ fun EmailForm(
     Spacer(modifier = Modifier.height(25.dp))
     //Password
     Text(
-        text = "Verification code",
+        text = "Phone number",
         style = Typography.labelMedium,
         textAlign = TextAlign.Start
     )
 
     Spacer(Modifier.size(16.dp))
-    PasswordField(passwordVisibility, password, passwordErrorState)
-    ConfirmEmailButton(onEmailConfirmButtonClicked, onEmailConfirmResendButtonClicked)
+    PhoneInputField()
+    SendPhoneCodeButton(onInputPhoneNumberButtonClicked)
 
+}
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun PhoneInputField() {
+    var text by remember { mutableStateOf("") }
+
+    OutlinedTextField(
+        shape = RoundedCornerShape(12.dp),
+        modifier = Modifier.fillMaxWidth(),
+        colors = outlineColors(),
+        value = text,
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+        onValueChange = { text = it }
+    )
 }
 
 @Composable
-fun ConfirmEmailButton(onEmailConfirmButtonClicked: () -> Unit,onEmailConfirmResendButtonClicked: () ->Unit ) {
+fun SendPhoneCodeButton(onInputPhoneNumberButtonClicked: () -> Unit) {
     val buttonColors = ButtonDefaults.buttonColors(
         containerColor = primaryGreen,
         contentColor = contentColorFor(backgroundColor = whiteBlinx)
@@ -129,37 +122,23 @@ fun ConfirmEmailButton(onEmailConfirmButtonClicked: () -> Unit,onEmailConfirmRes
             modifier = Modifier
                 .fillMaxWidth()
                 .height(60.dp),
-            onClick = { onEmailConfirmButtonClicked()},
+            onClick = { onInputPhoneNumberButtonClicked()},
             colors = buttonColors,
             shape = RoundedCornerShape(20)
         ) {
             Text(
-                text = stringResource(R.string.confirmCode),
+                text = stringResource(R.string.continue_txt),
                 style = Typography.labelSmall,
             )
         }
-        // Adding a Spacer of height 20dp
-        Spacer(modifier = Modifier.height(25.dp))
-        //Password
-        Text(
-            modifier = Modifier.clickable(enabled = true) {
-                onEmailConfirmResendButtonClicked()
-            },
-            text = "Resend code",
-            style = Typography.labelMedium,
-            textAlign = TextAlign.Start,
-            textDecoration = TextDecoration.Underline,
-            fontWeight = FontWeight.Bold
-        )
     }
 }
 
 
 @Preview(showBackground = true)
 @Composable
-fun SignupScaffoldPreview(){
-    ConfirmEmailScreen(
-        onEmailConfirmButtonClicked ={ },
-    onEmailConfirmResendButtonClicked={}
+fun ConfirmPhoneScreenScaffoldPreview(){
+    ConfirmPhoneScreen(
+        onInputPhoneNumberButtonClicked ={ }
     )
 }

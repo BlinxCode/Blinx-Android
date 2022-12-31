@@ -26,12 +26,12 @@ fun SignupForm() {
     }
     val email = remember { mutableStateOf(TextFieldValue()) }
     val password = remember { mutableStateOf(TextFieldValue()) }
+    val passwordVisibility = remember { mutableStateOf(true) }
+    val passwordErrorState = remember { mutableStateOf(false) }
     val confirmPassword = remember { mutableStateOf(TextFieldValue()) }
 
     val emailErrorState = remember { mutableStateOf(false) }
-    val passwordErrorState = remember { mutableStateOf(false) }
     val confirmPasswordErrorState = remember { mutableStateOf(false) }
-    val passwordVisibility = remember { mutableStateOf(true) }
 
     // Adding a Spacer of height 20dp
     Spacer(modifier = Modifier.height(25.dp))
@@ -62,7 +62,7 @@ fun SignupForm() {
         textAlign = TextAlign.Start
     )
     Spacer(Modifier.size(16.dp))
-    ConfirmPasswordField(passwordVisibility, password, passwordErrorState)
+    ConfirmPasswordField(passwordVisibility, confirmPassword, confirmPasswordErrorState)
 
     //Referal Id
     Text(
@@ -105,7 +105,6 @@ fun PasswordField(passwordVisibility: MutableState<Boolean>, password: MutableSt
         },
         visualTransformation = if (passwordVisibility.value) PasswordVisualTransformation() else VisualTransformation.None,
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-        placeholder = { Text("**********") },
         colors = outlineColors(),
         value = password.value,
         onValueChange = {
@@ -131,7 +130,6 @@ MutableState<TextFieldValue>, passwordErrorState: MutableState<Boolean>) {
         },
         visualTransformation = if (passwordVisibility.value) PasswordVisualTransformation()
         else VisualTransformation.None,
-        placeholder = { Text("**********") },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
         colors = outlineColors(),
         value = password.value,

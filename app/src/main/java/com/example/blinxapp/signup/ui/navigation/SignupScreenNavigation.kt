@@ -12,8 +12,10 @@ import androidx.navigation.compose.rememberNavController
 import com.example.blinxapp.common.NavigationRoute
 import com.example.blinxapp.common.TopBar
 import com.example.blinxapp.onboarding.presentation.OnBoardingScreen
+import com.example.blinxapp.signup.ui.email.ConfirmEmailScreen
 import com.example.blinxapp.signup.ui.form.SignupFormScreen
 import com.example.blinxapp.signup.ui.get_started.GettingStartedScreen
+import com.example.blinxapp.signup.ui.phone.ConfirmPhoneScreen
 import com.example.blinxapp.signup.ui.viewmodel.SignUpViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -70,7 +72,25 @@ fun SignupNavigation(modifier: Modifier = Modifier, viewModel: SignUpViewModel =
             composable(route = NavigationRoute.SignupForm.name){
                 isGettingStarted = false
                 canNavigateBack = true
-                SignupFormScreen()
+                SignupFormScreen(
+                    onSignupButtonClicked = {
+                        navController.navigate(NavigationRoute.ConfirmEmail.name)}
+                )
+            }
+            composable(route = NavigationRoute.ConfirmEmail.name){
+                isGettingStarted = false
+                canNavigateBack = true
+                ConfirmEmailScreen(
+                    onEmailConfirmButtonClicked ={navController.navigate(NavigationRoute.ConfirmPhoneNumber.name) },
+                    onEmailConfirmResendButtonClicked={}
+                )
+            }
+            composable(route = NavigationRoute.ConfirmPhoneNumber.name){
+                isGettingStarted = false
+                canNavigateBack = true
+                ConfirmPhoneScreen(
+                    onInputPhoneNumberButtonClicked = {}
+                )
             }
 
         }

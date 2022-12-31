@@ -26,7 +26,9 @@ import com.example.blinxapp.ui.theme.whiteBlinx
 
 
 @Composable
- fun SignupFormScreen() {
+ fun SignupFormScreen(
+    onSignupButtonClicked: () -> Unit,
+ ) {
 
     val scrollState = rememberScrollState()
 
@@ -56,7 +58,7 @@ import com.example.blinxapp.ui.theme.whiteBlinx
             )
             SignupForm()
             //Getting started button
-            GettingStartedButton()
+            RegisterButtonButton(onSignupButtonClicked)
 
         }
 
@@ -66,7 +68,7 @@ import com.example.blinxapp.ui.theme.whiteBlinx
 }
 
 @Composable
-private fun GettingStartedButton() {
+private fun RegisterButtonButton(onSignupButtonClicked: () -> Unit) {
     val buttonColors = ButtonDefaults.buttonColors(
         containerColor = primaryGreen,
         contentColor = contentColorFor(backgroundColor = whiteBlinx)
@@ -80,12 +82,12 @@ private fun GettingStartedButton() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(60.dp),
-            onClick = { },
+            onClick = { onSignupButtonClicked()},
             colors = buttonColors,
             shape = RoundedCornerShape(20)
         ) {
             Text(
-                text = stringResource(R.string.getStarted),
+                text = stringResource(R.string.register),
                 style = Typography.labelSmall,
             )
         }
@@ -93,7 +95,6 @@ private fun GettingStartedButton() {
         LoginText()
 
     }
-
 }
 
 @Composable
@@ -124,5 +125,5 @@ fun LoginText() {
 @Preview(showBackground = true)
 @Composable
 fun SignupScaffoldPreview(){
-    SignupFormScreen()
+    SignupFormScreen(onSignupButtonClicked ={})
 }
