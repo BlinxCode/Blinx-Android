@@ -1,4 +1,4 @@
-package com.example.blinxapp.signup.ui.viewmodel
+package com.example.blinxapp.authenitcation.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 

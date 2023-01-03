@@ -1,7 +1,8 @@
-package com.example.blinxapp.signup.ui.get_started
+package com.example.blinxapp.authenitcation.ui.get_started
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -106,14 +107,14 @@ import com.example.blinxapp.ui.theme.*
                     )
 
                     //Getting started button
-                    GettingStartedButton(onGetStartedButtonClicked)
+                    GettingStartedButton(onGetStartedButtonClicked, onLoginButtonClicked)
 
                 }
             }
     }
 
     @Composable
-    private fun GettingStartedButton(onGetStartedButtonClicked: () -> Unit) {
+    private fun GettingStartedButton(onGetStartedButtonClicked: () -> Unit, onLoginButtonClicked: ()-> Unit) {
         val buttonColors = ButtonDefaults.buttonColors(
             containerColor = primaryGreen,
             contentColor = contentColorFor(backgroundColor = whiteBlinx)
@@ -139,12 +140,12 @@ import com.example.blinxapp.ui.theme.*
             }
 
             //Login if already have an account
-        LoginText()
+        LoginText(onLoginButtonClicked)
         }
     }
 
     @Composable
-    fun LoginText() {
+    fun LoginText(onLoginButtonClicked: ()-> Unit) {
 
         Spacer(modifier =Modifier.padding(top = 50.dp))
         val annotatedString = buildAnnotatedString {
@@ -156,7 +157,10 @@ import com.example.blinxapp.ui.theme.*
         }
 
         Text(text = annotatedString,
-            modifier = Modifier,
+            modifier = Modifier.clickable(enabled = true) {
+                onLoginButtonClicked()
+            },
+
             color = SystemColorInverse(),
             style = Typography.labelSmall,
             textAlign = TextAlign.Start

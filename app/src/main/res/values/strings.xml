@@ -5,4 +5,6 @@
     <string name="register">REGISTER</string>
     <string name="confirmCode">CONFIRM CODE</string>
     <string name="continue_txt">CONTINUE</string>
+    <string name="proceed_login">PROCEED TO LOGIN</string>
+    <string name="login">LOG IN</string>
 </resources>

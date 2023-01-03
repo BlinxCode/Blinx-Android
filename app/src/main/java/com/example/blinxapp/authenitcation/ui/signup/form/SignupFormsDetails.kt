@@ -1,4 +1,4 @@
-package com.example.blinxapp.signup.ui.form
+package com.example.blinxapp.authenitcation.ui.signup.form
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -21,9 +21,7 @@ import com.example.blinxapp.ui.theme.Typography
 @Composable
 fun SignupForm() {
     val context = LocalContext.current
-    val name = remember {
-        mutableStateOf(TextFieldValue())
-    }
+
     val email = remember { mutableStateOf(TextFieldValue()) }
     val password = remember { mutableStateOf(TextFieldValue()) }
     val passwordVisibility = remember { mutableStateOf(true) }
@@ -95,7 +93,8 @@ fun EmailInputField() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PasswordField(passwordVisibility: MutableState<Boolean>, password: MutableState<TextFieldValue>, passwordErrorState: MutableState<Boolean>) {
+fun PasswordField(passwordVisibility: MutableState<Boolean>, password: MutableState<TextFieldValue>,
+                  passwordErrorState: MutableState<Boolean>) {
     OutlinedTextField(
 
         modifier = Modifier.fillMaxWidth(),
