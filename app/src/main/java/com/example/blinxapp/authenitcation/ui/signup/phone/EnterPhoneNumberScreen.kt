@@ -1,4 +1,4 @@
-package com.example.blinxapp.signup.ui.phone
+package com.example.blinxapp.authenitcation.ui.signup.phone
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -16,8 +16,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.blinxapp.R
+import com.example.blinxapp.common.customviews.ContinueButtonButton
 import com.example.blinxapp.common.outlineColors
-import com.example.blinxapp.signup.ui.form.*
 import com.example.blinxapp.ui.theme.Typography
 import com.example.blinxapp.ui.theme.primaryGreen
 import com.example.blinxapp.ui.theme.secondaryGrey
@@ -90,7 +90,7 @@ fun PhoneForm(
     Spacer(Modifier.size(16.dp))
     PhoneInputField()
     Spacer(Modifier.size(16.dp))
-    SendPhoneCodeButton(onInputPhoneNumberButtonClicked)
+    ContinueButtonButton(onInputPhoneNumberButtonClicked, stringResource(R.string.continue_txt))
 
 }
 @OptIn(ExperimentalMaterial3Api::class)
@@ -108,35 +108,6 @@ fun PhoneInputField() {
         onValueChange = { text = it }
     )
 }
-
-
-@Composable
-fun SendPhoneCodeButton(onInputPhoneNumberButtonClicked: () -> Unit) {
-    val buttonColors = ButtonDefaults.buttonColors(
-        containerColor = primaryGreen,
-        contentColor = contentColorFor(backgroundColor = whiteBlinx)
-    )
-
-    Column(modifier = Modifier
-        .padding(bottom = 40.dp, top = 27.dp)
-        .fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally) {
-        Button(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(60.dp),
-            onClick = { onInputPhoneNumberButtonClicked()},
-            colors = buttonColors,
-            shape = RoundedCornerShape(20)
-        ) {
-            Text(
-                text = stringResource(R.string.continue_txt),
-                style = Typography.labelSmall,
-            )
-        }
-    }
-}
-
 
 @Preview(showBackground = true)
 @Composable

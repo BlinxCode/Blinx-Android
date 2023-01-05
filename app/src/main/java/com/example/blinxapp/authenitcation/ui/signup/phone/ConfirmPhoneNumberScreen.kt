@@ -1,4 +1,4 @@
-package com.example.blinxapp.signup.ui.phone
+package com.example.blinxapp.authenitcation.ui.signup.phone
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,7 +20,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.blinxapp.R
-import com.example.blinxapp.signup.ui.form.*
+import com.example.blinxapp.authenitcation.ui.signup.form.PasswordField
 import com.example.blinxapp.ui.theme.Typography
 import com.example.blinxapp.ui.theme.primaryGreen
 import com.example.blinxapp.ui.theme.secondaryGrey

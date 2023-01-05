@@ -1,4 +1,4 @@
-package com.example.blinxapp.signup.ui.navigation
+package com.example.blinxapp.authenitcation.ui.navigation
 
 
 import android.os.Bundle

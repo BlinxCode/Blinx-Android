@@ -1,4 +1,4 @@
-package com.example.blinxapp.onboarding.common
+package com.example.blinxapp.authenitcation.ui.onboarding.common
 
 import androidx.annotation.DrawableRes
 import androidx.compose.animation.core.animateDpAsState
@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstrainedLayoutReference
 import com.example.blinxapp.R
 import com.example.blinxapp.common.SystemColorInverse
-import com.example.blinxapp.onboarding.data.model.OnBoardingData
+import com.example.blinxapp.authenitcation.ui.onboarding.data.model.OnBoardingData
 import com.example.blinxapp.ui.theme.*
 
 @Composable

@@ -1,0 +1,135 @@
+package com.example.blinxapp.authenitcation.ui.navigation
+
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.blinxapp.common.TopBar
+import com.example.blinxapp.authenitcation.ui.onboarding.presentation.OnBoardingScreen
+import com.example.blinxapp.authenitcation.ui.signup.aboutyou.AboutYouScreen
+import com.example.blinxapp.authenitcation.ui.signup.email.ConfirmEmailScreen
+import com.example.blinxapp.authenitcation.ui.signup.form.SignupFormScreen
+import com.example.blinxapp.authenitcation.ui.get_started.GettingStartedScreen
+import com.example.blinxapp.authenitcation.ui.login.LoginScreen
+import com.example.blinxapp.authenitcation.ui.signup.phone.ConfirmPhoneNumberScreen
+import com.example.blinxapp.authenitcation.ui.signup.phone.PhoneNumberScreen
+import com.example.blinxapp.authenitcation.ui.sucess.SuccessScreen
+import com.example.blinxapp.authenitcation.ui.viewmodel.SignUpViewModel
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SignupNavigation(modifier: Modifier = Modifier, viewModel: SignUpViewModel = viewModel()){
+
+    // TODO: Create NavController
+    var navController = rememberNavController()
+    var canNavigateBack by remember { mutableStateOf(false) }
+    var isGettingStarted by remember { mutableStateOf(false) }
+    // TODO: Get current back stack entry
+
+    // TODO: Get the name of the current screen
+    // TODO: add NavHost
+    Scaffold(
+        topBar = {
+            TopBar(
+                isGettingStarted = isGettingStarted,
+                canNavigateBack = canNavigateBack,
+                navigateUp = {}
+            )
+        }
+    ) { innerPadding ->
+        //val uiState by viewModel.uiState.collectAsState()
+
+        NavHost(
+            navController = navController,
+            startDestination = AuthNavigationRoute.Onboarding.name,
+            modifier = modifier.padding(innerPadding)
+        ){
+
+            composable(route = AuthNavigationRoute.Onboarding.name){
+                isGettingStarted = true
+                canNavigateBack = false
+                OnBoardingScreen(
+                    onNextButtonClicked = {
+                        navController.navigate(AuthNavigationRoute.GetStarted.name)
+                    }
+                )
+            }
+
+            composable(route = AuthNavigationRoute.GetStarted.name) {
+                isGettingStarted = true
+                canNavigateBack = false
+                GettingStartedScreen(
+                    onGetStartedButtonClicked = {
+                        navController.navigate(AuthNavigationRoute.SignupForm.name)
+                    },
+                    onLoginButtonClicked = {
+                        navController.navigate(AuthNavigationRoute.Login.name)}
+                )
+            }
+
+            composable(route = AuthNavigationRoute.SignupForm.name){
+                isGettingStarted = false
+                canNavigateBack = true
+                SignupFormScreen(
+                    onSignupButtonClicked = {
+                        navController.navigate(AuthNavigationRoute.ConfirmEmail.name)}
+                )
+            }
+            composable(route = AuthNavigationRoute.ConfirmEmail.name){
+                isGettingStarted = false
+                canNavigateBack = true
+                ConfirmEmailScreen(
+                    onEmailConfirmButtonClicked ={navController.navigate(AuthNavigationRoute.PhoneNumber.name) },
+                    onEmailConfirmResendButtonClicked={}
+                )
+            }
+            composable(route = AuthNavigationRoute.PhoneNumber.name){
+                isGettingStarted = false
+                canNavigateBack = true
+                PhoneNumberScreen(
+                    onInputPhoneNumberButtonClicked = {
+                        navController.navigate((AuthNavigationRoute.ConfirmPhoneNumber.name))
+                    }
+                )
+            }
+            composable(route = AuthNavigationRoute.ConfirmPhoneNumber.name){
+                isGettingStarted = false
+                canNavigateBack = true
+                ConfirmPhoneNumberScreen(
+                    onPhoneConfirmButtonClicked ={
+                        navController.navigate((AuthNavigationRoute.AboutYou.name))
+                    },
+                    onPhoneConfirmResendButtonClicked ={}
+                )
+            }
+            composable(route = AuthNavigationRoute.AboutYou.name){
+                isGettingStarted = false
+                canNavigateBack = true
+                AboutYouScreen(
+                    onProceedClicked ={
+                        navController.navigate(AuthNavigationRoute.Success.name)
+                    }
+                )
+            }
+            composable(route = AuthNavigationRoute.Success.name){
+                isGettingStarted = false
+                canNavigateBack = false
+                SuccessScreen { navController.navigate(AuthNavigationRoute.Login.name) }
+            }
+            composable(route = AuthNavigationRoute.Login.name){
+                isGettingStarted = false
+                canNavigateBack = true
+                LoginScreen(
+                    onProceedClicked ={}
+                )
+            }
+
+        }
+    }
+}
+

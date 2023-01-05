@@ -1,4 +1,4 @@
-package com.example.blinxapp.onboarding.presentation
+package com.example.blinxapp.authenitcation.ui.onboarding.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -14,8 +14,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.blinxapp.R
-import com.example.blinxapp.onboarding.common.*
-import com.example.blinxapp.onboarding.data.model.OnBoardingData
+import com.example.blinxapp.authenitcation.ui.onboarding.data.model.OnBoardingData
+import com.example.blinxapp.authenitcation.ui.onboarding.common.*
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
