@@ -8,17 +8,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.dp
 import com.olajide.pinviewscreen.data.PinActions
 
 @Composable
 fun PinButtons(
+    style: TextStyle = TextStyle(),
     onActions: (PinActions) -> Unit
 ) {
 
-    var characters = ""
-    var pointerPosition: Int
-    val rowDp = 70.dp
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly,
@@ -28,7 +25,7 @@ fun PinButtons(
         NumberButton(
             modifier = Modifier,
             "1",
-            TextStyle.Default,
+            style,
             onClick = {onActions(PinActions.Number("1"))
 
                 Log.d("LogPInViewModel","1" )}
@@ -36,16 +33,17 @@ fun PinButtons(
         NumberButton(
             modifier = Modifier,
             "2",
-            TextStyle.Default,
-            onClick = {onActions(PinActions.Number("2"))}
+            style,
+            onClick = {onActions(PinActions.Number("2"))},
+
         )
         NumberButton(
             modifier = Modifier,
             "3",
-            TextStyle.Default,
-            onClick = {onActions(PinActions.Number("3"))}
-        )
+            style,
+            onClick = {onActions(PinActions.Number("3"))},
 
+        )
     }
 
     //Row 2
@@ -59,20 +57,21 @@ fun PinButtons(
         NumberButton(
             modifier = Modifier,
             "4",
-            TextStyle.Default,
-            onClick = {onActions(PinActions.Number("4"))}
+            style,
+            onClick = {onActions(PinActions.Number("4"))},
+
         )
         NumberButton(
             modifier = Modifier,
             "5",
-            TextStyle.Default,
-            onClick = {onActions(PinActions.Number("5"))}
+            style,
+            onClick = {onActions(PinActions.Number("5"))},
         )
         NumberButton(
             modifier = Modifier,
             "6",
-            TextStyle.Default,
-            onClick = {onActions(PinActions.Number("6"))}
+            style,
+            onClick = {onActions(PinActions.Number("6"))},
         )
     }
 
@@ -87,20 +86,20 @@ fun PinButtons(
         NumberButton(
             modifier = Modifier,
             "7",
-            TextStyle.Default,
-            onClick = {onActions(PinActions.Number("7"))}
+            style,
+            onClick = {onActions(PinActions.Number("7"))},
         )
         NumberButton(
             modifier = Modifier,
             "8",
-            TextStyle.Default,
-            onClick = {onActions(PinActions.Number("8"))}
+            style,
+            onClick = {onActions(PinActions.Number("8"))},
         )
         NumberButton(
             modifier = Modifier,
             "9",
-            TextStyle.Default,
-            onClick = {onActions(PinActions.Number("9"))}
+            style,
+            onClick = {onActions(PinActions.Number("9"))},
         )
     }
 
@@ -116,20 +115,20 @@ fun PinButtons(
         NumberButton(
             modifier = Modifier,
             "<",
-            TextStyle.Default,
-            onClick = {onActions(PinActions.BackSpace)}
+            style,
+            onClick = {onActions(PinActions.BackSpace)},
         )
         NumberButton(
             modifier = Modifier,
             "0",
-            TextStyle.Default,
-            onClick = {onActions(PinActions.Number("0"))}
+            style,
+            onClick = {onActions(PinActions.Number("0"))},
         )
         NumberButton(
             modifier = Modifier,
             "",
-            TextStyle.Default,
-            onClick = {}
+            style,
+            onClick = {},
         )
     }
 }

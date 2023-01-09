@@ -1,14 +1,14 @@
-package com.olajide.pinviewscreen.presentation
+package com.example.blinxapp.authenitcation.ui.pin
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.olajide.pinviewscreen.ui.theme.Typography
+import com.example.blinxapp.ui.theme.Typography
+import com.example.blinxapp.ui.theme.secondaryGrey
 
 @Composable
 fun PinTitleScreen(){
@@ -16,7 +16,6 @@ fun PinTitleScreen(){
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.White)
             .padding(end = 20.dp, start = 20.dp)) {
 
         //Setting up Top Text
@@ -27,22 +26,22 @@ fun PinTitleScreen(){
             //Title modifier
             Text(
                 text = "Confirm",
-                color = Color.LightGray,
-                style = Typography.body1,
+                color = secondaryGrey,
+                style = Typography.displayLarge,
                 textAlign = TextAlign.Start
             )
 
             //Description modifier
             Text(
                 text = "Passcode",
-                style = Typography.body1,
+                style = Typography.displayLarge,
                 textAlign = TextAlign.Start
-
             )
+            Spacer(Modifier.size(20.dp))
             //Description modifier
             Text(
                 text = "Confirm the 4 digit passcode previously entered to securely sign in to your blinx account",
-                style = Typography.body2,
+                style = Typography.titleSmall,
                 textAlign = TextAlign.Start
             )
 

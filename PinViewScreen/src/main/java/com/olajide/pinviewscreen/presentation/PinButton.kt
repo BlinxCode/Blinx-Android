@@ -17,14 +17,13 @@ fun NumberButton(
     symbol: String,
     textStyle: TextStyle = TextStyle(),
     onClick: () -> Unit,
-
-){
+    ){
     TextButton(onClick = { onClick() },
-        modifier = Modifier.size(100.dp)
+        modifier = Modifier.size(90.dp)
             .clip(RoundedCornerShape(100.dp))
             .then(modifier)) {
         Text(text = symbol,
-            color = Color.Black,
+            color = systemColor(),
             style = textStyle
         )
     }
