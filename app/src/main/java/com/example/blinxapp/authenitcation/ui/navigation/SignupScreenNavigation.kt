@@ -16,6 +16,7 @@ import com.example.blinxapp.authenitcation.ui.signup.email.ConfirmEmailScreen
 import com.example.blinxapp.authenitcation.ui.signup.form.SignupFormScreen
 import com.example.blinxapp.authenitcation.ui.get_started.GettingStartedScreen
 import com.example.blinxapp.authenitcation.ui.login.LoginScreen
+import com.example.blinxapp.authenitcation.ui.pin.PinSetupScreen
 import com.example.blinxapp.authenitcation.ui.signup.phone.ConfirmPhoneNumberScreen
 import com.example.blinxapp.authenitcation.ui.signup.phone.PhoneNumberScreen
 import com.example.blinxapp.authenitcation.ui.sucess.SuccessScreen
@@ -119,16 +120,26 @@ fun SignupNavigation(modifier: Modifier = Modifier, viewModel: SignUpViewModel =
             composable(route = AuthNavigationRoute.Success.name){
                 isGettingStarted = false
                 canNavigateBack = false
-                SuccessScreen { navController.navigate(AuthNavigationRoute.Login.name) }
+                SuccessScreen  {
+                        navController.navigate(AuthNavigationRoute.Login.name) }
             }
+
             composable(route = AuthNavigationRoute.Login.name){
                 isGettingStarted = false
                 canNavigateBack = true
-                LoginScreen(
+                LoginScreen {
+                        navController.navigate(AuthNavigationRoute.PinSetup.name)
+                    }
+
+            }
+
+            composable(route = AuthNavigationRoute.PinSetup.name){
+                isGettingStarted = false
+                canNavigateBack = false
+                PinSetupScreen(
                     onProceedClicked ={}
                 )
             }
-
         }
     }
 }

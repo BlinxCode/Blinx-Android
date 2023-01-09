@@ -49,6 +49,7 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
+    implementation project(path: ':PinViewScreen')
     def composeBom = platform('androidx.compose:compose-bom:2022.10.00')
     implementation(composeBom)
     androidTestImplementation(composeBom)

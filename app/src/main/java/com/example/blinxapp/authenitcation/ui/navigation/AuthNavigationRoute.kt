@@ -9,5 +9,6 @@ enum class AuthNavigationRoute {
     PhoneNumber,
     ConfirmPhoneNumber,
     AboutYou,
-    Success
+    Success,
+    PinSetup
 }
