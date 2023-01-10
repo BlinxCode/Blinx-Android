@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.blinxapp'
+    namespace 'com.android.blinxapp'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.blinxapp"
+        applicationId "com.android.blinxapp"
         minSdk 21
         targetSdk 33
         versionCode 1
