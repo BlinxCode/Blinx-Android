@@ -1,6 +1,8 @@
 package com.example.blinxapp.authenitcation.ui.pin
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,9 +20,9 @@ import com.olajide.pinviewscreen.presentation.pinArea
 
 
 @Composable
-fun PinSetupScreen(onProceedClicked: () -> Unit ) {
+fun PinSetupScreen(onProceedClicked: () -> Unit, context: Context) {
     val pin = remember{ mutableStateOf("") }
-    var count = remember{ mutableStateOf(1) }
+    val count = remember{ mutableStateOf(1) }
     val  charLimit = 4
     val anyMutableList = remember{mutableListOf("")}
     LaunchedEffect(Unit ){
@@ -31,7 +33,6 @@ fun PinSetupScreen(onProceedClicked: () -> Unit ) {
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.primary),
             verticalArrangement = Arrangement.spacedBy(10.dp)) {
-
 
             BlinxHeading(stringResource(if (count.value <=1){
                 R.string.create_passcode
@@ -50,9 +51,20 @@ fun PinSetupScreen(onProceedClicked: () -> Unit ) {
                //
             }
 
-            if (anyMutableList.size==2 &&
-                anyMutableList.first().contentEquals(anyMutableList.last())){
-                onProceedClicked()
+            if (anyMutableList.size==2){
+                if (anyMutableList.first().contentEquals(anyMutableList.last())){
+                    LaunchedEffect(Unit) {
+                        Toast.makeText(context, "Pin setup successfully", Toast.LENGTH_SHORT).show()
+                        onProceedClicked()
+                    }
+
+                }else{
+                    count.value =1
+                    anyMutableList.clear()
+                    pin.value = ""
+                    Toast.makeText(context, "Pin setup failed", Toast.LENGTH_SHORT).show()
+                }
+
             }
 
             pinArea(
@@ -65,5 +77,5 @@ fun PinSetupScreen(onProceedClicked: () -> Unit ) {
 @Preview(showBackground = true)
 @Composable
 fun PinScreenPreview(){
-    PinSetupScreen(onProceedClicked = {})
+   // PinSetupScreen(onProceedClicked = {} )
 }

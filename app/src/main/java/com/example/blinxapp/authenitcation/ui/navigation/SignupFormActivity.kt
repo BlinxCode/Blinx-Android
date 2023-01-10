@@ -24,7 +24,7 @@ class SignupFormActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.primary
                 ) {
-                   SignupNavigation()
+                   SignupNavigation(this)
                 }
             }
         }

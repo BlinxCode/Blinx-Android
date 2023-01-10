@@ -1,5 +1,6 @@
 package com.example.blinxapp.authenitcation.ui.navigation
 
+import android.content.Context
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -25,7 +26,7 @@ import com.example.blinxapp.dashboard.DashboardScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SignupNavigation(modifier: Modifier = Modifier, viewModel: SignUpViewModel = viewModel()){
+fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel: SignUpViewModel = viewModel()){
 
     // TODO: Create NavController
     var navController = rememberNavController()
@@ -139,7 +140,8 @@ fun SignupNavigation(modifier: Modifier = Modifier, viewModel: SignUpViewModel =
                 PinSetupScreen (
                     onProceedClicked ={
                         navController.navigate(AuthNavigationRoute.Dashboard.name)
-                    }
+                    },
+                    context = context
                 )
             }
             composable(route = AuthNavigationRoute.Dashboard.name) {
