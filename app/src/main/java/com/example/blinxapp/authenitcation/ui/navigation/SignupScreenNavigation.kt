@@ -21,6 +21,7 @@ import com.example.blinxapp.authenitcation.ui.signup.phone.ConfirmPhoneNumberScr
 import com.example.blinxapp.authenitcation.ui.signup.phone.PhoneNumberScreen
 import com.example.blinxapp.authenitcation.ui.sucess.SuccessScreen
 import com.example.blinxapp.authenitcation.ui.viewmodel.SignUpViewModel
+import com.example.blinxapp.dashboard.DashboardScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -121,23 +122,30 @@ fun SignupNavigation(modifier: Modifier = Modifier, viewModel: SignUpViewModel =
                 isGettingStarted = false
                 canNavigateBack = false
                 SuccessScreen  {
-                        navController.navigate(AuthNavigationRoute.Login.name) }
+                    navController.navigate(AuthNavigationRoute.Login.name) }
             }
 
             composable(route = AuthNavigationRoute.Login.name){
                 isGettingStarted = false
                 canNavigateBack = true
                 LoginScreen {
-                        navController.navigate(AuthNavigationRoute.PinSetup.name)
-                    }
-
+                    navController.navigate(AuthNavigationRoute.PinSetup.name)
+                }
             }
 
-            composable(route = AuthNavigationRoute.PinSetup.name){
+            composable(route = AuthNavigationRoute.PinSetup.name) {
                 isGettingStarted = false
                 canNavigateBack = false
-                PinSetupScreen(
-                    onProceedClicked ={}
+                PinSetupScreen (
+                    onProceedClicked ={
+                        navController.navigate(AuthNavigationRoute.Dashboard.name)
+                    }
+                )
+            }
+            composable(route = AuthNavigationRoute.Dashboard.name) {
+                isGettingStarted = false
+                canNavigateBack = false
+                DashboardScreen (
                 )
             }
         }

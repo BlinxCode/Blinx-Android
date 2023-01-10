@@ -1,6 +1,5 @@
 package com.olajide.pinviewscreen.presentation
 
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,12 +22,13 @@ fun PinButtons(
             .fillMaxWidth()
     ) {
         NumberButton(
+
             modifier = Modifier,
             "1",
             style,
-            onClick = {onActions(PinActions.Number("1"))
-
-                Log.d("LogPInViewModel","1" )}
+            onClick = {
+                onActions(PinActions.Number("1"))
+            }
         )
         NumberButton(
             modifier = Modifier,

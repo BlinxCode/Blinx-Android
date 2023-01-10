@@ -18,9 +18,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.constraintlayout.compose.ConstrainedLayoutReference
 import com.example.blinxapp.R
-import com.example.blinxapp.common.SystemColorInverse
+import com.example.blinxapp.common.systemColorInverse
 import com.example.blinxapp.authenitcation.ui.onboarding.data.model.OnBoardingData
 import com.example.blinxapp.ui.theme.*
 
@@ -85,7 +84,7 @@ fun PagerTexts(
             modifier = Modifier
                 .padding(top = 10.dp, start = 20.dp, end = 20.dp)
                 .fillMaxWidth(),
-            color = SystemColorInverse(),
+            color = systemColorInverse(),
             style = Typography.displayLarge,
             textAlign = TextAlign.Start
 

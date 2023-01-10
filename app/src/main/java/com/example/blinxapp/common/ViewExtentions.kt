@@ -26,7 +26,7 @@ import com.example.blinxapp.ui.theme.primaryGreen
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun outlineColors(): TextFieldColors {
-    var colorStr =  if (isSystemInDarkTheme()){
+    val colorStr =  if (isSystemInDarkTheme()){
         TextFieldDefaults.outlinedTextFieldColors(focusedLabelColor = Color.White,
             focusedBorderColor = primaryGreen, cursorColor = Color.White, containerColor = containerColorBlack, unfocusedBorderColor = containerColorBlack )
     }else{
@@ -38,7 +38,7 @@ fun outlineColors(): TextFieldColors {
 
 // Return color state based on SystemInDarkTheme
 @Composable
-fun SystemColorInverse(): Color {
+fun systemColorInverse(): Color {
     return  Color.White.takeIf { isSystemInDarkTheme() }?: electricBlue
 }
 
@@ -51,7 +51,7 @@ fun PasswordIconSetup(passwordVisibility: MutableState<Boolean>) {
             imageVector = Icons.Default.VisibilityOff.takeIf {
                 passwordVisibility.value }?:  Icons.Default.Visibility,
             contentDescription = "visibility",
-            tint = SystemColorInverse()
+            tint = systemColorInverse()
         )
     }
 }

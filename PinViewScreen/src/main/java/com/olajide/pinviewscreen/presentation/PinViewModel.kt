@@ -5,8 +5,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.olajide.pinviewscreen.data.PinActions
 import com.olajide.pinviewscreen.data.PinState
+import kotlinx.coroutines.launch
 
 class PinViewModel: ViewModel() {
     var state by mutableStateOf(PinState())
@@ -16,9 +18,10 @@ class PinViewModel: ViewModel() {
     private set
 
     fun onAction(action: PinActions){
-        when(action){
-            is PinActions.Number -> enterPin(action.value)
-            is PinActions.BackSpace -> backSpace()
+
+            when(action){
+                is PinActions.Number -> enterPin(action.value)
+                is PinActions.BackSpace -> backSpace()
         }
     }
 
@@ -28,7 +31,7 @@ class PinViewModel: ViewModel() {
         }
 
         state = state.copy(pin = state.pin.dropLast(1))
-        Log.d("LogLengthOfPin", state.pin.length.toString())
+        Log.d("backSpace", state.pin)
 
         dotsCurrentState[if(state.pin.isEmpty()) 0 else state.pin.length ] = false
         state = state.copy(pinListState = dotsCurrentState)
@@ -44,17 +47,41 @@ class PinViewModel: ViewModel() {
 
     }
 
-     fun setDefaultDotState( arrayLength: Int):ArrayList<Boolean>{
-         Log.d("LogUserInput",arrayLength.toString())
+     fun setDefaultDotState(limit: Int):ArrayList<Boolean>{
+         Log.d("setDefaultDotState1",limit.toString())
 
-         if (dotsCurrentState.size <1){
-             dotsCurrentState.clear()
-             for (i in 0 until arrayLength){
-                 dotsCurrentState.add(false)
-                 Log.d("LogUnput",dotsCurrentState[i].toString())
+         viewModelScope.launch {
+             if (dotsCurrentState.size ==limit){
+                 Log.d("DotsState","Dot state has been set")
+
+             }else{
+                 dotsCurrentState.clear()
+                 for (i in 0 until limit){
+                     dotsCurrentState.add(false)
+                 }
              }
+
          }
 
          return dotsCurrentState
     }
+
+    fun returnDotPosition(limit: Int):Boolean{
+        Log.d("returnDotPosition1",limit.toString())
+        return dotsCurrentState[limit]
+    }
+
+    fun resetData() {
+
+        when(state.pin.length){
+            state.pinLimit -> {
+
+                state = state.copy(pin = state.pin.removeRange(0..3))
+                for (i in 0 until state.pinLimit){
+                    dotsCurrentState.add(false)
+                }
+            }
+        }
+    }
+
 }

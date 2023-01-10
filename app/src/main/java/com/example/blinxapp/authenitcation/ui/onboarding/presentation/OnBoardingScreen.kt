@@ -165,7 +165,7 @@ import com.google.accompanist.pager.PagerState
 
 @Composable
 @Preview(showBackground = true)
-fun previewOnboarding(){
+fun PreviewOnBoarding(){
     OnBoardingScreen {
     }
 }

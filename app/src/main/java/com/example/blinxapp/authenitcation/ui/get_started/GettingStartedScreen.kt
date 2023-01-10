@@ -23,7 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.blinxapp.R
-import com.example.blinxapp.common.SystemColorInverse
+import com.example.blinxapp.common.systemColorInverse
 import com.example.blinxapp.ui.theme.*
 
 
@@ -31,7 +31,6 @@ import com.example.blinxapp.ui.theme.*
     fun GettingStartedScreen(
         onGetStartedButtonClicked: () -> Unit,
         onLoginButtonClicked: () -> Unit = {},
-        modifier: Modifier = Modifier
     ) {
 
             ConstraintLayout( modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.primary)) {
@@ -65,14 +64,14 @@ import com.example.blinxapp.ui.theme.*
                             if (isSystemInDarkTheme()) {
                                 Brush.verticalGradient(
                                     listOf(Color.Transparent, Color.Black),
-                                    0f,  // TODO: set start
-                                    750f,  // TODO: set end
+                                    0f,
+                                    750f,
                                 )
                             } else {
                                 Brush.verticalGradient(
                                     listOf(Color.Transparent, Color.White),
-                                    0f,  // TODO: set start
-                                    750f,  // TODO: set end
+                                    0f,
+                                    750f,
                                 )
                             }
 
@@ -100,7 +99,7 @@ import com.example.blinxapp.ui.theme.*
                         modifier = Modifier
                             .padding(start = 20.dp, end = 20.dp)
                             .fillMaxWidth(),
-                        color = SystemColorInverse(),
+                        color = systemColorInverse(),
                         style = Typography.displayLarge,
                         textAlign = TextAlign.Start
 
@@ -161,7 +160,7 @@ import com.example.blinxapp.ui.theme.*
                 onLoginButtonClicked()
             },
 
-            color = SystemColorInverse(),
+            color = systemColorInverse(),
             style = Typography.labelSmall,
             textAlign = TextAlign.Start
         )
