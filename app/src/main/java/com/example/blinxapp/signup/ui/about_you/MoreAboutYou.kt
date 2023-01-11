@@ -17,12 +17,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.blinxapp.R
-import com.example.blinxapp.signup.ui.form.SignupForm
-import com.example.blinxapp.ui.theme.Typography
-import com.example.blinxapp.ui.theme.primaryGreen
-import com.example.blinxapp.ui.theme.secondaryGrey
-import com.example.blinxapp.ui.theme.whiteBlinx
+import com.android.blinxapp.R
+import com.android.blinxapp.authenitcation.ui.signup.form.SignupForm
+import com.android.blinxapp.ui.theme.Typography
+import com.android.blinxapp.ui.theme.primaryGreen
+import com.android.blinxapp.ui.theme.secondaryGrey
+import com.android.blinxapp.ui.theme.whiteBlinx
 
 
 @Composable

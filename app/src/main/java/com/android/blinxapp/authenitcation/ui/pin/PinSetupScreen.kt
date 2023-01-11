@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 import com.android.blinxapp.ui.theme.Typography
-import com.olajide.pinviewscreen.presentation.pinArea
+import com.olajide.pinviewscreen.presentation.ComposablePinView
 
 
 @Composable
@@ -67,7 +67,7 @@ fun PinSetupScreen(onProceedClicked: () -> Unit, context: Context) {
 
             }
 
-            pinArea(
+            ComposablePinView(
                 charLimit = charLimit,
                 textStyle = Typography.titleSmall, pin)
 
