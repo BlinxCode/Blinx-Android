@@ -1,4 +1,0 @@
-com.olajide.pinviewscreen
-string title_activity_main
-string title_activity_pin_view_screen
-style Theme_BlinxApp
