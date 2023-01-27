@@ -1,6 +1,7 @@
 package com.android.blinxapp.common
 
 import android.content.Context
+import android.content.res.Configuration
 import android.view.Window
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.icons.Icons
@@ -21,6 +22,9 @@ import com.android.blinxapp.ui.theme.electricBlue
 import com.android.blinxapp.ui.theme.primaryGreen
 import com.android.blinxapp.R
 
+//NonComposable functions
+fun Context.isSystemInDarkTheme(): Boolean =
+    (resources.configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK)) == Configuration.UI_MODE_NIGHT_YES
 
 // Setting input field property to conform with light and dark mode
 @OptIn(ExperimentalMaterial3Api::class)
@@ -35,6 +39,17 @@ fun outlineColors(): TextFieldColors {
     }
     return colorStr
 }
+
+@Composable
+fun cardColors(): Color {
+    return   containerColorBlack.takeIf  { isSystemInDarkTheme() }?:Color.White
+}
+
+@Composable
+fun CardTitleColors(): Color {
+    return  Color.White.takeIf { isSystemInDarkTheme() }?: electricBlue
+}
+
 
 // Return color state based on SystemInDarkTheme
 @Composable

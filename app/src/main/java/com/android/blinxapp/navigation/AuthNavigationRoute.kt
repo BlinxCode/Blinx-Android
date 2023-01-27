@@ -1,4 +1,4 @@
-package com.android.blinxapp.authenitcation.ui.navigation
+package com.android.blinxapp.navigation
 
 enum class AuthNavigationRoute {
     Onboarding,

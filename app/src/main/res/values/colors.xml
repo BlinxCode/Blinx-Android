@@ -4,5 +4,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lightGrey">#F8FAFF</color>
+    <color name="electricBlue">#FF002D40</color>
     <color name="primaryGreen"> #FF1AA6B7</color>
 </resources>

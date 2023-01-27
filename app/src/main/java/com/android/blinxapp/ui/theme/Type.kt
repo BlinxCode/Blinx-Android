@@ -23,30 +23,30 @@ val Typography = Typography(
         fontFamily = jakartaFont,
         fontWeight = FontWeight.Light,
         fontSize = 16.sp,
-        letterSpacing = 0.5.sp
     ),
     titleLarge = TextStyle(
         fontFamily =  jakartaFont,
         fontWeight = FontWeight.Bold,
         fontSize = 22.sp,
-        letterSpacing = 0.sp
     ),
     labelSmall = TextStyle(
         fontFamily = jakartaFont,
         fontWeight = FontWeight.Light,
         fontSize = 12.sp,
-        letterSpacing = 0.5.sp
     ),
     titleSmall = TextStyle(
         fontFamily = jakartaFont,
-        fontWeight = FontWeight.Light,
+        fontWeight = FontWeight.SemiBold,
         fontSize = 14.sp,
-        letterSpacing = 0.5.sp
+    ),
+    bodyLarge = TextStyle(
+        fontFamily = jakartaFont,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp,
     ),
     displayLarge = TextStyle(
         fontFamily = jakartaFont,
         fontWeight = FontWeight.Bold,
         fontSize = 25.sp,
-        letterSpacing = 0.5.sp
     )
 )

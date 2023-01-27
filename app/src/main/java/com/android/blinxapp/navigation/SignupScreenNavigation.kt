@@ -1,4 +1,4 @@
-package com.android.blinxapp.authenitcation.ui.navigation
+package com.android.blinxapp.navigation
 
 import android.content.Context
 import androidx.compose.foundation.layout.padding
@@ -120,7 +120,7 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
                 )
             }
             composable(route = AuthNavigationRoute.Success.name){
-                isGettingStarted = false
+                isGettingStarted = true
                 canNavigateBack = false
                 SuccessScreen  {
                     navController.navigate(AuthNavigationRoute.Login.name) }
@@ -145,7 +145,7 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
                 )
             }
             composable(route = AuthNavigationRoute.Dashboard.name) {
-                isGettingStarted = false
+                isGettingStarted = true
                 canNavigateBack = false
                 DashboardScreen (
                 )

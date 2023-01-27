@@ -23,6 +23,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.android.blinxapp.R
+import com.android.blinxapp.common.CommonTitle
+import com.android.blinxapp.common.buttonColors
 import com.android.blinxapp.common.systemColorInverse
 import com.android.blinxapp.ui.theme.*
 
@@ -35,7 +37,7 @@ import com.android.blinxapp.ui.theme.*
 
             ConstraintLayout( modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.primary)) {
 
-                //Declaring a reference
+                //Declaring a child reference id
                 val (backgroundImg, gradientBackground, columnViews) = createRefs()
 
                 //Creating a background Image
@@ -84,40 +86,19 @@ import com.android.blinxapp.ui.theme.*
                             bottom.linkTo(parent.bottom)
                         }
                 ) {
-                    //Title modifier
-                    Text(
-                        text = "Blinx offers",
-                        modifier = Modifier.padding(end = 20.dp, start = 20.dp),
-                        color = secondaryGrey,
-                        style = Typography.displayLarge,
-                        textAlign = TextAlign.Start
-                    )
 
-                    //Description modifier
-                    Text(
-                        text = "Seamless payment automations",
-                        modifier = Modifier
-                            .padding(start = 20.dp, end = 20.dp)
-                            .fillMaxWidth(),
-                        color = systemColorInverse(),
-                        style = Typography.displayLarge,
-                        textAlign = TextAlign.Start
-
-                    )
-
+                    CommonTitle( "Blinx offers","Seamless payment automations")
                     //Getting started button
                     GettingStartedButton(onGetStartedButtonClicked, onLoginButtonClicked)
+
+
 
                 }
             }
     }
 
-    @Composable
+@Composable
     private fun GettingStartedButton(onGetStartedButtonClicked: () -> Unit, onLoginButtonClicked: ()-> Unit) {
-        val buttonColors = ButtonDefaults.buttonColors(
-            containerColor = primaryGreen,
-            contentColor = contentColorFor(backgroundColor = whiteBlinx)
-        )
 
         Column(modifier = Modifier
             .padding(bottom = 40.dp, end = 20.dp, start = 20.dp, top = 27.dp)
@@ -128,7 +109,7 @@ import com.android.blinxapp.ui.theme.*
                     .width(350.dp)
                     .height(56.dp),
                 onClick = {onGetStartedButtonClicked() },
-                colors = buttonColors,
+                colors = buttonColors(),
                 shape = RoundedCornerShape(20)
             ) {
                 Text(
@@ -143,7 +124,7 @@ import com.android.blinxapp.ui.theme.*
         }
     }
 
-    @Composable
+@Composable
     fun LoginText(onLoginButtonClicked: ()-> Unit) {
 
         Spacer(modifier =Modifier.padding(top = 50.dp))
