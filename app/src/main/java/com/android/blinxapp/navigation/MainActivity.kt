@@ -9,8 +9,10 @@ import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import com.android.blinxapp.common.BlinxStatusBarColor
 import com.android.blinxapp.ui.theme.*
+import dagger.hilt.android.AndroidEntryPoint
 
-class SignupFormActivity : ComponentActivity() {
+@AndroidEntryPoint
+class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +24,7 @@ class SignupFormActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.primary
+                    color = MaterialTheme.colorScheme.primary,
                 ) {
                    SignupNavigation(this)
                 }

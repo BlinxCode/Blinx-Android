@@ -11,7 +11,7 @@
     <string name="create_subHeading_passcode">Create a %1$s digit passcode to securely sign in to your blinx account</string>
     <string name="confirm_passcode">Confirm your Blinx \nPasscode</string>
     <string name="confirm_subHeader_passcode">Confirm the %1$s digit passcode previously entered to securely sign in to your blinx account</string>
-    <string name="fund_wallet">Fund wallet</string>
+    <string name="fund_wallet">+ Add cash</string>
     <string name="wallet_balance">Wallet balance</string>
     <string name="fund_wallet_message">Fund your wallet to start paying for bills and carrying out transfers</string>
     <string name="add_bvn">Add your BVN</string>

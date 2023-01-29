@@ -2,13 +2,15 @@ package com.android.blinxapp.navigation
 
 import android.content.Context
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.android.blinxapp.common.TopBar
 import com.android.blinxapp.authenitcation.ui.onboarding.presentation.OnBoardingScreen
@@ -23,6 +25,7 @@ import com.android.blinxapp.authenitcation.ui.signup.phone.PhoneNumberScreen
 import com.android.blinxapp.authenitcation.ui.sucess.SuccessScreen
 import com.android.blinxapp.authenitcation.ui.viewmodel.SignUpViewModel
 import com.android.blinxapp.dashboard.DashboardScreen
+import com.android.blinxapp.dashboard.ui.navigation.bottomNavItems
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,6 +35,10 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
     var navController = rememberNavController()
     var canNavigateBack by remember { mutableStateOf(false) }
     var isGettingStarted by remember { mutableStateOf(false) }
+    var isDashboard by remember { mutableStateOf(false) }
+
+    val backStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = backStackEntry?.destination?.route
     // TODO: Get current back stack entry
 
     // TODO: Get the name of the current screen
@@ -43,6 +50,9 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
                 canNavigateBack = canNavigateBack,
                 navigateUp = {}
             )
+        },
+        bottomBar = {
+            DashboardBottomNav(isDashboard, currentRoute, navController)
         }
     ) { innerPadding ->
         //val uiState by viewModel.uiState.collectAsState()
@@ -54,6 +64,7 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
         ){
 
             composable(route = AuthNavigationRoute.Onboarding.name){
+                isDashboard = false
                 isGettingStarted = true
                 canNavigateBack = false
                 OnBoardingScreen(
@@ -64,6 +75,7 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
             }
 
             composable(route = AuthNavigationRoute.GetStarted.name) {
+                isDashboard = false
                 isGettingStarted = true
                 canNavigateBack = false
                 GettingStartedScreen(
@@ -77,6 +89,7 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
 
             composable(route = AuthNavigationRoute.SignupForm.name){
                 isGettingStarted = false
+                isDashboard = false
                 canNavigateBack = true
                 SignupFormScreen(
                     onSignupButtonClicked = {
@@ -85,6 +98,7 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
             }
             composable(route = AuthNavigationRoute.ConfirmEmail.name){
                 isGettingStarted = false
+                isDashboard = false
                 canNavigateBack = true
                 ConfirmEmailScreen(
                     onEmailConfirmButtonClicked ={navController.navigate(AuthNavigationRoute.PhoneNumber.name) },
@@ -93,6 +107,7 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
             }
             composable(route = AuthNavigationRoute.PhoneNumber.name){
                 isGettingStarted = false
+                isDashboard = false
                 canNavigateBack = true
                 PhoneNumberScreen(
                     onInputPhoneNumberButtonClicked = {
@@ -102,6 +117,7 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
             }
             composable(route = AuthNavigationRoute.ConfirmPhoneNumber.name){
                 isGettingStarted = false
+                isDashboard = false
                 canNavigateBack = true
                 ConfirmPhoneNumberScreen(
                     onPhoneConfirmButtonClicked ={
@@ -112,6 +128,7 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
             }
             composable(route = AuthNavigationRoute.AboutYou.name){
                 isGettingStarted = false
+                isDashboard = false
                 canNavigateBack = true
                 AboutYouScreen(
                     onProceedClicked ={
@@ -121,6 +138,7 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
             }
             composable(route = AuthNavigationRoute.Success.name){
                 isGettingStarted = true
+                isDashboard = false
                 canNavigateBack = false
                 SuccessScreen  {
                     navController.navigate(AuthNavigationRoute.Login.name) }
@@ -128,6 +146,7 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
 
             composable(route = AuthNavigationRoute.Login.name){
                 isGettingStarted = false
+                isDashboard = false
                 canNavigateBack = true
                 LoginScreen {
                     navController.navigate(AuthNavigationRoute.PinSetup.name)
@@ -136,6 +155,7 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
 
             composable(route = AuthNavigationRoute.PinSetup.name) {
                 isGettingStarted = false
+                isDashboard = false
                 canNavigateBack = false
                 PinSetupScreen (
                     onProceedClicked ={
@@ -146,10 +166,46 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
             }
             composable(route = AuthNavigationRoute.Dashboard.name) {
                 isGettingStarted = true
+                isDashboard = true
                 canNavigateBack = false
-                DashboardScreen (
-                )
+                DashboardScreen ()
             }
+        }
+    }
+}
+
+@Composable
+private fun DashboardBottomNav(
+    isDashboard: Boolean,
+    currentRoute: String?,
+    navController: NavHostController
+) {
+
+    if (!isDashboard){
+        return
+    }
+    NavigationBar(
+        containerColor = MaterialTheme.colorScheme.primary
+    ) {
+        bottomNavItems.forEach { item ->
+            val selected = item.route == currentRoute
+
+            NavigationBarItem(
+                selected = selected,
+                onClick = { navController.navigate(item.route) },
+                label = {
+                    Text(
+                        text = item.name,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                },
+                icon = {
+                    Icon(
+                        imageVector = item.icon,
+                        contentDescription = "${item.name} Icon",
+                    )
+                }
+            )
         }
     }
 }

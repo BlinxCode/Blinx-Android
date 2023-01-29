@@ -14,6 +14,11 @@ import com.android.blinxapp.common.CommonTitle
 
 @Composable
 fun DashboardScreen() {
+    DashboardInitPage()
+}
+
+
+@Composable fun DashboardInitPage(){
 
     Column(modifier = Modifier
         .fillMaxSize()
@@ -58,13 +63,12 @@ fun DashboardScreen() {
             DashboardCard(painterResource(R.drawable.verified_user),
                 stringResource(R.string.title_kyc),
                 stringResource(R.string.message_kyc))
-            }
+        }
 
     }
 }
 
-
-@Preview(showBackground = true)
+        @Preview(showBackground = true)
 @Composable
 fun DashboardScreenPreview(){
     DashboardScreen()

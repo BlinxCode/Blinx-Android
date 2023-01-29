@@ -12,9 +12,10 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.BlinxApp"
+        android:name=".application.BlinxApplication"
         tools:targetApi="31">
         <activity
-            android:name=".navigation.SignupFormActivity"
+            android:name=".navigation.MainActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
