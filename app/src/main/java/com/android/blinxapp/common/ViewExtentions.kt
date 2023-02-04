@@ -82,36 +82,3 @@ fun BlinxStatusBarColor(window: Window, context: Context) {
         window.statusBarColor = ContextCompat.getColor(context, R.color.white)
     }
 }
-
-//TopBar setup
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun TopBar(
-    isGettingStarted: Boolean,
-    canNavigateBack: Boolean,
-    navigateUp: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-
-    val buttonColors =  TopAppBarDefaults.smallTopAppBarColors(
-        containerColor =  MaterialTheme.colorScheme.primary)
-
-    if (!isGettingStarted){
-        TopAppBar(
-            colors = buttonColors,
-            title = {},
-            modifier = modifier,
-            navigationIcon = {
-                if (canNavigateBack){
-                    IconButton(onClick = navigateUp) {
-                        Icon(
-                            imageVector = Icons.Rounded.ArrowBackIosNew,
-                            contentDescription = stringResource(R.string.back_button)
-                        )
-                    }
-                }
-            }
-        )
-    }
-
-}

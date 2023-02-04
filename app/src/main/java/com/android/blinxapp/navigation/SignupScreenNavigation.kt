@@ -12,7 +12,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.android.blinxapp.common.TopBar
 import com.android.blinxapp.authenitcation.ui.onboarding.presentation.OnBoardingScreen
 import com.android.blinxapp.authenitcation.ui.signup.aboutyou.AboutYouScreen
 import com.android.blinxapp.authenitcation.ui.signup.email.ConfirmEmailScreen
@@ -24,6 +23,8 @@ import com.android.blinxapp.authenitcation.ui.signup.phone.ConfirmPhoneNumberScr
 import com.android.blinxapp.authenitcation.ui.signup.phone.PhoneNumberScreen
 import com.android.blinxapp.authenitcation.ui.sucess.SuccessScreen
 import com.android.blinxapp.authenitcation.ui.viewmodel.SignUpViewModel
+import com.android.blinxapp.common.toolbar.DashboardTopBar
+import com.android.blinxapp.common.toolbar.OnBoardingTopbar
 import com.android.blinxapp.dashboard.DashboardScreen
 import com.android.blinxapp.dashboard.ui.navigation.bottomNavItems
 
@@ -45,11 +46,19 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
     // TODO: add NavHost
     Scaffold(
         topBar = {
-            TopBar(
-                isGettingStarted = isGettingStarted,
-                canNavigateBack = canNavigateBack,
-                navigateUp = {}
-            )
+            if(isDashboard){
+                DashboardTopBar(
+                    canNavigateBack = canNavigateBack,
+                    navigateUp = {}
+                )
+            }else{
+                OnBoardingTopbar(
+                    isGettingStarted = isGettingStarted,
+                    canNavigateBack = canNavigateBack,
+                    navigateUp = {}
+                )
+            }
+
         },
         bottomBar = {
             DashboardBottomNav(isDashboard, currentRoute, navController)
@@ -165,7 +174,6 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
                 )
             }
             composable(route = AuthNavigationRoute.Dashboard.name) {
-                isGettingStarted = true
                 isDashboard = true
                 canNavigateBack = false
                 DashboardScreen ()

@@ -71,9 +71,6 @@ fun SignupForm() {
     )
     Spacer(Modifier.size(16.dp))
     ReferralIDField()
-
-
-
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

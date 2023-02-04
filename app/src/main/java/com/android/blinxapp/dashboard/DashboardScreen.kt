@@ -2,6 +2,8 @@ package com.android.blinxapp.dashboard
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -20,8 +22,10 @@ fun DashboardScreen() {
 
 @Composable fun DashboardInitPage(){
 
+    val scrollState = rememberScrollState()
+
     Column(modifier = Modifier
-        .fillMaxSize()
+        .fillMaxSize().verticalScroll(scrollState)
         .background(colorScheme.primary)) {
 
         Column(modifier = Modifier
@@ -32,7 +36,6 @@ fun DashboardScreen() {
              * A Box containing a constraint layout that
              * houses the notification and Profile
              */
-            DashboardTopBar()
 
             /**
              * Customers Greetings
