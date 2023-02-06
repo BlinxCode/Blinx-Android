@@ -41,8 +41,6 @@ r
 Bapp/src/main/java/com/android/blinxapp/dashboard/DashboardCards.kt,c/7/c71b3032d5f323e8aa981b7ffa8bc9f8e5515dd0
 …
 Uapp/src/main/java/com/android/blinxapp/authenitcation/ui/viewmodel/SignUpViewModel.kt,1/3/13adf945a79f7870a75c65a76ac8f34060e916ae
-?
-settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
 X
 (gradle/wrapper/gradle-wrapper.properties,f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 ƒ
@@ -59,5 +57,9 @@ Happ/src/main/java/com/android/blinxapp/navigation/AuthNavigationRoute.kt,c/7/c
 Oapp/src/main/java/com/android/blinxapp/dashboard/ui/navigation/BottomNavItem.kt,6/a/6aeb8076b980c0fc2030c23a363ee340b9b840ee
 n
 >app/src/main/java/com/android/blinxapp/dashboard/WalletCard.kt,c/e/cedb6f1d955768cf8ff6b1a8f010d518c4ec0b34
-@
-app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
+s
+Capp/src/main/java/com/android/blinxapp/dashboard/DashboardTopBar.kt,7/6/7613a4ba3a091c27f42d91d78c4a997a36a57078
+{
+Kapp/src/main/java/com/android/blinxapp/navigation/SignupScreenNavigation.kt,5/5/556ca1d590af0defaa1ce01bc2b6cd21b2ea89d9
+o
+?app/src/main/java/com/android/blinxapp/common/ViewExtentions.kt,e/4/e41736e594be88ffe4c9e1028f4ebe4b3aa560ba
