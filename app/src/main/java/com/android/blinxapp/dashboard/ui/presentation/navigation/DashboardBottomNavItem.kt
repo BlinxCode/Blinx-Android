@@ -19,7 +19,7 @@ val bottomNavItems = listOf(
         icon = Icons.Rounded.Home,
     ),
     DashboardBottomNavItem(
-        name = "Wallet",
+        name = "Automate",
         route = DashboardNavigationRoute.Wallet.name,
         icon = Icons.Rounded.AddCircle,
     ),

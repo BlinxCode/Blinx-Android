@@ -6,6 +6,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -15,6 +16,7 @@ import com.android.blinxapp.common.buttonColors
 import com.android.blinxapp.common.cardColors
 import com.android.blinxapp.common.CardTitleColors
 import com.android.blinxapp.ui.theme.Typography
+import com.android.blinxapp.ui.theme.containerColorBlack
 import com.android.blinxapp.ui.theme.secondaryGrey
 import com.android.blinxapp.ui.theme.whiteBlinx
 
@@ -35,7 +37,7 @@ fun WalletCard() {
             modifier = Modifier
                 .fillMaxWidth()
                 .safeContentPadding()
-                .background(cardColors()),
+                .background(containerColorBlack),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
 
@@ -44,7 +46,7 @@ fun WalletCard() {
                     .fillMaxWidth()
                     .padding(20.dp)
 
-                    .background(cardColors())
+                    .background(containerColorBlack)
             ) {
 
                 ConstraintLayout(
@@ -67,7 +69,7 @@ fun WalletCard() {
                         modifier = Modifier.constrainAs(walletBalance) {
                             top.linkTo(walletTitle.bottom)
                         },
-                        color = CardTitleColors(),
+                        color = Color.White,
                         style = Typography.bodyLarge,
                         textAlign = TextAlign.Start
                     )
@@ -93,14 +95,6 @@ fun WalletCard() {
 
                 }
 
-                Spacer(modifier = Modifier.padding(5.dp))
-                Text(
-                    text = stringResource(R.string.fund_wallet_message),
-                    modifier = Modifier,
-                    color = secondaryGrey,
-                    style = Typography.labelSmall,
-                    textAlign = TextAlign.Start
-                )
                 Spacer(modifier = Modifier.padding(5.dp))
             }
         }

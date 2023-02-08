@@ -27,10 +27,6 @@ g
 \app/src/main/java/com/android/blinxapp/authenitcation/ui/get_started/GettingStartedScreen.kt,d/7/d7964e5846c0184e4c2b7b96c9b73d596a8ecc14
 }
 Mapp/src/main/java/com/android/blinxapp/authenitcation/ui/login/LoginScreen.kt,a/c/ac60b29b1c1bfc04df28d0df21ee6c5015688425
-h
-8app/src/main/java/com/android/blinxapp/ui/theme/Color.kt,a/3/a31f0b3a6bcb5e82470e078fa3fb80536ce169d0
-~
-Napp/src/main/java/com/android/blinxapp/dashboard/common/NewMessageAnimation.kt,8/a/8ac9ceb1c753cf56f8393571adf7e33b4c0efee9
 u
 Eapp/src/main/java/com/android/blinxapp/common/profile/ProfileImage.kt,9/c/9c69bbde4fa50bcfde5e84d564324eb386adc585
 …
@@ -45,8 +41,6 @@ v
 Fapp/src/main/java/com/android/blinxapp/application/BlinxApplication.kt,c/a/ca6f0ebce3b88d2a257757dacfdbebebf3ac5ddc
 x
 Happ/src/main/java/com/android/blinxapp/navigation/AuthNavigationRoute.kt,c/7/c7f9eb95b84794c56735e217f0cea4b957c21cdb
-o
-?app/src/main/java/com/android/blinxapp/common/ViewExtentions.kt,e/4/e41736e594be88ffe4c9e1028f4ebe4b3aa560ba
 ˆ
 Xapp/src/main/java/com/android/blinxapp/authenitcation/ui/signup/form/SignupFormScreen.kt,a/f/af12b45460a9def83733605e5fa185432b856a72
 Š
@@ -57,5 +51,3 @@ Zapp/src/main/java/com/android/blinxapp/authenitcation/ui/signup/form/SignupForm
 settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
 @
 app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
-g
-7app/src/main/java/com/android/blinxapp/common/common.kt,c/c/cca37574fc37942d5587bfba32054eee1cb85d8c

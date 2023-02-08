@@ -2,7 +2,10 @@ package com.android.blinxapp.dashboard.ui.presentation.navigation
 
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.navigation.NavHostController
+import com.android.blinxapp.R
 
 @Composable
 fun DashboardBottomNav(
@@ -39,12 +42,27 @@ fun DashboardBottomNav(
                     }
                     },
                 icon = {
-                    Icon(
-                        imageVector = item.icon,
-                        contentDescription = "${item.name} Icon",
-                    )
+                    BottomIcons(item)
                 }
             )
         }
     }
+}
+
+@Composable
+private fun BottomIcons(item: DashboardBottomNavItem) {
+    Icon(
+        imageVector = when (item.name) {
+            "Automate" -> {
+                ImageVector.vectorResource(id = R.drawable.automate_module)
+            }
+            "Settings" -> {
+                ImageVector.vectorResource(id = R.drawable.settings)
+            }
+            else -> {
+                item.icon
+            }
+        },
+        contentDescription = "${item.name} Icon",
+    )
 }

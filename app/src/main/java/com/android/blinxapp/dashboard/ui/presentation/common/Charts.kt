@@ -1,4 +1,4 @@
-package com.android.blinxapp.dashboard.ui.presentation
+package com.android.blinxapp.dashboard.ui.presentation.common
 
 import android.content.Context
 import androidx.compose.foundation.layout.fillMaxWidth

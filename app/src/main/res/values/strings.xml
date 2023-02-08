@@ -20,5 +20,7 @@
     <string name="link_bank_message">Link multiple bank accounts for easy deposit</string>
     <string name="title_kyc">Let\'s get to know you (KYC)</string>
     <string name="message_kyc">Your ID proof and address proof are the documents required for KYC verification.</string>
+    <string name="no_automation">Automate your payments</string>
+    <string name="create_automation">Let\'s help save time and reduce risk by automating your bills payment.</string>
 
 </resources>

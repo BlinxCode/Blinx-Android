@@ -1,4 +1,4 @@
-package com.android.blinxapp.dashboard.common
+package com.android.blinxapp.dashboard.ui.presentation.common
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.MarqueeSpacing

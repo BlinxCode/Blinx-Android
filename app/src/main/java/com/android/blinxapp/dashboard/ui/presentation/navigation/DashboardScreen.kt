@@ -1,11 +1,14 @@
 package com.android.blinxapp.dashboard.ui.presentation.navigation
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -16,11 +19,9 @@ import com.android.blinxapp.dashboard.ui.presentation.home.HomeScreen
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DashboardScreen() {
-    var modifier: Modifier = Modifier
 
     // TODO: Create NavController
     var navController = rememberNavController()
-    var isDashboard by remember { mutableStateOf(false) }
 
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route
@@ -33,7 +34,11 @@ fun DashboardScreen() {
         }
     ) { innerPadding ->
 
-        Box(modifier = Modifier.padding(innerPadding)) {
+        Box(modifier = Modifier
+            .padding(innerPadding)
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.primary)
+            .padding(top = 20.dp, start = 16.dp, end = 16.dp)) {
             DashboardNav(navController = navController)
         }
     }
