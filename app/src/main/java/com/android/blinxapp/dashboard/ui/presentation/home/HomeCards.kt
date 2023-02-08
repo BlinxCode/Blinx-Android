@@ -1,4 +1,4 @@
-package com.android.blinxapp.dashboard
+package com.android.blinxapp.dashboard.ui.presentation.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

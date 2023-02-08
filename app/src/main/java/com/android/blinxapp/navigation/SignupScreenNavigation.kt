@@ -5,9 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -25,18 +23,18 @@ import com.android.blinxapp.authenitcation.ui.sucess.SuccessScreen
 import com.android.blinxapp.authenitcation.ui.viewmodel.SignUpViewModel
 import com.android.blinxapp.common.toolbar.DashboardTopBar
 import com.android.blinxapp.common.toolbar.OnBoardingTopbar
-import com.android.blinxapp.dashboard.DashboardScreen
-import com.android.blinxapp.dashboard.ui.navigation.bottomNavItems
+import com.android.blinxapp.dashboard.ui.presentation.navigation.DashboardScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel: SignUpViewModel = viewModel()){
+fun SignupNavigation(context: Context, viewModel: SignUpViewModel = viewModel()){
 
     // TODO: Create NavController
     var navController = rememberNavController()
     var canNavigateBack by remember { mutableStateOf(false) }
     var isGettingStarted by remember { mutableStateOf(false) }
     var isDashboard by remember { mutableStateOf(false) }
+    var modifier: Modifier = Modifier
 
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route
@@ -46,26 +44,17 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
     // TODO: add NavHost
     Scaffold(
         topBar = {
-            if(isDashboard){
-                DashboardTopBar(
-                    canNavigateBack = canNavigateBack,
-                    navigateUp = {}
-                )
-            }else{
+
+            if (!isDashboard){
                 OnBoardingTopbar(
                     isGettingStarted = isGettingStarted,
                     canNavigateBack = canNavigateBack,
                     navigateUp = {}
                 )
             }
-
-        },
-        bottomBar = {
-            DashboardBottomNav(isDashboard, currentRoute, navController)
         }
     ) { innerPadding ->
         //val uiState by viewModel.uiState.collectAsState()
-
         NavHost(
             navController = navController,
             startDestination = AuthNavigationRoute.Onboarding.name,
@@ -178,43 +167,10 @@ fun SignupNavigation(context: Context, modifier: Modifier = Modifier, viewModel:
                 canNavigateBack = false
                 DashboardScreen ()
             }
+
         }
     }
 }
 
-@Composable
-private fun DashboardBottomNav(
-    isDashboard: Boolean,
-    currentRoute: String?,
-    navController: NavHostController
-) {
 
-    if (!isDashboard){
-        return
-    }
-    NavigationBar(
-        containerColor = MaterialTheme.colorScheme.primary
-    ) {
-        bottomNavItems.forEach { item ->
-            val selected = item.route == currentRoute
-
-            NavigationBarItem(
-                selected = selected,
-                onClick = { navController.navigate(item.route) },
-                label = {
-                    Text(
-                        text = item.name,
-                        fontWeight = FontWeight.SemiBold,
-                    )
-                },
-                icon = {
-                    Icon(
-                        imageVector = item.icon,
-                        contentDescription = "${item.name} Icon",
-                    )
-                }
-            )
-        }
-    }
-}
 

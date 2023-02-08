@@ -7,33 +7,34 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.android.blinxapp.R
-import com.android.blinxapp.dashboard.DashboardTopBar
+import com.android.blinxapp.dashboard.ui.presentation.navigation.DashboardTopBar
 
 
 //TopBar setup
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DashboardTopBar(
+    dashboard: Boolean,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier
 ) {
 
-    val buttonColors =  TopAppBarDefaults.smallTopAppBarColors(
-        containerColor =  MaterialTheme.colorScheme.primary)
+    val buttonColors = TopAppBarDefaults.smallTopAppBarColors(
+        containerColor = MaterialTheme.colorScheme.primary
+    )
 
+    if (dashboard){
         TopAppBar(
             colors = buttonColors,
             title = {},
             modifier = modifier,
 
             actions = {
-                if(!canNavigateBack){
                     DashboardTopBar()
-                }
             },
             navigationIcon = {
-                if (canNavigateBack){
+                if (canNavigateBack) {
                     IconButton(onClick = navigateUp) {
                         Icon(
                             imageVector = Icons.Rounded.ArrowBackIosNew,
@@ -43,4 +44,22 @@ fun DashboardTopBar(
                 }
             }
         )
+    }else{
+        TopAppBar(
+            colors = buttonColors,
+            title = {},
+            modifier = modifier,
+            navigationIcon = {
+                if (canNavigateBack) {
+                    IconButton(onClick = navigateUp) {
+                        Icon(
+                            imageVector = Icons.Rounded.ArrowBackIosNew,
+                            contentDescription = stringResource(R.string.back_button)
+                        )
+                    }
+                }
+            }
+        )
+    }
+
 }
