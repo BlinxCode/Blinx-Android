@@ -72,7 +72,7 @@ fun FirstNameField() {
 
     OutlinedTextField(
         shape = RoundedCornerShape(12.dp),
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().height(50.dp),
         colors = outlineColors(),
         value = text,
         onValueChange = { text = it }
@@ -86,7 +86,7 @@ fun MiddleNameField() {
 
     OutlinedTextField(
         shape = RoundedCornerShape(12.dp),
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().height(50.dp),
         colors = outlineColors(),
         value = text,
         onValueChange = { text = it }
@@ -100,7 +100,7 @@ fun LastNameField() {
 
     OutlinedTextField(
         shape = RoundedCornerShape(12.dp),
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().height(50.dp),
         colors = outlineColors(),
         value = text,
         onValueChange = { text = it }

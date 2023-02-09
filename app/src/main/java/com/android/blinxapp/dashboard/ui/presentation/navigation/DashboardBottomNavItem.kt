@@ -15,12 +15,12 @@ data class DashboardBottomNavItem(
 val bottomNavItems = listOf(
     DashboardBottomNavItem(
         name = "Home",
-        route = DashboardNavigationRoute.Home.name,
+        route = DashboardNavigationRoute.HOME.name,
         icon = Icons.Rounded.Home,
     ),
     DashboardBottomNavItem(
         name = "Automate",
-        route = DashboardNavigationRoute.Wallet.name,
+        route = DashboardNavigationRoute.WALLET.name,
         icon = Icons.Rounded.AddCircle,
     ),
     DashboardBottomNavItem(

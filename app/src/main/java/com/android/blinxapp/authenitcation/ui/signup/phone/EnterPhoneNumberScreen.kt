@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.android.blinxapp.R
 import com.android.blinxapp.common.customviews.ContinueButtonButton
+import com.android.blinxapp.common.customviews.PhoneInputField
 import com.android.blinxapp.common.outlineColors
 import com.android.blinxapp.ui.theme.Typography
 import com.android.blinxapp.ui.theme.secondaryGrey
@@ -89,21 +90,6 @@ fun PhoneForm(
     Spacer(Modifier.size(16.dp))
     ContinueButtonButton(onInputPhoneNumberButtonClicked, stringResource(R.string.continue_txt))
 
-}
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun PhoneInputField() {
-    var text by remember { mutableStateOf("") }
-
-    OutlinedTextField(
-        singleLine = true,
-        shape = RoundedCornerShape(12.dp),
-        modifier = Modifier.fillMaxWidth(),
-        colors = outlineColors(),
-        value = text,
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-        onValueChange = { text = it }
-    )
 }
 
 @Preview(showBackground = true)

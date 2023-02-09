@@ -129,8 +129,7 @@ fun ConfirmEmailButton(onEmailConfirmButtonClicked: () -> Unit,onEmailConfirmRes
         horizontalAlignment = Alignment.CenterHorizontally) {
         Button(
             modifier = Modifier
-                .fillMaxWidth()
-                .height(60.dp),
+                .fillMaxWidth().height(50.dp),
             onClick = { onEmailConfirmButtonClicked()},
             colors = buttonColors,
             shape = RoundedCornerShape(20)

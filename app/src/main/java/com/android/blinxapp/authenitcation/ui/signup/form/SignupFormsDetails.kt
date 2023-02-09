@@ -79,8 +79,10 @@ fun EmailInputField() {
     var text by remember { mutableStateOf("") }
 
     OutlinedTextField(
+
+        textStyle = Typography.bodyMedium,
         shape = RoundedCornerShape(12.dp),
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().height(50.dp),
         colors = outlineColors(),
         value = text,
         onValueChange = { text = it }
@@ -93,8 +95,8 @@ fun EmailInputField() {
 fun PasswordField(passwordVisibility: MutableState<Boolean>, password: MutableState<TextFieldValue>,
                   passwordErrorState: MutableState<Boolean>) {
     OutlinedTextField(
-
-        modifier = Modifier.fillMaxWidth(),
+        textStyle = Typography.bodyMedium,
+        modifier = Modifier.fillMaxWidth().height(50.dp),
         shape = RoundedCornerShape(12.dp),
         trailingIcon = {
             PasswordIconSetup(passwordVisibility)
@@ -118,9 +120,9 @@ fun PasswordField(passwordVisibility: MutableState<Boolean>, password: MutableSt
 fun ConfirmPasswordField(passwordVisibility: MutableState<Boolean>, password:
 MutableState<TextFieldValue>, passwordErrorState: MutableState<Boolean>) {
     OutlinedTextField(
-
+        textStyle = Typography.bodyMedium,
         shape = RoundedCornerShape(12.dp),
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().height(50.dp),
         trailingIcon = {
             PasswordIconSetup(passwordVisibility)
         },
@@ -146,8 +148,9 @@ fun ReferralIDField() {
     var text by remember { mutableStateOf("") }
 
     OutlinedTextField(
+        textStyle = Typography.bodyMedium,
         shape = RoundedCornerShape(12.dp),
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().height(50.dp),
         colors = outlineColors(),
         value = text,
         onValueChange = { text = it }

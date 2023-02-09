@@ -1,6 +1,11 @@
 package com.android.blinxapp.dashboard.ui.presentation.navigation
 
 enum class DashboardNavigationRoute {
-    Home,
-    Wallet,
+    HOME,
+    BVN,
+    BVN_VALIDATE,
+    KYC,
+    LINK_BANK,
+    WALLET,
+    SET_AUTOMATION,
 }

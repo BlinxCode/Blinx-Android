@@ -1,14 +1,8 @@
 
 9
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-‹
-[app/src/main/java/com/android/blinxapp/authenitcation/ui/signup/email/ConfirmEmailScreen.kt,6/f/6f5ff5c4be72dd3a0a6b902ef342c63d333c7268
-ˆ
-Xapp/src/main/java/com/android/blinxapp/authenitcation/ui/signup/aboutyou/AboutYouForm.kt,5/7/5769096ad489bcfbf6a028020218cca65deb9734
 |
 Lapp/src/main/java/com/android/blinxapp/authenitcation/ui/pin/BlinxHeading.kt,7/1/71bcf2d5e0acf673ff80f6f0b4a7371c5d75689d
-~
-Napp/src/main/java/com/android/blinxapp/authenitcation/ui/pin/PinSetupScreen.kt,3/5/35a11cf7e68e22c54c56d398b8a9d03cfb26635a
 ‘
 aapp/src/main/java/com/android/blinxapp/authenitcation/ui/onboarding/common/OnboardingExtention.kt,2/7/274cabb20626348991d8a33a6800640bd77cab71
 ”
@@ -17,16 +11,10 @@ dapp/src/main/java/com/android/blinxapp/authenitcation/ui/onboarding/presentatio
 Papp/src/main/java/com/android/blinxapp/authenitcation/ui/sucess/SuccessScreen.kt,7/a/7ac579ad1a6682dc759c12e8a119158b5c7e26df
 v
 Fapp/src/main/java/com/android/blinxapp/dashboard/common/FaddingText.kt,d/2/d2822262b868077e1058a396ef0d4da23c58f245
-x
-Happ/src/main/java/com/android/blinxapp/common/customviews/CustomViews.kt,4/2/427c7ee62a58d713f4f53e6db0163a2c9f858969
 h
 8app/src/main/java/com/android/blinxapp/ui/theme/Theme.kt,1/6/16fae8a62cdde6c13d57d4e161af2e01b55d85de
 g
 7app/src/main/java/com/android/blinxapp/ui/theme/Type.kt,2/8/286a542d32e954f070973aef1e8c8d5d78444b75
-Œ
-\app/src/main/java/com/android/blinxapp/authenitcation/ui/get_started/GettingStartedScreen.kt,d/7/d7964e5846c0184e4c2b7b96c9b73d596a8ecc14
-}
-Mapp/src/main/java/com/android/blinxapp/authenitcation/ui/login/LoginScreen.kt,a/c/ac60b29b1c1bfc04df28d0df21ee6c5015688425
 u
 Eapp/src/main/java/com/android/blinxapp/common/profile/ProfileImage.kt,9/c/9c69bbde4fa50bcfde5e84d564324eb386adc585
 …
@@ -39,12 +27,6 @@ P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 v
 Fapp/src/main/java/com/android/blinxapp/application/BlinxApplication.kt,c/a/ca6f0ebce3b88d2a257757dacfdbebebf3ac5ddc
-x
-Happ/src/main/java/com/android/blinxapp/navigation/AuthNavigationRoute.kt,c/7/c7f9eb95b84794c56735e217f0cea4b957c21cdb
-ˆ
-Xapp/src/main/java/com/android/blinxapp/authenitcation/ui/signup/form/SignupFormScreen.kt,a/f/af12b45460a9def83733605e5fa185432b856a72
-Š
-Zapp/src/main/java/com/android/blinxapp/authenitcation/ui/signup/form/SignupFormsDetails.kt,0/1/011efdc96a07120c6f51b366a00dfd44c5003286
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 ?

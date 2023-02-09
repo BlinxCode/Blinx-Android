@@ -15,7 +15,11 @@ import com.android.blinxapp.common.CommonTitle
 import com.android.blinxapp.dashboard.ui.presentation.wallet.WalletCard
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    automationCardClick: () -> Unit,
+    bvnCardClick: () -> Unit,
+    linkBankCardClick: () -> Unit,
+) {
 
     val scrollState = rememberScrollState()
 
@@ -41,30 +45,29 @@ fun HomeScreen() {
             /**
              * Create Automation service
              */
-            DashboardCard(
+            AutomationCard(
+                automationCardClick,
                 painterResource(R.drawable.automate_icon),
                 stringResource(R.string.no_automation),
-                stringResource(R.string.create_automation)
-            )
+                stringResource(R.string.create_automation))
 
             /**
              * Add Your BVN
              */
-            DashboardCard(
+            BvnCard(
+                bvnCardClick,
                 painterResource(R.drawable.question_mark_icon),
                 stringResource(R.string.add_bvn),
-                stringResource(R.string.add_bvn_message)
-            )
+                stringResource(R.string.add_bvn_message))
 
             /**
              * Link Bank Account
              */
-            DashboardCard(
+            LinkBankCard(
+                linkBankCardClick,
                 painterResource(R.drawable.bank),
                 stringResource(R.string.link_bank),
-                stringResource(R.string.link_bank_message)
-            )
-
+                stringResource(R.string.link_bank_message))
 
             /**
              * Know Your Customer (KYC)

@@ -18,12 +18,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.android.blinxapp.R
+import com.android.blinxapp.common.CommonTitle
 import com.android.blinxapp.common.PasswordIconSetup
 import com.android.blinxapp.common.customviews.ContinueButtonButton
+import com.android.blinxapp.common.customviews.InputTextField
 import com.android.blinxapp.common.outlineColors
 import com.android.blinxapp.ui.theme.Typography
-import com.android.blinxapp.ui.theme.primaryGreen
-import com.android.blinxapp.ui.theme.secondaryGrey
 
 
 @Composable
@@ -46,28 +46,14 @@ fun LoginScreen(
                 .weight(1f, false)
         ) {
             //Title modifier
-            Text(
-                text = "Welcome back,",
-                color = secondaryGrey,
-                style = Typography.displayLarge,
-                textAlign = TextAlign.Start
-            )
+            CommonTitle("Hello,", "Oladotun")
 
-            //Description modifier
-            Text(
-                text = "Oladotun",
-                style = Typography.displayLarge,
-                textAlign = TextAlign.Start
-
-            )
             //Description modifier
             Spacer(Modifier.size(16.dp))
             Text(
                 text = "The simplest way to instantly fund wallet, automate payment, save, and invest.",
-                style = Typography.titleSmall,
+                style = Typography.labelSmall,
                 textAlign = TextAlign.Start,
-                color = primaryGreen
-
             )
 
 
@@ -80,7 +66,7 @@ fun LoginScreen(
             )
 
             Spacer(Modifier.size(16.dp))
-            EmailOrUsername()
+            InputTextField()
 
             //Password
             Spacer(Modifier.size(16.dp))
@@ -106,19 +92,6 @@ fun LoginScreen(
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun EmailOrUsername() {
-    var text by remember { mutableStateOf("") }
-
-    OutlinedTextField(
-        shape = RoundedCornerShape(12.dp),
-        modifier = Modifier.fillMaxWidth(),
-        colors = outlineColors(),
-        value = text,
-        onValueChange = { text = it }
-    )
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -126,7 +99,7 @@ fun PasswordField(passwordVisibility: MutableState<Boolean>, password: MutableSt
                   passwordErrorState: MutableState<Boolean>) {
     OutlinedTextField(
 
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().height(50.dp),
         shape = RoundedCornerShape(12.dp),
         trailingIcon = {
             PasswordIconSetup(passwordVisibility)

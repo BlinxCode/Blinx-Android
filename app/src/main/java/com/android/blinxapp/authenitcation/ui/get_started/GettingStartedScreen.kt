@@ -81,7 +81,7 @@ import com.android.blinxapp.ui.theme.*
 
                 Column(
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .fillMaxWidth().padding(end = 20.dp, start = 20.dp)
                         .constrainAs(columnViews) {
                             bottom.linkTo(parent.bottom)
                         }
@@ -101,13 +101,12 @@ import com.android.blinxapp.ui.theme.*
     private fun GettingStartedButton(onGetStartedButtonClicked: () -> Unit, onLoginButtonClicked: ()-> Unit) {
 
         Column(modifier = Modifier
-            .padding(bottom = 40.dp, end = 20.dp, start = 20.dp, top = 27.dp)
+            .padding(bottom = 40.dp, top = 27.dp)
             .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally) {
             Button(
-                modifier = Modifier
-                    .width(350.dp)
-                    .height(56.dp),
+                modifier = Modifier.fillMaxWidth()
+                    .height(50.dp),
                 onClick = {onGetStartedButtonClicked() },
                 colors = buttonColors(),
                 shape = RoundedCornerShape(20)

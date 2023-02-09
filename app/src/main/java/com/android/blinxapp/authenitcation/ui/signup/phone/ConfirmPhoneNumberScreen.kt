@@ -128,7 +128,7 @@ fun ConfirmPhoneButton(onEmailConfirmButtonClicked: () -> Unit, onEmailConfirmRe
         Button(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(60.dp),
+                .height(50.dp),
             onClick = { onEmailConfirmButtonClicked()},
             colors = buttonColors,
             shape = RoundedCornerShape(20)

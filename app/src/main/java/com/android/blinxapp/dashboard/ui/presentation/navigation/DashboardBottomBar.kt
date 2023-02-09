@@ -2,6 +2,7 @@ package com.android.blinxapp.dashboard.ui.presentation.navigation
 
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.navigation.NavHostController
@@ -9,12 +10,12 @@ import com.android.blinxapp.R
 
 @Composable
 fun DashboardBottomNav(
-    isDashboard: Boolean,
+    isDashboard: MutableState<Boolean>,
     currentRoute: String?,
     navController: NavHostController
 ) {
 
-    if (!isDashboard){
+    if (!isDashboard.value){
         return
     }
     NavigationBar(

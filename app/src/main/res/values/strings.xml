@@ -22,5 +22,9 @@
     <string name="message_kyc">Your ID proof and address proof are the documents required for KYC verification.</string>
     <string name="no_automation">Automate your payments</string>
     <string name="create_automation">Let\'s help save time and reduce risk by automating your bills payment.</string>
+    <string name="why_bvn">Your BVN is secure. It does not give us access to your other bank accounts or transactions. We will only have access to your full name, gender, date of birth and phone number</string>
+    <string name="bvn_label">We need your Bank Verification Number (BVN) to confirm who you are.</string>
+    <string name="verify_bvn">VERIFY BVN</string>
+    <string name="bvn_otp">We have sent OTP to the email or phone number attached to your BVN"</string>
 
 </resources>

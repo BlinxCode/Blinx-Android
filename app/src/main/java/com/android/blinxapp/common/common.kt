@@ -34,7 +34,6 @@ fun CommonTitle(str1: String, str2: String) {
         //Title modifier
         Text(
             text =str1,
-            modifier = Modifier.padding(end = 20.dp, start = 20.dp),
             color = secondaryGrey,
             style = Typography.displayLarge,
             textAlign = TextAlign.Start
@@ -44,7 +43,6 @@ fun CommonTitle(str1: String, str2: String) {
         Text(
             text = str2,
             modifier = Modifier
-                .padding(start = 20.dp, end = 20.dp)
                 .fillMaxWidth(),
             color = systemColorInverse(),
             style = Typography.displayLarge,

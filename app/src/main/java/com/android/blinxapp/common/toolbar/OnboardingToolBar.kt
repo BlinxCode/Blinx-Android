@@ -3,6 +3,7 @@ package com.android.blinxapp.common.toolbar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBackIosNew
 import androidx.compose.material3.*
+import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -19,7 +20,7 @@ fun OnBoardingTopbar(
     modifier: Modifier = Modifier
 ) {
 
-    val buttonColors =  TopAppBarDefaults.smallTopAppBarColors(
+    val buttonColors =  topAppBarColors(
         containerColor =  MaterialTheme.colorScheme.primary)
 
     if (!isGettingStarted){

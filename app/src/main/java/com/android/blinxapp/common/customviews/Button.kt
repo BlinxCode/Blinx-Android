@@ -29,7 +29,7 @@ fun ContinueButtonButton(onProceedClicked: () -> Unit, stringResource: String) {
         Button(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(60.dp),
+                .height(50.dp),
             onClick = { onProceedClicked()},
             colors = buttonColors,
             shape = RoundedCornerShape(20)

@@ -21,9 +21,8 @@ import com.android.blinxapp.authenitcation.ui.signup.phone.ConfirmPhoneNumberScr
 import com.android.blinxapp.authenitcation.ui.signup.phone.PhoneNumberScreen
 import com.android.blinxapp.authenitcation.ui.sucess.SuccessScreen
 import com.android.blinxapp.authenitcation.ui.viewmodel.SignUpViewModel
-import com.android.blinxapp.common.toolbar.DashboardTopBar
 import com.android.blinxapp.common.toolbar.OnBoardingTopbar
-import com.android.blinxapp.dashboard.ui.presentation.navigation.DashboardScreen
+import com.android.blinxapp.dashboard.ui.presentation.navigation.DashboardNavigation
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -165,7 +164,7 @@ fun SignupNavigation(context: Context, viewModel: SignUpViewModel = viewModel())
             composable(route = AuthNavigationRoute.Dashboard.name) {
                 isDashboard = true
                 canNavigateBack = false
-                DashboardScreen ()
+                DashboardNavigation ()
             }
 
         }
