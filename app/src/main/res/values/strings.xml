@@ -26,5 +26,11 @@
     <string name="bvn_label">We need your Bank Verification Number (BVN) to confirm who you are.</string>
     <string name="verify_bvn">VERIFY BVN</string>
     <string name="bvn_otp">We have sent OTP to the email or phone number attached to your BVN"</string>
+    <string name="fund_wallet_note">Select wallet to be funded</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="dollar_card">Dollar wallet</string>
+    <string name="wallet_text">Wallet to receive funds in Dollars</string>
+    <string name="naira_wallet">Naira wallet</string>
+    <string name="naira_wallet_txt">Wallet to receive funds in Naira</string>
 
 </resources>

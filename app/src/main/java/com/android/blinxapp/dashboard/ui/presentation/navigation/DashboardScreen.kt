@@ -17,6 +17,7 @@ import androidx.navigation.compose.rememberNavController
 import com.android.blinxapp.dashboard.ui.presentation.bvn.BvnConfirmationScreen
 import com.android.blinxapp.dashboard.ui.presentation.bvn.BvnVerificationScreen
 import com.android.blinxapp.dashboard.ui.presentation.home.HomeScreen
+import com.android.blinxapp.dashboard.ui.presentation.wallet.FundWalletScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,7 +43,7 @@ fun DashboardNavigation() {
             .padding(innerPadding)
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.primary)
-            .padding(top = 20.dp, start = 16.dp, end = 16.dp)) {
+            .padding( start = 16.dp, end = 16.dp)) {
             DashboardNav(navController = navController,canNavigateBack = canNavigateBack,
                 isDashboard = isDashboard, topBarTitle = topBarTitle)
         }
@@ -63,6 +64,9 @@ fun DashboardNav(
             canNavigateBack.value = false
 
             HomeScreen(
+                walletClick ={
+                    navController.navigate(DashboardNavigationRoute.WALLET.name)
+                },
                 automationCardClick ={
                   //  navController.navigate(DashboardNavigationRoute.SET_AUTOMATION.name)
                 },
@@ -91,6 +95,20 @@ fun DashboardNav(
             topBarTitle.value = "Validate OTP"
             BvnConfirmationScreen(
                 onProceedClicked ={
+                 //   Success screen
+                }
+            )
+        }
+
+        composable(route = DashboardNavigationRoute.WALLET.name) {
+            isDashboard.value = false
+            canNavigateBack.value = true
+            topBarTitle.value = "Fund Wallet"
+            FundWalletScreen(
+                onNairaClicked ={
+                 //   Success screen
+                },
+                onDollarClicked ={
                  //   Success screen
                 }
             )

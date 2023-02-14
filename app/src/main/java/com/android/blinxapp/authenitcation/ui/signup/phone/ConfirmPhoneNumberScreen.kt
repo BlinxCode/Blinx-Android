@@ -24,7 +24,7 @@ import com.android.blinxapp.authenitcation.ui.signup.form.PasswordField
 import com.android.blinxapp.ui.theme.Typography
 import com.android.blinxapp.ui.theme.primaryGreen
 import com.android.blinxapp.ui.theme.secondaryGrey
-import com.android.blinxapp.ui.theme.whiteBlinx
+import com.android.blinxapp.ui.theme.white
 
 @Composable
 fun ConfirmPhoneNumberScreen(
@@ -118,7 +118,7 @@ fun PhoneForm(
 fun ConfirmPhoneButton(onEmailConfirmButtonClicked: () -> Unit, onEmailConfirmResendButtonClicked: () ->Unit ) {
     val buttonColors = ButtonDefaults.buttonColors(
         containerColor = primaryGreen,
-        contentColor = contentColorFor(backgroundColor = whiteBlinx)
+        contentColor = contentColorFor(backgroundColor = white)
     )
 
     Column(modifier = Modifier

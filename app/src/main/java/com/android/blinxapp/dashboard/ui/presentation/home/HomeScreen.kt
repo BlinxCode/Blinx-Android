@@ -12,10 +12,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.android.blinxapp.R
 import com.android.blinxapp.common.CommonTitle
-import com.android.blinxapp.dashboard.ui.presentation.wallet.WalletCard
 
 @Composable
 fun HomeScreen(
+    walletClick: () -> Unit,
     automationCardClick: () -> Unit,
     bvnCardClick: () -> Unit,
     linkBankCardClick: () -> Unit,
@@ -41,11 +41,11 @@ fun HomeScreen(
             /**
              * Add funds to Wallet
              */
-            WalletCard()
+            WalletCard(walletClick)
             /**
              * Create Automation service
              */
-            AutomationCard(
+            AutomateCard(
                 automationCardClick,
                 painterResource(R.drawable.automate_icon),
                 stringResource(R.string.no_automation),

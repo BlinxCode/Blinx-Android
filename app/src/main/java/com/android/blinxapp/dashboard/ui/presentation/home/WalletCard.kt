@@ -1,4 +1,4 @@
-package com.android.blinxapp.dashboard.ui.presentation.wallet
+package com.android.blinxapp.dashboard.ui.presentation.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -9,44 +9,35 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.android.blinxapp.R
-import com.android.blinxapp.common.buttonColors
-import com.android.blinxapp.common.cardColors
-import com.android.blinxapp.common.CardTitleColors
+import com.android.blinxapp.common.PrimaryGreenColor
+import com.android.blinxapp.dashboard.ui.presentation.wallet.FundWalletScreen
 import com.android.blinxapp.ui.theme.Typography
 import com.android.blinxapp.ui.theme.containerColorBlack
 import com.android.blinxapp.ui.theme.secondaryGrey
-import com.android.blinxapp.ui.theme.whiteBlinx
-
+import com.android.blinxapp.ui.theme.white
 
 @Composable
-fun WalletCard() {
+fun WalletCard(walletClick: () -> Unit) {
     Card(
         elevation = CardDefaults.cardElevation(
             defaultElevation = 2.dp
         ),
         shape = RoundedCornerShape(15.dp),
-
         modifier = Modifier
-            .fillMaxWidth()
+        .fillMaxWidth()
     ) {
-
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .safeContentPadding()
-                .background(containerColorBlack),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
-        ) {
-
+        Box(modifier = Modifier.background(containerColorBlack)){
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .safeContentPadding()
                     .padding(20.dp)
-
-                    .background(containerColorBlack)
+                    .background(containerColorBlack),
+                verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
 
                 ConstraintLayout(
@@ -74,13 +65,14 @@ fun WalletCard() {
                         textAlign = TextAlign.Start
                     )
                     Button(
-                        modifier = Modifier.constrainAs(fundWallet){
-                            end.linkTo(parent.end)
-                        }
+                        modifier = Modifier
+                            .constrainAs(fundWallet) {
+                                end.linkTo(parent.end)
+                            }
                             .width(130.dp)
                             .height(40.dp),
-                        onClick = { },
-                        colors = buttonColors(),
+                        onClick = { walletClick()},
+                        colors = PrimaryGreenColor(),
                         shape = RoundedCornerShape(20)
                     ) {
 
@@ -88,7 +80,7 @@ fun WalletCard() {
                         Text(
                             style = Typography.titleSmall,
                             text = stringResource(R.string.fund_wallet),
-                            color = whiteBlinx,
+                            color = white,
                             modifier = Modifier
                         )
                     }
@@ -97,6 +89,15 @@ fun WalletCard() {
 
                 Spacer(modifier = Modifier.padding(5.dp))
             }
+
         }
+
     }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun WalletCardPreview() {
+    WalletCard(walletClick = {})
 }

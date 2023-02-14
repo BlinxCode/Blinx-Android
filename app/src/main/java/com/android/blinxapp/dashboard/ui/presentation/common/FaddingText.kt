@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.android.blinxapp.ui.theme.whiteBlinx
+import com.android.blinxapp.ui.theme.white
 
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -42,7 +42,7 @@ fun MarqueFadingText (text: String = String(), modifier: Modifier = Modifier){
                 spacing = MarqueeSpacing(0.dp)
             )
             .padding(start = edgeWidth),
-        whiteBlinx,
+        white,
         fontSize = 12.sp
     )
 }

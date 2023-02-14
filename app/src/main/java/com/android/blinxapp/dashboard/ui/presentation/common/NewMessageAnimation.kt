@@ -17,7 +17,7 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.android.blinxapp.ui.theme.primaryGreen
-import com.android.blinxapp.ui.theme.whiteBlinx
+import com.android.blinxapp.ui.theme.white
 
 
 @Composable
@@ -46,7 +46,7 @@ fun NewMessageAnimation() {
                         size = 40.dp,
                     )
                     .background(
-                        color = whiteBlinx,
+                        color = white,
                         shape = CircleShape,
                     ),
             ){

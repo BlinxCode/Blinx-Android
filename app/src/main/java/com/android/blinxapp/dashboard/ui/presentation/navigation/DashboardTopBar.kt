@@ -40,11 +40,11 @@ fun DashboardTopBar(
         TopAppBar(
             colors = buttonColors,
             title = {
-                Text(
-                    text = titleBar.value,
-                    style = MaterialTheme.typography.labelMedium,
-                    textAlign = TextAlign.Center
-                )
+//                Text(
+//                    text = titleBar.value,
+//                    style = MaterialTheme.typography.labelMedium,
+//                    textAlign = TextAlign.Center
+//                )
             },
             navigationIcon = {
                 IconButton(onClick = navigateUp) {

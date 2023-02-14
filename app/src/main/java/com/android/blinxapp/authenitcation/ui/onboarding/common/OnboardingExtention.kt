@@ -128,7 +128,7 @@ fun Indicator(isSelected: Boolean) {
 fun GetStartedButton(onNextButtonClicked: () -> Unit) {
     val buttonColors = ButtonDefaults.buttonColors(
         containerColor = primaryGreen,
-        contentColor = contentColorFor(backgroundColor = whiteBlinx)
+        contentColor = contentColorFor(backgroundColor = white)
     )
     Button(
         modifier = Modifier
@@ -150,7 +150,7 @@ fun GetStartedButton(onNextButtonClicked: () -> Unit) {
 fun BackButton() {
     val buttonColors = ButtonDefaults.buttonColors(
         containerColor = primaryGreen,
-        contentColor = contentColorFor(backgroundColor = whiteBlinx)
+        contentColor = contentColorFor(backgroundColor = white)
     )
     Button(
         modifier = Modifier

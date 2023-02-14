@@ -6,10 +6,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 private val DarkColorPalette = darkColorScheme(
-    surface = whiteBlinx,
+    surface = white,
     onSurface = Color.White,
     primary = Color.Black,
-    onPrimary = whiteBlinx,
+    onPrimary = white,
     outline = Color.White,
     onSecondary = Color.White,
 )
@@ -17,9 +17,9 @@ private val DarkColorPalette = darkColorScheme(
 private val LightColorPalette = lightColorScheme(
     surface = Color.Black,
     onSurface = Color.Black,
-    primary = whiteBlinx,
+    primary = white,
     outline = Color.Black,
-    onPrimary = whiteBlinx,
+    onPrimary = white,
     onSecondary = Color.Black,
 
 

@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.android.blinxapp.ui.theme.Typography
 import com.android.blinxapp.ui.theme.primaryGreen
-import com.android.blinxapp.ui.theme.whiteBlinx
+import com.android.blinxapp.ui.theme.white
 
 
 @Composable
@@ -20,7 +20,7 @@ fun ContinueButtonButton(onProceedClicked: () -> Unit, stringResource: String) {
     Spacer(Modifier.size(32.dp))
     val buttonColors = ButtonDefaults.buttonColors(
         containerColor = primaryGreen,
-        contentColor = contentColorFor(backgroundColor = whiteBlinx)
+        contentColor = contentColorFor(backgroundColor = white)
     )
     Column(modifier = Modifier
         .padding(bottom = 40.dp)
