@@ -69,6 +69,8 @@ fun FundWalletScreen(
                 stringResource(R.string.dollar_card),
                 stringResource(R.string.wallet_text)
             )
+            Spacer(Modifier.size(16.dp))
+
         }
 
     }

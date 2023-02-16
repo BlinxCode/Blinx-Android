@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.android.blinxapp.R
 import com.android.blinxapp.common.CommonTitle
-import com.android.blinxapp.common.PrimaryGreenColor
+import com.android.blinxapp.common.ButtonGreenColor
 import com.android.blinxapp.common.systemColorInverse
 import com.android.blinxapp.ui.theme.*
 
@@ -108,7 +108,7 @@ import com.android.blinxapp.ui.theme.*
                 modifier = Modifier.fillMaxWidth()
                     .height(50.dp),
                 onClick = {onGetStartedButtonClicked() },
-                colors = PrimaryGreenColor(),
+                colors = ButtonGreenColor(),
                 shape = RoundedCornerShape(20)
             ) {
                 Text(

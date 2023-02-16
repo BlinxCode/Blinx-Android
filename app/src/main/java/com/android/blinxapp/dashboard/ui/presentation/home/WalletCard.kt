@@ -13,8 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.android.blinxapp.R
-import com.android.blinxapp.common.PrimaryGreenColor
-import com.android.blinxapp.dashboard.ui.presentation.wallet.FundWalletScreen
+import com.android.blinxapp.common.ButtonGreenColor
 import com.android.blinxapp.ui.theme.Typography
 import com.android.blinxapp.ui.theme.containerColorBlack
 import com.android.blinxapp.ui.theme.secondaryGrey
@@ -72,7 +71,7 @@ fun WalletCard(walletClick: () -> Unit) {
                             .width(130.dp)
                             .height(40.dp),
                         onClick = { walletClick()},
-                        colors = PrimaryGreenColor(),
+                        colors = ButtonGreenColor(),
                         shape = RoundedCornerShape(20)
                     ) {
 

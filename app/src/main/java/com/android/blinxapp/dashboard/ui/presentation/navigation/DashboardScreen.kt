@@ -16,6 +16,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.android.blinxapp.dashboard.ui.presentation.bvn.BvnConfirmationScreen
 import com.android.blinxapp.dashboard.ui.presentation.bvn.BvnVerificationScreen
+import com.android.blinxapp.dashboard.ui.presentation.home.FundNairaWallet
 import com.android.blinxapp.dashboard.ui.presentation.home.HomeScreen
 import com.android.blinxapp.dashboard.ui.presentation.wallet.FundWalletScreen
 
@@ -106,16 +107,22 @@ fun DashboardNav(
             topBarTitle.value = "Fund Wallet"
             FundWalletScreen(
                 onNairaClicked ={
-                 //   Success screen
+                    navController.navigate(DashboardNavigationRoute.FUND_WALLET.name)
                 },
                 onDollarClicked ={
                  //   Success screen
                 }
             )
         }
-//        composable(DashboardNavigationRoute.Wallet.name) {
-//            WalletCard()
-//        }
+        composable(DashboardNavigationRoute.FUND_WALLET.name) {
+            isDashboard.value = false
+            canNavigateBack.value = true
+            FundNairaWallet(
+                onProceedClicked ={
+                    //   Success screen
+                }
+            )
+        }
 //        composable(NavigationItem.Movies.route) {
 //            MoviesScreen()
 //        }

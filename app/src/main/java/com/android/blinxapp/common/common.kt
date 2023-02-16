@@ -12,7 +12,7 @@ import androidx.compose.ui.text.style.TextAlign
 import com.android.blinxapp.ui.theme.*
 
 @Composable
-fun PrimaryGreenColor(): ButtonColors {
+fun ButtonGreenColor(): ButtonColors {
     return ButtonDefaults.buttonColors(
         containerColor = primaryGreen,
         contentColor = contentColorFor(backgroundColor = white)
@@ -20,7 +20,7 @@ fun PrimaryGreenColor(): ButtonColors {
 }
 
 @Composable
-fun YellowColor(): ButtonColors {
+fun ButtonYellowColor(): ButtonColors {
     return ButtonDefaults.buttonColors(
         containerColor = yellow,
         contentColor = contentColorFor(backgroundColor = white)

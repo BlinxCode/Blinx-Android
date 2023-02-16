@@ -141,7 +141,6 @@ fun GetStartedButton(onNextButtonClicked: () -> Unit) {
         Icon(
             imageVector = Icons.Filled.ArrowForwardIos,
             contentDescription = stringResource(R.string.getStarted)
-
         )
     }
 }

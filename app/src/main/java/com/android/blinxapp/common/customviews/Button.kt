@@ -16,16 +16,17 @@ import com.android.blinxapp.ui.theme.white
 
 
 @Composable
-fun ContinueButtonButton(onProceedClicked: () -> Unit, stringResource: String) {
-    Spacer(Modifier.size(32.dp))
-    val buttonColors = ButtonDefaults.buttonColors(
-        containerColor = primaryGreen,
-        contentColor = contentColorFor(backgroundColor = white)
-    )
-    Column(modifier = Modifier
+fun ContinueButtonButton(onProceedClicked: () -> Unit, stringResource: String, modifier: Modifier = Modifier) {
+
+    Column(modifier = modifier
         .padding(bottom = 40.dp)
         .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally) {
+        Spacer(Modifier.size(32.dp))
+        val buttonColors = ButtonDefaults.buttonColors(
+            containerColor = primaryGreen,
+            contentColor = contentColorFor(backgroundColor = white)
+        )
         Button(
             modifier = Modifier
                 .fillMaxWidth()

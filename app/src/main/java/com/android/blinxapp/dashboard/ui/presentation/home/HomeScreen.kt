@@ -9,9 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.android.blinxapp.R
 import com.android.blinxapp.common.CommonTitle
+import com.android.blinxapp.dashboard.ui.presentation.wallet.FundWalletScreen
 
 @Composable
 fun HomeScreen(
@@ -86,4 +88,11 @@ fun HomeScreen(
         }
 
     }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun HomeScreenScaffoldPreview() {
+    HomeScreen(walletClick = {}, automationCardClick = {}, bvnCardClick = {}, linkBankCardClick = {})
 }

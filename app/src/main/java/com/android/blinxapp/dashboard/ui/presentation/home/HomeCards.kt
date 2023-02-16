@@ -4,6 +4,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForwardIos
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,11 +19,12 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.android.blinxapp.R
 import com.android.blinxapp.common.CardTitleColors
-import com.android.blinxapp.common.YellowColor
-import com.android.blinxapp.common.cardColors
+import com.android.blinxapp.common.ButtonYellowColor
+import com.android.blinxapp.common.primaryCardColors
 import com.android.blinxapp.ui.theme.Typography
 import com.android.blinxapp.ui.theme.secondaryGrey
 import com.android.blinxapp.ui.theme.white
+import com.android.blinxapp.ui.theme.yellow
 
 @Composable
 fun AutomateCard(onClicked: () -> Unit, painterResource: Painter, title: String, message: String) {
@@ -53,19 +56,19 @@ fun ComposeCard(onClicked: () -> Unit, painterResource: Painter, title: String, 
 
     ) {
         Box(
-            modifier = Modifier.background(cardColors())
+            modifier = Modifier.background(primaryCardColors())
         ) {
             Column(
                 modifier = Modifier
                     .padding(top = 20.dp, bottom = 20.dp, end = 10.dp, start = 20.dp)
-                    .background(cardColors())
+                    .background(primaryCardColors())
             ) {
                 ConstraintLayout(
                     modifier = Modifier
                         .fillMaxWidth()
                         .safeContentPadding()
                         .padding()
-                        .background(cardColors()),
+                        .background(primaryCardColors()),
                 ) {
                     val (image, column, icon) = createRefs()
 
@@ -89,7 +92,7 @@ fun ComposeCard(onClicked: () -> Unit, painterResource: Painter, title: String, 
                                 end.linkTo(icon.start, margin = 5.dp)
                                 width = Dimension.fillToConstraints
                             }
-                            .background(cardColors())
+                            .background(primaryCardColors())
                     ) {
                         Text(
                             text = title,
@@ -106,7 +109,7 @@ fun ComposeCard(onClicked: () -> Unit, painterResource: Painter, title: String, 
                     }
 
                     Icon(
-                        painter = painterResource(R.drawable.ic_arrow_right),
+                        imageVector = Icons.Filled.ArrowForwardIos,
                         modifier = Modifier
                             .size(30.dp)
                             .constrainAs(icon) {
@@ -143,19 +146,19 @@ fun CardComingSoon(
 
     ) {
         Box(
-            modifier = Modifier.background(cardColors())
+            modifier = Modifier.background(primaryCardColors())
         ) {
             Column(
                 modifier = Modifier
                     .padding(top = 20.dp, bottom = 20.dp, end = 10.dp, start = 20.dp)
-                    .background(cardColors())
+                    .background(primaryCardColors())
             ) {
                 ConstraintLayout(
                     modifier = Modifier
                         .fillMaxWidth()
                         .safeContentPadding()
                         .padding()
-                        .background(cardColors()),
+                        .background(primaryCardColors()),
                 ) {
                     val (icon, column, button) = createRefs()
 
@@ -179,7 +182,7 @@ fun CardComingSoon(
                                 end.linkTo(button.start, margin = 5.dp)
                                 width = Dimension.fillToConstraints
                             }
-                            .background(cardColors())
+                            .background(primaryCardColors())
                     ) {
                         Text(
                             text = title,
@@ -196,26 +199,29 @@ fun CardComingSoon(
                             textAlign = TextAlign.Start
                         )
                     }
-                    Button(
-                        contentPadding = PaddingValues(0.dp),
-                        modifier = Modifier
+
+                    Card(
+                        shape = RoundedCornerShape(10.dp),
+                        modifier = Modifier.padding(top =10.dp)
                             .constrainAs(button) {
                                 end.linkTo(parent.end)
                                 start.linkTo(column.end)
                             },
-                        onClick = { },
-                        colors = YellowColor(),
-                        shape = RoundedCornerShape(20)
-                    ) {
 
-                        Text(
-                            style = Typography.labelSmall,
-                            text = stringResource(R.string.coming_soon),
-                            color = white,
-                            modifier = Modifier
-                                .padding(start = 10.dp, end = 10.dp)
-                        )
+                    ){
+                        Box(
+                            modifier = Modifier.background(yellow)
+                        ){
+                            Text(
+                                style = Typography.labelSmall,
+                                text = stringResource(R.string.coming_soon),
+                                color = white,
+                                modifier = Modifier
+                                    .padding(start = 10.dp, end = 10.dp, top=5.dp, bottom = 5.dp)
+                            )
+                        }
                     }
+
                 }
             }
         }
@@ -227,7 +233,7 @@ fun CardComingSoon(
 @Preview(showBackground = true)
 @Composable
 fun CardComingSoonPreview() {
-    ComposeCard(
+    CardComingSoon(
         onClicked = {},
         painterResource(R.drawable.naira),
         stringResource(R.string.no_automation),

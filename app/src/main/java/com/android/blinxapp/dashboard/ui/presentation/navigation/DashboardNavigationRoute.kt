@@ -7,5 +7,6 @@ enum class DashboardNavigationRoute {
     KYC,
     LINK_BANK,
     WALLET,
+    FUND_WALLET,
     SET_AUTOMATION,
 }

@@ -32,5 +32,7 @@
     <string name="wallet_text">Wallet to receive funds in Dollars</string>
     <string name="naira_wallet">Naira wallet</string>
     <string name="naira_wallet_txt">Wallet to receive funds in Naira</string>
+    <string name="smart_deposit_text">Enable smart deposits to ensure you always have funds to automate your bills</string>
+    <string name="select_payment_method">Select a payment method</string>
 
 </resources>
