@@ -111,7 +111,7 @@ fun ComposeCard(onClicked: () -> Unit, painterResource: Painter, title: String, 
                     Icon(
                         imageVector = Icons.Filled.ArrowForwardIos,
                         modifier = Modifier
-                            .size(30.dp)
+                            .size(15.dp)
                             .constrainAs(icon) {
                                 end.linkTo(parent.end)
                                 start.linkTo(column.end,  margin = 5.dp)

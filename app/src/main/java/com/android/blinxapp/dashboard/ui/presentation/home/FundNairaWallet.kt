@@ -11,7 +11,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -129,8 +128,11 @@ fun FundNairaWallet(onProceedClicked: () -> Unit) {
                             switchOn = switchOn_
                         },
                         colors = SwitchDefaults.colors(
-                            checkedThumbColor = if(switchOn) electricBlue else grey,
-                            checkedTrackColor = if(switchOn) primaryGreen else secondaryGrey
+                            checkedThumbColor = white,
+                            checkedTrackColor = primaryGreen ,
+                            uncheckedTrackColor = grey,
+                            uncheckedThumbColor = white,
+                            uncheckedBorderColor = grey,
                         )
                     )
                 }
@@ -176,10 +178,11 @@ fun FundNairaWallet(onProceedClicked: () -> Unit) {
                             Icon(
                                 imageVector = Icons.Filled.ExpandMore,
                                 modifier = Modifier
+                                    .padding(top = 5.dp)
                                     .constrainAs(arrow) {
                                         end.linkTo(parent.end)
                                     }
-                                    .size(30.dp),
+                                    .size(25.dp),
                                 contentDescription = "drawable icons",
                             )
                         }
