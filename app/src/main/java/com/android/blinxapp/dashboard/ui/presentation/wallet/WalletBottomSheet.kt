@@ -76,6 +76,7 @@ fun WalletBottomSheet(
         )
     }
 
+    // LaunchedEffect to handle  state cleanup
     LaunchedEffect(hideBottomSheet.value){
         if (hideBottomSheet.value){
             scope.launch {

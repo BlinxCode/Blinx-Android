@@ -194,6 +194,7 @@ fun FundNairaWallet(onProceedClicked: () ->Unit) {
                 }
             }
 
+            //Continue button to show cards
             ContinueButtonButton(onProceedClicked ={ buttonClicked.value = true },
                 stringResource(R.string.continue_txt),
                 modifier = Modifier
@@ -203,6 +204,7 @@ fun FundNairaWallet(onProceedClicked: () ->Unit) {
         }
     }
 
+    // LaunchedEffect to handle  state cleanup
     LaunchedEffect(buttonClicked.value) {
         if (buttonClicked.value) {
             scope.launch { openBottomSheet= true}
