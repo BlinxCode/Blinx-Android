@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 @Composable
 
 fun WalletBottomSheet(
-    openBottomSheet: Boolean,
+    openBottomSheet: MutableState<Boolean>,
     scope: CoroutineScope,
     bottomSheetState: SheetState,
     hideBottomSheet: MutableState<Boolean>,
@@ -31,11 +31,13 @@ fun WalletBottomSheet(
         scope.launch { bottomSheetState.hide() }
     }
 
-    var openBottomSheet1 = openBottomSheet
+    var openBottomSheet1 = openBottomSheet.value
     if (openBottomSheet1) {
         ModalBottomSheet(
             containerColor = modalsheetColor(),
-          onDismissRequest = { openBottomSheet1 = false },
+          onDismissRequest = {
+              openBottomSheet1 = false
+              hideBottomSheet.value = true },
             sheetState = bottomSheetState,
 
             content ={
@@ -85,12 +87,12 @@ fun WalletBottomSheet(
                 }.invokeOnCompletion {
                     if (!bottomSheetState.isVisible) {
                         openBottomSheet1 = false
+                        openBottomSheet.value = false
                         hideBottomSheet.value = false
                     }
                 }
             }
         }
     }
-
 
 }

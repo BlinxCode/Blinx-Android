@@ -31,7 +31,7 @@ import androidx.compose.ui.Modifier
 @Composable
 fun FundNairaWallet(onProceedClicked: () ->Unit) {
     val scrollState = rememberScrollState()
-    var openBottomSheet by rememberSaveable { mutableStateOf(false) }
+    var openBottomSheet = rememberSaveable { mutableStateOf(false) }
     val skipHalfExpanded by remember { mutableStateOf(false) }
     val bottomSheetState = rememberSheetState(skipHalfExpanded = skipHalfExpanded)
     val hideBottomSheet = remember { mutableStateOf(false) }
@@ -207,13 +207,14 @@ fun FundNairaWallet(onProceedClicked: () ->Unit) {
     // LaunchedEffect to handle  state cleanup
     LaunchedEffect(buttonClicked.value) {
         if (buttonClicked.value) {
-            scope.launch { openBottomSheet= true}
+            scope.launch {
+                openBottomSheet.value= true}
             buttonClicked.value = false
         }
     }
 
     // BottomSheet for adding card or bank transfer.
-    WalletBottomSheet(openBottomSheet,  scope, bottomSheetState, hideBottomSheet = hideBottomSheet)
+    WalletBottomSheet(openBottomSheet = openBottomSheet,  scope, bottomSheetState, hideBottomSheet = hideBottomSheet)
     }
 
 
