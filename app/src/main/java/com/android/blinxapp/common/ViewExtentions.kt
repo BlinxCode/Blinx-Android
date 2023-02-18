@@ -40,7 +40,7 @@ fun primaryCardColors(): Color {
 }
 
 @Composable
-fun CardTitleColors(): Color {
+fun cardTitleColors(): Color {
     return  Color.White.takeIf { isSystemInDarkTheme() }?: electricBlue
 }
 
@@ -75,4 +75,11 @@ fun BlinxStatusBarColor(window: Window, context: Context) {
             true
         window.statusBarColor = ContextCompat.getColor(context, R.color.white)
     }
+}
+
+//Modalshet custom color settings
+@Composable
+fun modalsheetColor():Color {
+    return  primaryGreen.takeIf { isSystemInDarkTheme() }?: containerColorWhite
+
 }

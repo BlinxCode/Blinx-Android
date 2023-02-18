@@ -1,16 +1,14 @@
-package com.android.blinxapp.dashboard.ui.presentation.home
+package com.android.blinxapp.dashboard.ui.presentation.wallet
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,10 +20,24 @@ import com.android.blinxapp.common.CommonTitle
 import com.android.blinxapp.common.customviews.ContinueButtonButton
 import com.android.blinxapp.common.customviews.PhoneInputField
 import com.android.blinxapp.ui.theme.*
+import kotlinx.coroutines.launch
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FundNairaWallet(onProceedClicked: () -> Unit) {
+fun FundNairaWallet(onProceedClicked: () ->Unit) {
     val scrollState = rememberScrollState()
+    var openBottomSheet by rememberSaveable { mutableStateOf(false) }
+    val skipHalfExpanded by remember { mutableStateOf(false) }
+    val bottomSheetState = rememberSheetState(skipHalfExpanded = skipHalfExpanded)
+    val hideBottomSheet = remember { mutableStateOf(false) }
+    val buttonClicked = remember { mutableStateOf(false) }
+
+    val scope = rememberCoroutineScope()
 
     var switchOn by remember { mutableStateOf(false) }
 
@@ -40,13 +52,6 @@ fun FundNairaWallet(onProceedClicked: () -> Unit) {
                 .padding(start = 10.dp, end = 10.dp)){
             val (content, button) = createRefs()
 
-
-            ContinueButtonButton(onProceedClicked,
-                stringResource(R.string.continue_txt),
-                modifier = Modifier
-                    .constrainAs(button){
-                    bottom.linkTo(parent.bottom)
-                })
 
             Column(
                 modifier = Modifier
@@ -168,7 +173,6 @@ fun FundNairaWallet(onProceedClicked: () -> Unit) {
                             Text(
                                 style = Typography.labelSmall,
                                 text = stringResource(R.string.select_payment_method),
-                                color = secondaryGrey,
                                 modifier = Modifier
                                     .padding(top = 5.dp)
                                     .constrainAs(text) {
@@ -186,15 +190,28 @@ fun FundNairaWallet(onProceedClicked: () -> Unit) {
                                 contentDescription = "drawable icons",
                             )
                         }
-
-
                     }
                 }
             }
-        }
 
+            ContinueButtonButton(onProceedClicked ={ buttonClicked.value = true },
+                stringResource(R.string.continue_txt),
+                modifier = Modifier
+                    .constrainAs(button){
+                        bottom.linkTo(parent.bottom)
+                    })
+        }
     }
 
+    LaunchedEffect(buttonClicked.value) {
+        if (buttonClicked.value) {
+            scope.launch { openBottomSheet= true}
+            buttonClicked.value = false
+        }
+    }
+
+    // BottomSheet for adding card or bank transfer.
+    WalletBottomSheet(openBottomSheet,  scope, bottomSheetState, hideBottomSheet = hideBottomSheet)
     }
 
 

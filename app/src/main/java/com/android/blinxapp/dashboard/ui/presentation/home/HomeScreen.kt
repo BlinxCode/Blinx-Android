@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -13,7 +13,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.android.blinxapp.R
 import com.android.blinxapp.common.CommonTitle
-import com.android.blinxapp.dashboard.ui.presentation.wallet.FundWalletScreen
 
 @Composable
 fun HomeScreen(
@@ -24,7 +23,6 @@ fun HomeScreen(
 ) {
 
     val scrollState = rememberScrollState()
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -47,7 +45,7 @@ fun HomeScreen(
             /**
              * Create Automation service
              */
-            AutomateCard(
+            ComposeCard(
                 automationCardClick,
                 painterResource(R.drawable.automate_icon),
                 stringResource(R.string.no_automation),
@@ -56,7 +54,7 @@ fun HomeScreen(
             /**
              * Add Your BVN
              */
-            BvnCard(
+            ComposeCard(
                 bvnCardClick,
                 painterResource(R.drawable.question_mark_icon),
                 stringResource(R.string.add_bvn),
@@ -65,7 +63,7 @@ fun HomeScreen(
             /**
              * Link Bank Account
              */
-            LinkBankCard(
+            ComposeCard(
                 linkBankCardClick,
                 painterResource(R.drawable.bank),
                 stringResource(R.string.link_bank),
@@ -83,8 +81,8 @@ fun HomeScreen(
             /**
              * Spacer
              */
-
             Spacer(modifier = Modifier.size( 40.dp))
+
         }
 
     }

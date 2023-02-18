@@ -34,5 +34,9 @@
     <string name="naira_wallet_txt">Wallet to receive funds in Naira</string>
     <string name="smart_deposit_text">Enable smart deposits to ensure you always have funds to automate your bills</string>
     <string name="select_payment_method">Select a payment method</string>
+    <string name="debit_card">Debit card</string>
+    <string name="debit_card_msg">A debit card allows for smart deposits</string>
+    <string name="bank_transfer">Bank transfer</string>
+    <string name="bank_transfer_msg">Smart deposits are more expensive</string>
 
 </resources>

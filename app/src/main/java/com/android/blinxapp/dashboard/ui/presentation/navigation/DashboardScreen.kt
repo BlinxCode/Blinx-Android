@@ -16,7 +16,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.android.blinxapp.dashboard.ui.presentation.bvn.BvnConfirmationScreen
 import com.android.blinxapp.dashboard.ui.presentation.bvn.BvnVerificationScreen
-import com.android.blinxapp.dashboard.ui.presentation.home.FundNairaWallet
+import com.android.blinxapp.dashboard.ui.presentation.wallet.FundNairaWallet
 import com.android.blinxapp.dashboard.ui.presentation.home.HomeScreen
 import com.android.blinxapp.dashboard.ui.presentation.wallet.FundWalletScreen
 

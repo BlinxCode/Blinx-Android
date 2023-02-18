@@ -18,28 +18,12 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.android.blinxapp.R
-import com.android.blinxapp.common.CardTitleColors
-import com.android.blinxapp.common.ButtonYellowColor
+import com.android.blinxapp.common.cardTitleColors
 import com.android.blinxapp.common.primaryCardColors
 import com.android.blinxapp.ui.theme.Typography
 import com.android.blinxapp.ui.theme.secondaryGrey
 import com.android.blinxapp.ui.theme.white
 import com.android.blinxapp.ui.theme.yellow
-
-@Composable
-fun AutomateCard(onClicked: () -> Unit, painterResource: Painter, title: String, message: String) {
-    ComposeCard(onClicked, painterResource, title, message)
-}
-
-@Composable
-fun BvnCard(onClicked: () -> Unit, painterResource: Painter, title: String, message: String) {
-    ComposeCard(onClicked, painterResource, title, message)
-}
-
-@Composable
-fun LinkBankCard(onClicked: () -> Unit, painterResource: Painter, title: String, message: String) {
-    ComposeCard(onClicked, painterResource, title, message)
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -96,7 +80,7 @@ fun ComposeCard(onClicked: () -> Unit, painterResource: Painter, title: String, 
                     ) {
                         Text(
                             text = title,
-                            color = CardTitleColors(),
+                            color = cardTitleColors(),
                             style = Typography.titleSmall,
                             textAlign = TextAlign.Start
                         )
@@ -187,7 +171,7 @@ fun CardComingSoon(
                         Text(
                             text = title,
                             modifier = Modifier,
-                            color = CardTitleColors(),
+                            color = cardTitleColors(),
                             style = Typography.titleSmall,
                             textAlign = TextAlign.Start
                         )
