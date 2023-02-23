@@ -53,7 +53,7 @@ fun WalletBottomSheet(
                     )
 
                     /**
-                     * Link Bank Account
+                     * Fund wallet with debit card
                      */
                     ComposeCard(
                         onClicked = {
@@ -63,7 +63,9 @@ fun WalletBottomSheet(
                         stringResource(R.string.debit_card),
                         stringResource(R.string.debit_card_msg)
                     )
-
+                    /**
+                     * Link bank account
+                     */
                     ComposeCard(
                         onClicked = {
                             hideBottomSheet.value = true
@@ -72,7 +74,7 @@ fun WalletBottomSheet(
                         stringResource(R.string.bank_transfer),
                         stringResource(R.string.bank_transfer_msg)
                     )
-
+                    Spacer(Modifier.size(16.dp))
                 }
             }
         )

@@ -145,11 +145,12 @@ fun FundNairaWallet(onProceedClicked: () ->Unit) {
                  * End of Email Field
                  */
                 /**
-                 * End of Email Field
+                 * Select Payment method
                  */
 
                 Spacer(Modifier.size(16.dp))
                 Card(
+                    onClick  ={ buttonClicked.value = true },
                     shape = RoundedCornerShape(10.dp),
                     modifier = Modifier
                         .fillMaxWidth()
@@ -195,7 +196,7 @@ fun FundNairaWallet(onProceedClicked: () ->Unit) {
             }
 
             //Continue button to show cards
-            ContinueButtonButton(onProceedClicked ={ buttonClicked.value = true },
+            ContinueButtonButton(onProceedClicked ={ },
                 stringResource(R.string.continue_txt),
                 modifier = Modifier
                     .constrainAs(button){
