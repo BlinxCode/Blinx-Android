@@ -15,8 +15,6 @@ Uapp/src/main/java/com/android/blinxapp/authenitcation/ui/viewmodel/SignUpViewMo
 Sapp/src/main/java/com/android/blinxapp/dashboard/ui/viewmodel/DashboardViewModel.kt,0/9/091f5ffbc36cb9a46262df032e62c992af612cae
 P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
-v
-Fapp/src/main/java/com/android/blinxapp/application/BlinxApplication.kt,c/a/ca6f0ebce3b88d2a257757dacfdbebebf3ac5ddc
 Å
 Qapp/src/main/java/com/android/blinxapp/dashboard/ui/presentation/common/Charts.kt,b/6/b68b8d0d08168ee712aadf9671beea343bef7ef7
 é
