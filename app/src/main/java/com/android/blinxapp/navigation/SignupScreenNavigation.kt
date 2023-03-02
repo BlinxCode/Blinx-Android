@@ -24,7 +24,6 @@ import com.android.blinxapp.authenitcation.ui.viewmodel.SignUpViewModel
 import com.android.blinxapp.common.toolbar.OnBoardingTopbar
 import com.android.blinxapp.dashboard.ui.presentation.navigation.DashboardNavigation
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignupNavigation(context: Context, viewModel: SignUpViewModel = viewModel()){
 

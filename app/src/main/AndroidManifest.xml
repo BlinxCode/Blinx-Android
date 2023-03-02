@@ -15,6 +15,7 @@
         android:name=".application.BlinxApplication"
         tools:targetApi="31">
         <activity
+            android:windowSoftInputMode="adjustResize"
             android:name=".navigation.MainActivity"
             android:exported="true">
             <meta-data

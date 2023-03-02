@@ -15,13 +15,13 @@ import com.android.blinxapp.ui.theme.Typography
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PhoneInputField() {
+fun PhoneInputField(modifier: Modifier = Modifier) {
     var text by remember { mutableStateOf("") }
 
     OutlinedTextField(
         singleLine = true,
         shape = RoundedCornerShape(12.dp),
-        modifier = Modifier.fillMaxWidth().height(50.dp),
+        modifier = modifier.fillMaxWidth().height(50.dp),
         colors = outlineColors(),
         value = text,
         textStyle = Typography.bodyMedium,

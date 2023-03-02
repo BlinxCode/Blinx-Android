@@ -57,8 +57,7 @@ fun PinSetupScreen(onProceedClicked: () -> Unit, context: Context) {
                         Toast.makeText(context, "Pin setup successfully", Toast.LENGTH_SHORT).show()
                         onProceedClicked()
                     }
-
-                }else{
+                    }else{
                     count.value =1
                     anyMutableList.clear()
                     pin.value = ""

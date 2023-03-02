@@ -20,11 +20,12 @@ fun HomeScreen(
     automationCardClick: () -> Unit,
     bvnCardClick: () -> Unit,
     linkBankCardClick: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
 
     val scrollState = rememberScrollState()
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .verticalScroll(scrollState)
             .background(MaterialTheme.colorScheme.primary)
@@ -92,5 +93,11 @@ fun HomeScreen(
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenScaffoldPreview() {
-    HomeScreen(walletClick = {}, automationCardClick = {}, bvnCardClick = {}, linkBankCardClick = {})
+    HomeScreen(walletClick = {},
+        automationCardClick = {},
+        bvnCardClick = {},
+        linkBankCardClick = {},
+        modifier = Modifier
+            .padding( start = 16.dp, end = 16.dp)
+    )
 }

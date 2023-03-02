@@ -21,12 +21,13 @@ import com.android.blinxapp.ui.theme.Typography
 @Composable
 fun BvnConfirmationScreen(
     onProceedClicked: () -> Unit,
+    modifier: Modifier,
 
     ){
     val scrollState = rememberScrollState()
 
     Column(
-        modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.primary)) {
+        modifier = modifier.fillMaxSize().background(MaterialTheme.colorScheme.primary)) {
 
         Column(
             modifier = Modifier
@@ -86,5 +87,5 @@ fun BvnConfirmationScreen(
 @Preview(showBackground = true)
 @Composable
 fun BvnConfirmationScaffoldPreview(){
-    BvnConfirmationScreen(onProceedClicked = {})
+    BvnConfirmationScreen(onProceedClicked = {}, modifier = Modifier)
 }

@@ -23,13 +23,14 @@ import com.android.blinxapp.ui.theme.Typography
 @Composable
 fun FundWalletScreen(
     onNairaClicked: () -> Unit,
-    onDollarClicked: () -> Unit
+    onDollarClicked: () -> Unit,
+    modifier: Modifier
 
 ) {
     val scrollState = rememberScrollState()
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.primary)
     ) {
@@ -80,5 +81,5 @@ fun FundWalletScreen(
 @Preview(showBackground = true)
 @Composable
 fun BvnConfirmationScaffoldPreview() {
-    FundWalletScreen(onNairaClicked = {}, onDollarClicked = {})
+    FundWalletScreen(onNairaClicked = {}, onDollarClicked = {}, modifier = Modifier)
 }

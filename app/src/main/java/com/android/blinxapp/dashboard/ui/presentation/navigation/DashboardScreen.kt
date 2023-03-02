@@ -20,7 +20,6 @@ import com.android.blinxapp.dashboard.ui.presentation.wallet.FundNairaWallet
 import com.android.blinxapp.dashboard.ui.presentation.home.HomeScreen
 import com.android.blinxapp.dashboard.ui.presentation.wallet.FundWalletScreen
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DashboardNavigation() {
 
@@ -29,27 +28,27 @@ fun DashboardNavigation() {
 
     val canNavigateBack = remember { mutableStateOf(false) }
     val isDashboard = remember { mutableStateOf(false) }
+    val isFundWallet = remember { mutableStateOf(false) }
     val topBarTitle = remember { mutableStateOf("") }
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route
-
     Scaffold(
         topBar = { DashboardTopBar(canNavigateBack,topBarTitle, navigateUp = {}, isDashboard) },
         bottomBar = {
             DashboardBottomNav(isDashboard, currentRoute, navController)
         }
-    ) { innerPadding ->
+
+    ) {
+            innerPadding ->
 
         Box(modifier = Modifier
             .padding(innerPadding)
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.primary)
-            .padding( start = 16.dp, end = 16.dp)) {
+            .background(MaterialTheme.colorScheme.primary)) {
             DashboardNav(navController = navController,canNavigateBack = canNavigateBack,
                 isDashboard = isDashboard, topBarTitle = topBarTitle)
         }
     }
-
 }
 
 @Composable
@@ -60,6 +59,10 @@ fun DashboardNav(
     topBarTitle: MutableState<String>
 ) {
     NavHost(navController, startDestination = DashboardNavigationRoute.HOME.name) {
+
+        val modifier: Modifier = Modifier
+            .padding( start = 16.dp, end = 16.dp)
+
         composable(DashboardNavigationRoute.HOME.name) {
             isDashboard.value = true
             canNavigateBack.value = false
@@ -76,7 +79,8 @@ fun DashboardNav(
                 },
                 linkBankCardClick ={
                   //  navController.navigate(DashboardNavigationRoute.LINK_BANK.name)
-                }
+                },
+                modifier
             )
         }
         composable(route = DashboardNavigationRoute.BVN.name) {
@@ -97,7 +101,8 @@ fun DashboardNav(
             BvnConfirmationScreen(
                 onProceedClicked ={
                  //   Success screen
-                }
+                },
+                modifier
             )
         }
 
@@ -111,16 +116,19 @@ fun DashboardNav(
                 },
                 onDollarClicked ={
                  //   Success screen
-                }
+                },
+                modifier
             )
         }
         composable(DashboardNavigationRoute.FUND_WALLET.name) {
             isDashboard.value = false
             canNavigateBack.value = true
+
             FundNairaWallet(
                 onProceedClicked ={
                     //   Success screen
-                }
+                },
+                modifier
             )
         }
 //        composable(NavigationItem.Movies.route) {

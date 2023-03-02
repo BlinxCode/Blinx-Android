@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 
-fun WalletBottomSheet(
+fun SelectFundingType(
     openBottomSheet: MutableState<Boolean>,
     scope: CoroutineScope,
     bottomSheetState: SheetState,
@@ -35,9 +35,9 @@ fun WalletBottomSheet(
     if (openBottomSheet1) {
         ModalBottomSheet(
             containerColor = modalsheetColor(),
-          onDismissRequest = {
-              openBottomSheet1 = false
-              hideBottomSheet.value = true },
+            onDismissRequest = {
+                openBottomSheet1 = false
+                hideBottomSheet.value = true },
             sheetState = bottomSheetState,
 
             content ={
@@ -74,7 +74,6 @@ fun WalletBottomSheet(
                         stringResource(R.string.bank_transfer),
                         stringResource(R.string.bank_transfer_msg)
                     )
-                    Spacer(Modifier.size(16.dp))
                 }
             }
         )
@@ -83,7 +82,6 @@ fun WalletBottomSheet(
     // LaunchedEffect to handle  state cleanup
     LaunchedEffect(hideBottomSheet.value){
         if (hideBottomSheet.value){
-            scope.launch {
                 scope.launch {
                     bottomSheetState.hide()
                 }.invokeOnCompletion {
@@ -93,7 +91,6 @@ fun WalletBottomSheet(
                         hideBottomSheet.value = false
                     }
                 }
-            }
         }
     }
 
