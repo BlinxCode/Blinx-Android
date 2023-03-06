@@ -27,8 +27,7 @@ fun PhoneNumberScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.primary)
-            .padding(end = 20.dp, start = 20.dp)) {
+            .background(MaterialTheme.colorScheme.primary)) {
 
         Column(
             modifier = Modifier

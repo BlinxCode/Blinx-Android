@@ -26,8 +26,9 @@ fun HomeScreen(
     val scrollState = rememberScrollState()
     Column(
         modifier = modifier
-            .fillMaxSize()
-            .verticalScroll(scrollState)
+            .fillMaxSize().background(MaterialTheme.colorScheme.primary)
+
+    .verticalScroll(scrollState)
             .background(MaterialTheme.colorScheme.primary)
     ) {
 

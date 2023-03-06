@@ -18,6 +18,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //Change color status bar.
+        //WindowCompat.setDecorFitsSystemWindows(window, false)
+
         setContent {
             BlinxAppTheme {
                 BlinxStatusBarColor(window, this)

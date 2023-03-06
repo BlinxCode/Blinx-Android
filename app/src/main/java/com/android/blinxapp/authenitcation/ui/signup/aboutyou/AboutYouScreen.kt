@@ -26,8 +26,7 @@ fun AboutYouScreen(
     val scrollState = rememberScrollState()
 
     Column(
-        modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.primary)
-            .padding(end = 20.dp, start = 20.dp)) {
+        modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.primary)) {
 
         Column(
             modifier = Modifier
@@ -61,7 +60,8 @@ fun AboutYouScreen(
             AboutYouForm()
             //Getting started button
             ContinueButtonButton(onProceedClicked,
-                stringResource(R.string.continue_txt))
+                stringResource(R.string.continue_txt),
+                modifier = Modifier.padding(bottom = 40.dp))
 
         }
     }

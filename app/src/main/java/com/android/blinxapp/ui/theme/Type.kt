@@ -29,9 +29,16 @@ val Typography = Typography(
         fontWeight = FontWeight.Bold,
         fontSize = 22.sp,
     ),
+
     labelSmall = TextStyle(
         fontFamily = jakartaFont,
         fontWeight = FontWeight.Light,
+        fontSize = 14.sp,
+    ),
+
+    labelLarge = TextStyle(
+        fontFamily = jakartaFont,
+        fontWeight = FontWeight.SemiBold,
         fontSize = 12.sp,
     ),
     titleSmall = TextStyle(

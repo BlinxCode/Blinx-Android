@@ -1,6 +1,9 @@
 package com.android.blinxapp.dashboard.ui.presentation.navigation
 
-import androidx.compose.material3.*
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -15,7 +18,7 @@ fun DashboardBottomNav(
     navController: NavHostController
 ) {
 
-    if (!isDashboard.value){
+    if (!isDashboard.value) {
         return
     }
     NavigationBar(
@@ -41,7 +44,7 @@ fun DashboardBottomNav(
                         // Restore state when reselecting a previously selected item
                         restoreState = true
                     }
-                    },
+                },
                 icon = {
                     BottomIcons(item)
                 }

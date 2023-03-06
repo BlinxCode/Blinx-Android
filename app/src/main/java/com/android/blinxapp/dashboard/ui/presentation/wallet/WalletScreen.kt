@@ -24,7 +24,7 @@ import com.android.blinxapp.ui.theme.Typography
 fun FundWalletScreen(
     onNairaClicked: () -> Unit,
     onDollarClicked: () -> Unit,
-    modifier: Modifier
+    modifier: Modifier = Modifier,
 
 ) {
     val scrollState = rememberScrollState()

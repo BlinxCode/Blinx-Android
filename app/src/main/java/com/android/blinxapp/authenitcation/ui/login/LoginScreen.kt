@@ -37,8 +37,7 @@ fun LoginScreen(
     val scrollState = rememberScrollState()
 
     Column(
-        modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.primary)
-            .padding(end = 20.dp, start = 20.dp)) {
+        modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.primary)) {
 
         Column(
             modifier = Modifier

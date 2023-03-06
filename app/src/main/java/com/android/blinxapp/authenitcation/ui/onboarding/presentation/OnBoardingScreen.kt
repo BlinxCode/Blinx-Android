@@ -27,7 +27,7 @@ import com.google.accompanist.pager.PagerState
         onNextButtonClicked: () -> Unit
     ){
 
-        Box(){
+        Box {
 
             //Create a list of items to display in pager.
             val items = ArrayList<OnBoardingData>()

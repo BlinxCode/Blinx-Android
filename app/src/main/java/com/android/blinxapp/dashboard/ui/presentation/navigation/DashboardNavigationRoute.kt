@@ -8,5 +8,7 @@ enum class DashboardNavigationRoute {
     LINK_BANK,
     WALLET,
     FUND_WALLET,
+    ADD_DEBIT_CARD,
+    BANK_TRANSFER,
     SET_AUTOMATION,
 }

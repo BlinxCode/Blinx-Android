@@ -5,13 +5,13 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.ModalBottomSheetState
-import androidx.compose.material.ModalBottomSheetValue
+import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,58 +22,38 @@ import com.android.blinxapp.R
 import com.android.blinxapp.common.CommonTitle
 import com.android.blinxapp.common.customviews.ContinueButtonButton
 import com.android.blinxapp.common.customviews.PhoneInputField
+import com.android.blinxapp.dashboard.ui.presentation.home.CustomCardWithText
 import com.android.blinxapp.ui.theme.*
 import kotlinx.coroutines.launch
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.rememberModalBottomSheetState
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 
-
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FundNairaWallet(onProceedClicked: () -> Unit, modifier: Modifier) {
+fun FundNairaWallet(
+    onProceedClicked: () -> Unit, onDebitCardClicked: () -> Unit,
+    onBankTransferClicked: () -> Unit, modifier: Modifier = Modifier,
+) {
     val scrollState = rememberScrollState()
     val openFundingTypeBottomSheet = rememberSaveable { mutableStateOf(false) }
     val hideBottomSheet = remember { mutableStateOf(false) }
     val buttonClicked = remember { mutableStateOf(false) }
     val bottomSheetState = rememberSheetState(false)
-    val modalBottomSheetState: ModalBottomSheetState = rememberModalBottomSheetState(
-        initialValue = ModalBottomSheetValue.Hidden,
-    )
 
     val scope = rememberCoroutineScope()
 
     var switchOn by remember { mutableStateOf(false) }
 
-
-
-    val openDebitCard = {
-        scope.launch {
-            if (!modalBottomSheetState.isAnimationRunning) {
-                if (modalBottomSheetState.isVisible) {
-                    modalBottomSheetState.hide()
-                } else {
-                    modalBottomSheetState.show()
-                }
-            }
-        }
-    }
-
-
-
     Box(
         modifier = modifier
             .background(MaterialTheme.colorScheme.primary)
             .fillMaxSize()
-    ){
+    ) {
 
         ConstraintLayout(
             modifier = Modifier
                 .fillMaxSize()
                 .safeContentPadding()
-                .padding(start = 10.dp, end = 10.dp)){
+        ) {
             val (content, button) = createRefs()
 
 
@@ -132,7 +112,7 @@ fun FundNairaWallet(onProceedClicked: () -> Unit, modifier: Modifier) {
                                 end.linkTo(switch.start, margin = 62.dp)
                                 width = Dimension.fillToConstraints
                             }
-                    ){
+                    ) {
                         Text(
                             text = "Smart deposits",
                             style = Typography.titleSmall,
@@ -148,7 +128,7 @@ fun FundNairaWallet(onProceedClicked: () -> Unit, modifier: Modifier) {
                     }
 
                     Switch(
-                        modifier = Modifier.constrainAs(switch){
+                        modifier = Modifier.constrainAs(switch) {
                             start.linkTo(column.end)
                             end.linkTo(parent.end)
                         },
@@ -158,7 +138,7 @@ fun FundNairaWallet(onProceedClicked: () -> Unit, modifier: Modifier) {
                         },
                         colors = SwitchDefaults.colors(
                             checkedThumbColor = white,
-                            checkedTrackColor = primaryGreen ,
+                            checkedTrackColor = primaryGreen,
                             uncheckedTrackColor = grey,
                             uncheckedThumbColor = white,
                             uncheckedBorderColor = grey,
@@ -174,84 +154,46 @@ fun FundNairaWallet(onProceedClicked: () -> Unit, modifier: Modifier) {
 
                 Spacer(Modifier.size(16.dp))
 
-                Card(
-                    onClick  ={
-                        openDebitCard()
-                    },
-                    shape = RoundedCornerShape(10.dp),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(50.dp)
-                ){
-                    Box(
-                        contentAlignment = Alignment.CenterStart,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(containerColorWhite)
-                    ){
-
-                        ConstraintLayout(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .safeContentPadding()
-                                .padding(start = 10.dp, end = 10.dp)
-                        ) {
-                            val (text, arrow) = createRefs()
-
-                            Text(
-                                style = Typography.labelSmall,
-                                text = stringResource(R.string.select_payment_method),
-                                modifier = Modifier
-                                    .padding(top = 5.dp)
-                                    .constrainAs(text) {
-                                        start.linkTo(parent.start)
-                                    }
-                            )
-                            Icon(
-                                imageVector = Icons.Filled.ExpandMore,
-                                modifier = Modifier
-                                    .padding(top = 5.dp)
-                                    .constrainAs(arrow) {
-                                        end.linkTo(parent.end)
-                                    }
-                                    .size(25.dp),
-                                contentDescription = "drawable icons",
-                            )
-                        }
-                    }
-                }
+                CustomCardWithText(buttonClicked,
+                    stringResource(R.string.select_payment_method),
+                    true)
             }
 
             //Continue button to show cards
-            ContinueButtonButton(onProceedClicked ={ },
+            ContinueButtonButton(onProceedClicked = {},
                 stringResource(R.string.continue_txt),
                 modifier = Modifier
-                    .constrainAs(button){
+                    .padding(bottom = 30.dp)
+                    .constrainAs(button) {
                         bottom.linkTo(parent.bottom)
                     })
         }
     }
 
+
+// DebitCardInfoView(openBottomSheet = openDebitCardBottomSheet,  scope, modalBottomSheetState, hideBottomSheet = hideBottomSheet)
+    SelectFundingType(
+        openBottomSheet = openFundingTypeBottomSheet,
+        scope,
+        bottomSheetState,
+        hideBottomSheet = hideBottomSheet,
+        onDebitCardClicked,
+        onBankTransferClicked
+    )
     // LaunchedEffect to handle  state cleanup
-    LaunchedEffect(buttonClicked.value) {
+    LaunchedEffect(buttonClicked.value
+        ) {
         if (buttonClicked.value) {
-            scope.launch {
-                openFundingTypeBottomSheet.value= true}
+            scope.launch { openFundingTypeBottomSheet.value = true }
             buttonClicked.value = false
         }
     }
 
-
-    DebitCardInfoView(modalBottomSheetState, scope)
-
-
-// DebitCardInfoView(openBottomSheet = openDebitCardBottomSheet,  scope, modalBottomSheetState, hideBottomSheet = hideBottomSheet)
-    SelectFundingType(openBottomSheet = openFundingTypeBottomSheet,  scope, bottomSheetState, hideBottomSheet = hideBottomSheet)
-    }
-
+}
 
 @Preview(showBackground = true)
 @Composable
 fun FundNairaWalletPreview() {
-    FundNairaWallet(onProceedClicked = {}, modifier = Modifier)
+    FundNairaWallet(onProceedClicked = {}, modifier = Modifier,
+        onDebitCardClicked = {}, onBankTransferClicked = {})
 }

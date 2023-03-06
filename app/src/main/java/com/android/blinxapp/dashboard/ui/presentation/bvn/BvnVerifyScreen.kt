@@ -21,7 +21,7 @@ import com.android.blinxapp.ui.theme.Typography
 @Composable
 fun BvnConfirmationScreen(
     onProceedClicked: () -> Unit,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
 
     ){
     val scrollState = rememberScrollState()

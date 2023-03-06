@@ -24,6 +24,8 @@ fun SelectFundingType(
     scope: CoroutineScope,
     bottomSheetState: SheetState,
     hideBottomSheet: MutableState<Boolean>,
+    onDebitCardClicked: () -> Unit,
+    onBankTransferClicked: () -> Unit
 
     ) {
 
@@ -58,6 +60,7 @@ fun SelectFundingType(
                     ComposeCard(
                         onClicked = {
                             hideBottomSheet.value = true
+                            onDebitCardClicked()
                         },
                         painterResource(R.drawable.debit_card),
                         stringResource(R.string.debit_card),
@@ -69,6 +72,7 @@ fun SelectFundingType(
                     ComposeCard(
                         onClicked = {
                             hideBottomSheet.value = true
+                            onBankTransferClicked()
                         },
                         painterResource(R.drawable.bank),
                         stringResource(R.string.bank_transfer),

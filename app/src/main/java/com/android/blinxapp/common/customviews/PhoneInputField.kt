@@ -4,18 +4,25 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.android.blinxapp.common.outlineColors
 import com.android.blinxapp.ui.theme.Typography
+import com.android.blinxapp.ui.theme.grey
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PhoneInputField(modifier: Modifier = Modifier) {
+fun PhoneInputField(modifier: Modifier = Modifier,
+                    placeholder: String = "",
+                    onTextChange: ((String) -> Unit)? = null) {
+
     var text by remember { mutableStateOf("") }
 
     OutlinedTextField(
@@ -26,6 +33,15 @@ fun PhoneInputField(modifier: Modifier = Modifier) {
         value = text,
         textStyle = Typography.bodyMedium,
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-        onValueChange = { text = it }
+        onValueChange = {
+            text = it
+            onTextChange?.invoke(it)
+        },
+        placeholder = {
+            Text( text = placeholder,
+                style = Typography.bodyMedium,
+                color = grey
+            )
+        }
     )
 }

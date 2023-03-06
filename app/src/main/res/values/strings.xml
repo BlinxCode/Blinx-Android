@@ -35,8 +35,17 @@
     <string name="smart_deposit_text">Enable smart deposits to ensure you always have funds to automate your bills</string>
     <string name="select_payment_method">Select a payment method</string>
     <string name="debit_card">Debit card</string>
-    <string name="debit_card_msg">A debit card allows for smart deposits</string>
+    <string name="debit_card_msg">Supports MasterCard, Visa, and Verve naira debit/credit card.</string>
     <string name="bank_transfer">Bank transfer</string>
-    <string name="bank_transfer_msg">Smart deposits are more expensive</string>
+    <string name="bank_transfer_msg">Supports all commercial, microfinance, and payment banks/.</string>
+    <string name="add_card">SUBMIT</string>
+    <string name="transfer_to_wallet">Use the details below to send money to your Blinx wallet from any bank\'s app or through internet banking.</string>
+    <string name="bank_name_txt">Bank name</string>
+    <string name="account_number_txt">Account number</string>
+    <string name="account_number">8163544839</string>
+    <string name="bank_name">9payment PSB</string>
+    <string name="account_name_txt">Account name</string>
+    <string name="account_name">Olajide John Bashorun</string>
+    <string name="i_sent_the_money">I’VE SENT THE MONEY</string>
 
 </resources>
