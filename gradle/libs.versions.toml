@@ -1,0 +1,107 @@
+[versions]
+agp = "8.4.0-alpha10"
+core-ktx = "1.12.0"
+junit = "4.13.2"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+kotlinGradlePlugin = "1.9.10"
+lifecycle-runtime-ktx = "2.6.2"
+activity-compose = "1.8.1"
+compose-bom = "2023.10.01"
+navigation = "2.7.5"
+firebase-auth = "22.3.0"
+reamlDB = "1.11.1"
+dagger-hilt = "2.48.1"
+google-services = "4.4.0"
+devtools-ksp = "1.9.10-1.0.13"
+core-library8 = "2.0.4"
+hilt-navigation = "1.1.0"
+firebase-storage = "20.3.0"
+firebase-boom = "32.6.0"
+room-ksp = "2.6.1"
+chain-resolver = "0.5.0"
+compiler = "1.5.5"
+splash-screen = "1.0.1"
+onetap = "1.0.7"
+messageBarCompose = "1.0.5"
+coroutines-core = "1.7.3"
+mongodb-realm ="1.11.0"
+coil-image = "2.3.0"
+compose-pinview = "v1.0.5"
+airbnb-lottie = "5.0.3"
+android-chart = "3.1.0"
+glideVersion = "2.1.1"
+constraintLayout = "1.0.1"
+accompanist-pager = "0.28.0"
+
+[libraries]
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+
+stevdza-messageBarCompose = {group = "com.github.stevdza-san", name = "MessageBarCompose", version.ref = "messageBarCompose"}
+stevdza-onetap = {group = "com.github.stevdza-san", name = "OneTapCompose", version.ref = "onetap"}
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+ui = { group = "androidx.compose.ui", name = "ui" }
+compose-constraintlayout = {group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref ="constraintLayout"}
+material-icons-extended = {group = "androidx.compose.material", name = "material-icons-extended"}
+material-accompanist-pager= {group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanist-pager"}
+
+
+
+jido2015-pinview = {group = "com.github.jido2015", name = "ComposablePinView", version.ref ="compose-pinview"}
+airbnb-lottie = {group = "com.airbnb.android", name = "lottie-compose", version.ref ="airbnb-lottie"}
+philjay-chart = {group = "com.github.PhilJay", name = "MPAndroidChart", version.ref ="android-chart"}
+
+skydoves-image-loader = {group = "com.github.skydoves", name = "landscapist-glide", version.ref ="glideVersion"}
+skydoves-image-placeholder = {group = "com.github.skydoves", name = "landscapist-placeholder", version.ref ="glideVersion"}
+
+# Runtime Compose
+compose-lifecycle = {group = "androidx.lifecycle", name ="lifecycle-runtime-compose", version.ref = "lifecycle-runtime-ktx"}
+
+kotlin-coroutine = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref ="coroutines-core"}
+ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+material3 = { group = "androidx.compose.material3", name = "material3" }
+
+#Use Java8 features - Desugar JDK
+core-library8 = {group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "core-library8"}
+
+#MongoDB
+mongodb-realm = {group = "io.realm.kotlin", name ="library-sync", version.ref = "mongodb-realm" }
+
+# Compose Navigation
+compose-navigation = {group = "androidx.navigation", name = "navigation-compose", version.ref ="navigation" }
+hilt-android = {group = "com.google.dagger", name = "hilt-android", version.ref = "dagger-hilt"}
+hilt-navigation = {group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation"}
+hilt-ksp = {group = "com.google.dagger", name = "hilt-compiler", version.ref = "dagger-hilt"}
+
+#Android SplashScreen
+splash-screen = {group = "androidx.core", name = "core-splashscreen", version.ref = "splash-screen"}
+# Firebase
+firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebase-storage" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebase-auth" }
+firebase-boom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-boom" }
+
+#Room
+room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room-ksp" }
+androidx-compiler = { group = "androidx.compose.compiler", name = "compiler", version.ref = "compiler" }
+
+#Coil Image loader
+coil-image = {group ="io.coil-kt", name ="coil-compose", version.ref ="coil-image"}
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinGradlePlugin" }
+realmDB = { id = "io.realm.kotlin", version.ref = "reamlDB" }
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger-hilt" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
+devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "devtools-ksp" }
+[bundles]
+
