@@ -10,7 +10,6 @@ import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -37,7 +36,7 @@ fun FundNairaWallet(
     val openFundingTypeBottomSheet = rememberSaveable { mutableStateOf(false) }
     val hideBottomSheet = remember { mutableStateOf(false) }
     val buttonClicked = remember { mutableStateOf(false) }
-    val bottomSheetState = rememberSheetState(false)
+    val bottomSheetState = rememberModalBottomSheetState(false)
 
     val scope = rememberCoroutineScope()
 
