@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "815498897436",
+    "project_id": "blinx-mobile",
+    "storage_bucket": "blinx-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815498897436:android:a47d354aee4363a6f657d9",
+        "android_client_info": {
+          "package_name": "com.android.blinxapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "815498897436-tno1o87h0sdqh0otthtuqk4invpkmnk0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.blinxapp",
+            "certificate_hash": "7f57fe37f7157375b786cf593d57e408b5034e94"
+          }
+        },
+        {
+          "client_id": "815498897436-tqa98mofj6ccpsn0akrenn8tlknl00r8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhLZbinLlNDO3B-rLg2XJbp6DvL4AKdTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "815498897436-tqa98mofj6ccpsn0akrenn8tlknl00r8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
