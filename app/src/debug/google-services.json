@@ -14,15 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "815498897436-eohfg2osm30v0i6u2j1um9255vd1u3b8.apps.googleusercontent.com",
+          "client_id": "815498897436-tno1o87h0sdqh0otthtuqk4invpkmnk0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.android.blinxapp",
-            "certificate_hash": "6892b09e6f4233f48d24b8ea8ccade6801379325"
+            "certificate_hash": "7f57fe37f7157375b786cf593d57e408b5034e94"
           }
         },
         {
-          "client_id": "815498897436-b0m9nelicvgja4drtdjr961h5arftlj6.apps.googleusercontent.com",
+          "client_id": "815498897436-tqa98mofj6ccpsn0akrenn8tlknl00r8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -35,7 +35,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "815498897436-b0m9nelicvgja4drtdjr961h5arftlj6.apps.googleusercontent.com",
+              "client_id": "815498897436-tqa98mofj6ccpsn0akrenn8tlknl00r8.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

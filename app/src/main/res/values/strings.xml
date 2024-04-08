@@ -6,7 +6,7 @@
     <string name="confirmCode">CONFIRM CODE</string>
     <string name="continue_txt">CONTINUE</string>
     <string name="proceed_login">PROCEED TO LOGIN</string>
-    <string name="login">LOG IN</string>
+    <string name="login">Continue with Google</string>
     <string name="create_passcode">Create your Blinx \nPasscode</string>
     <string name="create_subHeading_passcode">Create a %1$s digit passcode to securely sign in to your blinx account</string>
     <string name="confirm_passcode">Confirm your Blinx \nPasscode</string>
@@ -47,5 +47,6 @@
     <string name="account_name_txt">Account name</string>
     <string name="account_name">Olajide John Bashorun</string>
     <string name="i_sent_the_money">I’VE SENT THE MONEY</string>
+    <string name="use_your_google_accoun">Use your Google account to sign in to Blinx.com</string>
 
 </resources>

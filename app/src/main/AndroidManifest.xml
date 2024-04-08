@@ -12,11 +12,11 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.BlinxApp.SplashScreen"
-        android:name=".application.BlinxApplication"
+        android:name=".app.BlinxApplication"
         tools:targetApi="31">
         <activity
             android:windowSoftInputMode="adjustResize"
-            android:name=".navigation.MainActivity"
+            android:name=".app.MainActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -28,6 +28,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+        </activity>
+        <activity
+            android:theme="@style/Theme.BlinxApp"
+            android:windowSoftInputMode="adjustResize"
+            android:name=".app.DashboardActivity"
+            android:exported="true">
         </activity>
     </application>
 
