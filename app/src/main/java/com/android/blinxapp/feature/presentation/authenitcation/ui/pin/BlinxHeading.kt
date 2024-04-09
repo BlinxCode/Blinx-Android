@@ -18,7 +18,7 @@ fun BlinxHeading(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(end = 20.dp, start = 20.dp)) {
+            .padding(end = 16.dp, start = 16.dp, top = 16.dp)) {
 
         //Setting up Top Text
         Column(
@@ -33,7 +33,7 @@ fun BlinxHeading(
                 textAlign = TextAlign.Start
             )
 
-            Spacer(Modifier.size(20.dp))
+            Spacer(Modifier.size(40.dp))
             //Description modifier
             Text(
                 text = subTitle,
@@ -42,7 +42,7 @@ fun BlinxHeading(
             )
 
             //Spacer
-            Spacer(Modifier.size(20.dp))
+            Spacer(Modifier.size(40.dp))
         }
     }
 

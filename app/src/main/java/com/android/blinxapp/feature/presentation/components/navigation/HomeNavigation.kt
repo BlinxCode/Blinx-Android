@@ -20,6 +20,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.android.blinxapp.feature.presentation.bvn.BvnConfirmationScreen
 import com.android.blinxapp.feature.presentation.bvn.BvnVerificationScreen
+import com.android.blinxapp.feature.presentation.components.common.paddingValues
 import com.android.blinxapp.feature.presentation.home.HomeScreen
 import com.android.blinxapp.feature.presentation.wallet.DebitCardInfoView
 import com.android.blinxapp.feature.presentation.wallet.FundNairaWallet
@@ -50,10 +51,7 @@ fun DashBoardNavigation(navController: NavHostController){
 
 
 
-    val myPadding = PaddingValues(
-        start = 16.dp,
-        end = 16.dp
-    )
+
     Scaffold(
         topBar = {
             DashboardTopBar( canNavigateBack.value,
@@ -71,7 +69,7 @@ fun DashBoardNavigation(navController: NavHostController){
         Box(modifier = modifier.fillMaxSize()
             .padding(innerPadding)
             .background(MaterialTheme.colorScheme.primary)){
-            Box(modifier = modifier.padding(myPadding)
+            Box(modifier = modifier.padding(paddingValues())
                 .fillMaxSize()
                 .background(MaterialTheme.colorScheme.primary)) {
 

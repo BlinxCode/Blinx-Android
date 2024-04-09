@@ -7,11 +7,13 @@ import com.android.blinxapp.R
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.android.blinxapp.feature.presentation.components.common.paddingValues
 
 import com.android.blinxapp.ui.theme.Typography
 import com.olajide.pinviewscreen.presentation.ComposablePinView

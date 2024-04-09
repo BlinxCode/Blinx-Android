@@ -8,10 +8,12 @@ import androidx.activity.viewModels
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavHostController
 import com.android.blinxapp.feature.presentation.components.common.BlinxStatusBarColor
+import com.android.blinxapp.feature.presentation.components.navigation.AuthNavigationRoute
 import com.android.blinxapp.feature.presentation.components.navigation.Screen
 import com.android.blinxapp.feature.presentation.components.navigation.SignupNavigation
 import com.android.blinxapp.feature.presentation.viewmodel.AuthViewModel
@@ -40,21 +42,14 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.primary,
                 ) {
-
                     navController = rememberAnimatedNavController()
-                    SignupNavigation(navController = navController)
-                    checkAuthState()
 
+                    //Check if user is authenticated and navigate to correct screen
+                    SignupNavigation(navController = navController, if (viewModel.isUserAuthenticated)
+                        Screen.PinScreen.route else AuthNavigationRoute.Onboarding.name)
                 }
             }
         }
     }
-    private fun checkAuthState() {
-        if(viewModel.isUserAuthenticated) {
-            navigateToProfileScreen()
-        }
-    }
-
-    private fun navigateToProfileScreen() = navController.navigate(Screen.PinScreen.route)
 }
 

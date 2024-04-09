@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.view.Window
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
@@ -11,6 +12,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.android.blinxapp.R
@@ -81,5 +83,12 @@ fun BlinxStatusBarColor(window: Window, context: Context) {
 @Composable
 fun modalsheetColor():Color {
     return  primaryGreen.takeIf { isSystemInDarkTheme() }?: containerColorWhite
+}
 
+@Composable
+fun paddingValues():PaddingValues {
+    return PaddingValues(
+        start = 16.dp,
+        end = 16.dp
+    )
 }

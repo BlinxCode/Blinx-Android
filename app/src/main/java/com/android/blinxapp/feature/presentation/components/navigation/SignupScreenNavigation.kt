@@ -26,7 +26,7 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 
 
 @Composable
-fun SignupNavigation(navController: NavHostController){
+fun SignupNavigation(navController: NavHostController, destinationStr: String){
     // Retrieve the application context
     val context = remember { navController.context }
     // TODO: Create NavController
@@ -48,7 +48,8 @@ fun SignupNavigation(navController: NavHostController){
 
                 OnBoardingNavHost(
                     navController,
-                    context
+                    context,
+                    destinationStr
                 )
             }
         }
@@ -60,12 +61,13 @@ fun SignupNavigation(navController: NavHostController){
 @Composable
 fun OnBoardingNavHost(
     navController: NavHostController,
-    context: Context
+    context: Context,
+    destinationStr: String
 ) {
 
     AnimatedNavHost(
         navController = navController,
-        startDestination = AuthNavigationRoute.Onboarding.name,
+        startDestination = destinationStr,
     ) {
 
         composable(route = AuthNavigationRoute.Onboarding.name) {
