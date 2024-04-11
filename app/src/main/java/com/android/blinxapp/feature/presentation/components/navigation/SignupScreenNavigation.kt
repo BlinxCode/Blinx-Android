@@ -28,7 +28,6 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 @Composable
 fun SignupNavigation(navController: NavHostController, destinationStr: String){
     // Retrieve the application context
-    val context = remember { navController.context }
     // TODO: Create NavController
 
     val modifier: Modifier = Modifier
@@ -48,7 +47,6 @@ fun SignupNavigation(navController: NavHostController, destinationStr: String){
 
                 OnBoardingNavHost(
                     navController,
-                    context,
                     destinationStr
                 )
             }
@@ -61,9 +59,10 @@ fun SignupNavigation(navController: NavHostController, destinationStr: String){
 @Composable
 fun OnBoardingNavHost(
     navController: NavHostController,
-    context: Context,
     destinationStr: String
 ) {
+
+    val context = remember { navController.context }
 
     AnimatedNavHost(
         navController = navController,
@@ -97,9 +96,7 @@ fun OnBoardingNavHost(
                 onProceedClicked = {
                     val intent = Intent(context, DashboardActivity::class.java)
                     context.startActivity(intent)
-
-                },
-                context = context
+                }
             )
         }
 

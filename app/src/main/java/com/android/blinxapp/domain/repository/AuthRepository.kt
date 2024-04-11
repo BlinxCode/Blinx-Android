@@ -1,4 +1,4 @@
-package com.android.blinxapp.di.repository
+package com.android.blinxapp.domain.repository
 
 
 import com.android.blinxapp.core.RequestState
@@ -14,4 +14,5 @@ interface AuthRepository {
     suspend fun oneTapSignInWithGoogle(): OneTapSignInResponse
 
     suspend fun firebaseSignInWithGoogle(googleCredential: AuthCredential): SignInWithGoogleResponse
+
 }

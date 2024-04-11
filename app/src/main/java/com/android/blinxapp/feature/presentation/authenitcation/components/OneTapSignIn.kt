@@ -1,5 +1,6 @@
 package com.android.blinxapp.feature.presentation.authenitcation.components
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -16,6 +17,7 @@ fun OneTapSignIn(
     when(val oneTapSignInResponse = viewModel.oneTapSignInResponse) {
         is RequestState.Loading -> ProgressBar()
         is RequestState.Success -> oneTapSignInResponse.data?.let {
+            Log.d("OneTapSignIn", it.toString())
             LaunchedEffect(it) {
                 launch(it)
             }

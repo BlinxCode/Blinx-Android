@@ -2,7 +2,6 @@ package com.android.blinxapp.feature.presentation.components.navigation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -13,7 +12,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -22,6 +21,7 @@ import com.android.blinxapp.feature.presentation.bvn.BvnConfirmationScreen
 import com.android.blinxapp.feature.presentation.bvn.BvnVerificationScreen
 import com.android.blinxapp.feature.presentation.components.common.paddingValues
 import com.android.blinxapp.feature.presentation.home.HomeScreen
+import com.android.blinxapp.feature.presentation.viewmodel.ProfileViewModel
 import com.android.blinxapp.feature.presentation.wallet.DebitCardInfoView
 import com.android.blinxapp.feature.presentation.wallet.FundNairaWallet
 import com.android.blinxapp.feature.presentation.wallet.FundWalletScreen
@@ -29,35 +29,31 @@ import com.android.blinxapp.feature.presentation.wallet.FundWithBankTransferScre
 
 
 @Composable
-fun DashBoardNavigation(navController: NavHostController){
+fun DashBoardNavigation(navController: NavHostController
+){
     // Retrieve the application context
     val canNavigateBack = remember { mutableStateOf(false) }
     val isDashboard = remember { mutableStateOf(true) }
     val topBarTitle = remember { mutableStateOf("") }
 
+    val profileViewModel: ProfileViewModel = hiltViewModel()
+
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route
-    val context = remember { navController.context }
     // TODO: Create NavController
 
     val modifier: Modifier = Modifier
 
     val destinationStr = remember { mutableStateOf(HomeNavigationRoute.HOME.name) }
 
-    // TODO: Get current back stack entry
-
-    // TODO: Get the name of the current screen
-    // TODO: add NavHost
-
-
-
-
     Scaffold(
         topBar = {
-            DashboardTopBar( canNavigateBack.value,
+            DashboardTopBar(
+                canNavigateBack.value,
                 topBarTitle, navigateUp = {},
                 isDashboard.value,
-                isGettingStarted = false,)
+                isGettingStarted = false,
+                profileViewModel.photoUrl)
         },
         bottomBar = {
             if (isDashboard.value){
@@ -74,7 +70,7 @@ fun DashBoardNavigation(navController: NavHostController){
                 .background(MaterialTheme.colorScheme.primary)) {
 
                 DashboardNavigation(navController, canNavigateBack,
-                    isDashboard, topBarTitle,destinationStr )
+                    isDashboard, topBarTitle,destinationStr, profileViewModel )
             }
         }
 
@@ -87,7 +83,8 @@ fun DashboardNavigation(
     canNavigateBack: MutableState<Boolean>,
     isDashboard: MutableState<Boolean>,
     topBarTitle: MutableState<String>,
-    destinationStr: MutableState<String>
+    destinationStr: MutableState<String>,
+    profileViewModel: ProfileViewModel
 ) {
 
     NavHost(
@@ -98,6 +95,7 @@ fun DashboardNavigation(
             isDashboard.value = true
             canNavigateBack.value = false
             HomeScreen(
+                profileViewModel.displayName,
                 walletClick = {
                     navController.navigate(HomeNavigationRoute.WALLET.name)
                 },

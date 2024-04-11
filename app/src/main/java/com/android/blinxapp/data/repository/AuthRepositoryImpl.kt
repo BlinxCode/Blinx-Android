@@ -1,16 +1,14 @@
 package com.android.blinxapp.data.repository
 
-import com.android.blinxapp.core.Constants.CREATED_AT
-import com.android.blinxapp.core.Constants.DISPLAY_NAME
-import com.android.blinxapp.core.Constants.EMAIL
-import com.android.blinxapp.core.Constants.PHOTO_URL
+import android.util.Log
 import com.android.blinxapp.core.Constants.SIGN_IN_REQUEST
 import com.android.blinxapp.core.Constants.SIGN_UP_REQUEST
 import com.android.blinxapp.core.Constants.USERS
 import com.android.blinxapp.core.RequestState
-import com.android.blinxapp.di.repository.AuthRepository
-import com.android.blinxapp.di.repository.OneTapSignInResponse
-import com.android.blinxapp.di.repository.SignInWithGoogleResponse
+import com.android.blinxapp.domain.model.User
+import com.android.blinxapp.domain.repository.AuthRepository
+import com.android.blinxapp.domain.repository.OneTapSignInResponse
+import com.android.blinxapp.domain.repository.SignInWithGoogleResponse
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.firebase.auth.AuthCredential
@@ -22,7 +20,6 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import javax.inject.Named
 import javax.inject.Singleton
-
 
 @Singleton
 class AuthRepositoryImpl @Inject constructor(
@@ -54,13 +51,17 @@ class AuthRepositoryImpl @Inject constructor(
         googleCredential: AuthCredential
     ): SignInWithGoogleResponse {
         return try {
+            Log.d("signInWithGoogle", "Checking Firebase Auth")
+
             val authResult = auth.signInWithCredential(googleCredential).await()
+            Log.d("signInWithGoogleUser", "${authResult.user}")
             val isNewUser = authResult.additionalUserInfo?.isNewUser ?: false
             if (isNewUser) {
                 addUserToFirestore()
             }
             RequestState.Success(true)
         } catch (e: Exception) {
+            Log.d("signInWithGoogleError", "${e.message}")
             RequestState.Error(e)
         }
     }
@@ -71,11 +72,13 @@ class AuthRepositoryImpl @Inject constructor(
             db.collection(USERS).document(uid).set(user).await()
         }
     }
-}
 
-fun FirebaseUser.toUser() = mapOf(
-    DISPLAY_NAME to displayName,
-    EMAIL to email,
-    PHOTO_URL to photoUrl?.toString(),
-    CREATED_AT to FieldValue.serverTimestamp()
-)
+    private fun FirebaseUser.toUser(): User {
+        return User(
+            displayName = displayName,
+            email = email,
+            photoUrl = photoUrl.toString(),
+            createdAt = FieldValue.serverTimestamp(),
+        )
+    }
+}

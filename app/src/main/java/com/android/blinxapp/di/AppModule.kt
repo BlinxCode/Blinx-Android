@@ -1,4 +1,4 @@
-package com.android.blinxapp.domain
+package com.android.blinxapp.di
 
 import android.app.Application
 import android.content.Context
@@ -8,8 +8,8 @@ import com.android.blinxapp.core.Constants.SIGN_IN_REQUEST
 import com.android.blinxapp.core.Constants.SIGN_UP_REQUEST
 import com.android.blinxapp.data.repository.AuthRepositoryImpl
 import com.android.blinxapp.data.repository.ProfileRepositoryImpl
-import com.android.blinxapp.di.repository.AuthRepository
-import com.android.blinxapp.di.repository.ProfileRepository
+import com.android.blinxapp.domain.repository.AuthRepository
+import com.android.blinxapp.domain.repository.ProfileRepository
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient

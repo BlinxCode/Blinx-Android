@@ -1,10 +1,8 @@
 package com.android.blinxapp.feature.presentation.home
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -16,6 +14,7 @@ import com.android.blinxapp.feature.presentation.components.common.CommonTitle
 
 @Composable
 fun HomeScreen(
+    displayName: String,
     walletClick: () -> Unit,
     automationCardClick: () -> Unit,
     bvnCardClick: () -> Unit,
@@ -26,10 +25,8 @@ fun HomeScreen(
     val scrollState = rememberScrollState()
     Column(
         modifier = modifier
-            .fillMaxSize().background(MaterialTheme.colorScheme.primary)
-
-    .verticalScroll(scrollState)
-            .background(MaterialTheme.colorScheme.primary)
+            .fillMaxSize()
+            .verticalScroll(scrollState)
     ) {
 
         Column(
@@ -38,7 +35,7 @@ fun HomeScreen(
             /**
              * Customers Greetings
              */
-            CommonTitle("Hello,", "Oladotun")
+            CommonTitle("Hello,", displayName)
 
             /**
              * Add funds to Wallet
@@ -94,7 +91,9 @@ fun HomeScreen(
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenScaffoldPreview() {
-    HomeScreen(walletClick = {},
+    HomeScreen(
+        displayName = "Oladotun",
+        walletClick = {},
         automationCardClick = {},
         bvnCardClick = {},
         linkBankCardClick = {},

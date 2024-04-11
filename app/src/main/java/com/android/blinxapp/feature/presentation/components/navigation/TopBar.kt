@@ -11,6 +11,7 @@ import androidx.compose.material3.*
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
@@ -18,7 +19,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.android.blinxapp.R
+import com.android.blinxapp.feature.presentation.viewmodel.ProfileViewModel
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.glide.GlideImage
 
@@ -26,10 +29,12 @@ import com.skydoves.landscapist.glide.GlideImage
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DashboardTopBar(
-    canNavigateBack: Boolean, titleBar: MutableState<String>,
+    canNavigateBack: Boolean,
+    titleBar: MutableState<String>,
     navigateUp: () -> Unit,
     isDashboard: Boolean,
-    isGettingStarted: Boolean
+    isGettingStarted: Boolean,
+    profilePhoto: String
 ) {
 
     val buttonColors = topAppBarColors(
@@ -84,7 +89,7 @@ fun DashboardTopBar(
                                         .height(35.dp)
                                         .clip(CircleShape)
                                         .clickable(enabled = true, onClick = { }),
-                                    imageModel = { "https://avatars.githubusercontent.com/u/27887884?v=4" },
+                                    imageModel = { profilePhoto },
                                     // Crop, Fit, Inside, FillHeight, FillWidth, None
                                     imageOptions = ImageOptions(contentScale = ContentScale.Crop)
                                 )

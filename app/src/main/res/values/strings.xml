@@ -7,10 +7,11 @@
     <string name="continue_txt">CONTINUE</string>
     <string name="proceed_login">PROCEED TO LOGIN</string>
     <string name="login">Continue with Google</string>
-    <string name="create_passcode">Create your Blinx \nPasscode</string>
-    <string name="create_subHeading_passcode">Create a %1$s digit passcode to securely sign in to your blinx account</string>
-    <string name="confirm_passcode">Confirm your Blinx \nPasscode</string>
-    <string name="confirm_subHeader_passcode">Confirm the %1$s digit passcode previously entered to securely sign in to your blinx account</string>
+    <string name="create_pin">Create your Blinx \nPasscode</string>
+    <string name="enter_subHeading_pin">Enter your %1$s digit pin to securely sign in to your blinx account.</string>
+    <string name="create_subHeading_pin">Please input your %1$s digit pin to continue.</string>
+    <string name="confirm_pin">Confirm your Blinx \nPasscode</string>
+    <string name="confirm_subHeader_pin">Confirm the %1$s digit pin previously entered to securely sign in to your blinx account</string>
     <string name="fund_wallet">Add cash +</string>
     <string name="wallet_balance">Wallet balance</string>
     <string name="fund_wallet_message">Fund your wallet to start paying for bills and carrying out transfers</string>
@@ -48,5 +49,6 @@
     <string name="account_name">Olajide John Bashorun</string>
     <string name="i_sent_the_money">I’VE SENT THE MONEY</string>
     <string name="use_your_google_accoun">Use your Google account to sign in to Blinx.com</string>
+    <string name="enter_pin">Enter Pin</string>
 
 </resources>

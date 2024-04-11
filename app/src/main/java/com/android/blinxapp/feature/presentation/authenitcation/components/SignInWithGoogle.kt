@@ -1,5 +1,6 @@
 package com.android.blinxapp.feature.presentation.authenitcation.components
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -13,14 +14,17 @@ fun SignInWithGoogle(
     navigateToHomeScreen: (signedIn: Boolean) -> Unit
 ) {
     when(val signInWithGoogleResponse = viewModel.signInWithGoogleResponse) {
-        is Loading -> ProgressBar()
+        is Loading -> {
+            Log.d("LoadingState", "SignInWithGoogle: Loading")
+            ProgressBar()
+        }
         is Success -> signInWithGoogleResponse.data?.let { signedIn ->
             LaunchedEffect(signedIn) {
                 navigateToHomeScreen(signedIn)
             }
         }
         is Error -> LaunchedEffect(Unit) {
-            print(signInWithGoogleResponse.error)
+            Log.d("SignInWithGoogle", "SignInWithGoogle: ${signInWithGoogleResponse.error.message}")
         }
     }
 }

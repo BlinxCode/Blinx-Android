@@ -2,6 +2,7 @@ package com.android.blinxapp.feature.presentation.authenitcation.ui.login
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -48,8 +49,10 @@ fun AuthenticationScreen(
                 viewModel.setLoading(false)
 
                 val credentials = viewModel.oneTapClient.getSignInCredentialFromIntent(result.data)
+                Log.d("credentialsData", credentials.toString())
                 val googleIdToken = credentials.googleIdToken
                 val googleCredentials = GoogleAuthProvider.getCredential(googleIdToken, null)
+                Log.d("credentialsProvider", googleCredentials.provider)
                 viewModel.signInWithGoogle(googleCredentials)
             } catch (it: ApiException) {
                 messageBarState.addError(it)
