@@ -9,11 +9,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.android.blinxapp.core.RequestState
@@ -21,6 +23,7 @@ import com.android.blinxapp.domain.model.UserDTO
 import com.android.blinxapp.feature.presentation.components.ProgressBar
 import com.android.blinxapp.feature.presentation.viewmodel.ProfileViewModel
 import com.android.blinxapp.ui.theme.Typography
+import com.android.blinxapp.ui.theme.secondaryGrey
 import com.olajide.pinviewscreen.presentation.ComposablePinView
 
 @Composable
@@ -58,7 +61,9 @@ fun PinSetupScreen(onProceedClicked: () -> Unit) {
                     profileViewModel.userProfile = user
                     isLoading = false
                     if (!user.displayName.isNullOrEmpty()) {
-                        Column{
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ){
                             Log.d("userProfile1", "userProfile: ${user.displayName}")
                             //Setup Pin Data and title
                             CheckPinInDB(
@@ -75,8 +80,14 @@ fun PinSetupScreen(onProceedClicked: () -> Unit) {
                             //Setup Pin View
                             ComposablePinView(
                                 charLimit = charLimit,
-                                text = "Passcode",
+                                text = "",
                                 textStyle = Typography.titleSmall, value = pin
+                            )
+
+                            Text(
+                                text = "FORGOT PIN?",
+                                color = secondaryGrey,
+                                style = Typography.labelSmall
                             )
                         }
 
