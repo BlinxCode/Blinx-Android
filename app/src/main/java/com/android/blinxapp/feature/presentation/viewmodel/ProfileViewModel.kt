@@ -49,6 +49,7 @@ class ProfileViewModel @Inject constructor(
 
     // Fetch user profile asynchronously
     fun getUserProfileInDB() = viewModelScope.launch(Dispatchers.IO){
+        getUserProfileResponse = Loading
         getUserProfileResponse = repo.getUserProfile()
     }
 

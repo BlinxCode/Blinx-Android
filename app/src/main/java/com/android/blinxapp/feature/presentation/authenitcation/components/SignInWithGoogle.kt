@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.android.blinxapp.core.RequestState.*
-import com.android.blinxapp.feature.presentation.components.ProgressBar
 import com.android.blinxapp.feature.presentation.viewmodel.AuthViewModel
 
 @Composable
@@ -16,7 +15,6 @@ fun SignInWithGoogle(
     when(val signInWithGoogleResponse = viewModel.signInWithGoogleResponse) {
         is Loading -> {
             Log.d("LoadingState", "SignInWithGoogle: Loading")
-            ProgressBar()
         }
         is Success -> signInWithGoogleResponse.data?.let { signedIn ->
             LaunchedEffect(signedIn) {

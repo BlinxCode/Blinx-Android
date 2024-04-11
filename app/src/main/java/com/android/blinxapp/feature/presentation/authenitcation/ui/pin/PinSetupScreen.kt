@@ -5,10 +5,12 @@ import android.util.Log
 import android.widget.Toast
 import com.android.blinxapp.R
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -25,57 +27,71 @@ import com.olajide.pinviewscreen.presentation.ComposablePinView
 fun PinSetupScreen(onProceedClicked: () -> Unit) {
 
     val profileViewModel: ProfileViewModel = hiltViewModel()
+    var isLoading by remember { mutableStateOf(true) }
 
     val pin = remember { mutableStateOf("") }
     val count = remember { mutableIntStateOf(1) }
     val context = LocalContext.current
     val charLimit = 4
     val anyMutableList = remember { mutableListOf("") }
+
     LaunchedEffect(Unit) {
         profileViewModel.getUserProfileInDB()
         anyMutableList.clear()
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.primary)
-    ) {
+    Box(
+        modifier = Modifier.fillMaxSize()
+            .background(MaterialTheme.colorScheme.primary),
+        contentAlignment = Alignment.Center
+    ){
 
-        when (val userProfile = profileViewModel.getUserProfileResponse) {
-            is RequestState.Loading -> ProgressBar()
-            is RequestState.Success -> userProfile.data?.let { user ->
-                profileViewModel.userProfile = user
-                if (!user.displayName.isNullOrEmpty()) {
-                    Log.d("userProfile1", "userProfile: ${user.displayName}")
-                    //Setup Pin Data and title
-                    CheckPinInDB(
-                        charLimit,
-                        anyMutableList,
-                        context,
-                        onProceedClicked,
-                        count,
-                        pin,
-                        profileViewModel,
-                        user
-                    )
+        ProgressBar(isLoading)
 
-                    //Setup Pin View
-                    ComposablePinView(
-                        charLimit = charLimit,
-                        text = "Passcode",
-                        textStyle = Typography.titleSmall, value = pin
-                    )
+
+            when (val userProfile = profileViewModel.getUserProfileResponse) {
+                is RequestState.Loading -> {
+                    Log.d("userProfile1", "is loading")
+                    isLoading = true
+                }
+                is RequestState.Success -> userProfile.data?.let { user ->
+                    profileViewModel.userProfile = user
+                    isLoading = false
+                    if (!user.displayName.isNullOrEmpty()) {
+                        Column{
+                            Log.d("userProfile1", "userProfile: ${user.displayName}")
+                            //Setup Pin Data and title
+                            CheckPinInDB(
+                                charLimit,
+                                anyMutableList,
+                                context,
+                                onProceedClicked,
+                                count,
+                                pin,
+                                profileViewModel,
+                                user
+                            )
+
+                            //Setup Pin View
+                            ComposablePinView(
+                                charLimit = charLimit,
+                                text = "Passcode",
+                                textStyle = Typography.titleSmall, value = pin
+                            )
+                        }
+
+                    }
+
                 }
 
+
+                is RequestState.Error -> userProfile.error.let { error ->
+                    Log.d("userProfile", "userProfile: ${error}")
                 }
-
-
-            is RequestState.Error -> userProfile.error.let { error ->
-                Log.d("userProfile", "userProfile: ${error}")
             }
         }
-    }
+
+
 }
 
 @Composable
