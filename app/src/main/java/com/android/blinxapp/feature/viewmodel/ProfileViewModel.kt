@@ -1,4 +1,4 @@
-package com.android.blinxapp.feature.presentation.viewmodel
+package com.android.blinxapp.feature.viewmodel
 
 import android.util.Log
 import androidx.compose.runtime.getValue

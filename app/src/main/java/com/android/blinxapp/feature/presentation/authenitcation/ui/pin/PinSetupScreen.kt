@@ -8,20 +8,24 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.android.blinxapp.core.RequestState
 import com.android.blinxapp.domain.model.UserDTO
 import com.android.blinxapp.feature.presentation.components.ProgressBar
-import com.android.blinxapp.feature.presentation.viewmodel.ProfileViewModel
+import com.android.blinxapp.feature.viewmodel.ProfileViewModel
 import com.android.blinxapp.ui.theme.Typography
 import com.android.blinxapp.ui.theme.secondaryGrey
 import com.olajide.pinviewscreen.presentation.ComposablePinView
@@ -43,14 +47,12 @@ fun PinSetupScreen(onProceedClicked: () -> Unit) {
         anyMutableList.clear()
     }
 
-    Box(
-        modifier = Modifier.fillMaxSize()
+    Box(modifier = Modifier.fillMaxSize()
             .background(MaterialTheme.colorScheme.primary),
         contentAlignment = Alignment.Center
     ){
 
         ProgressBar(isLoading)
-
 
             when (val userProfile = profileViewModel.getUserProfileResponse) {
                 is RequestState.Loading -> {
@@ -66,17 +68,12 @@ fun PinSetupScreen(onProceedClicked: () -> Unit) {
                         ){
                             Log.d("userProfile1", "userProfile: ${user.displayName}")
                             //Setup Pin Data and title
-                            CheckPinInDB(
-                                charLimit,
-                                anyMutableList,
-                                context,
-                                onProceedClicked,
+                            CheckPinInDB(charLimit, anyMutableList,
+                                context, onProceedClicked,
                                 count,
                                 pin,
                                 profileViewModel,
-                                user
-                            )
-
+                                user)
                             //Setup Pin View
                             ComposablePinView(
                                 charLimit = charLimit,
@@ -84,25 +81,29 @@ fun PinSetupScreen(onProceedClicked: () -> Unit) {
                                 textStyle = Typography.titleSmall, value = pin
                             )
 
-                            Text(
-                                text = "FORGOT PIN?",
-                                color = secondaryGrey,
-                                style = Typography.labelSmall
-                            )
+                            val tnc = "Tap to reset."
+                            val annotatedString = buildAnnotatedString {
+                                append("Forgot your PIN? ")
+                                withStyle(style = SpanStyle(color = Color.Red), ) {
+                                    pushStringAnnotation(tag = tnc, annotation = tnc)
+                                    append(tnc)
+                                }
+
+                            }
+                            ClickableText(text = annotatedString, onClick = { offset ->
+                                annotatedString.getStringAnnotations(offset, offset)
+                                    .firstOrNull()?.let { span ->
+                                        println("Clicked on ${span.item}")
+                                    }
+                            })
                         }
-
                     }
-
                 }
-
-
                 is RequestState.Error -> userProfile.error.let { error ->
-                    Log.d("userProfile", "userProfile: ${error}")
+                    Log.d("userProfile", "userProfile: $error")
                 }
             }
-        }
-
-
+    }
 }
 
 @Composable
@@ -117,10 +118,6 @@ private fun CheckPinInDB(
     user: UserDTO
 ) {
     if (user.userPin != null) {
-        BlinxHeading(
-            stringResource(R.string.enter_pin),
-            stringResource(R.string.enter_subHeading_pin, charLimit)
-        )
 
         charLimit.VerifyPin(
             userPin = user.userPin!!,
@@ -141,8 +138,7 @@ private fun CheckPinInDB(
                 stringResource(R.string.create_subHeading_pin, charLimit)
             } else {
                 stringResource(R.string.confirm_subHeader_pin, charLimit)
-            })
-        )
+            }))
 
         charLimit.SetupPin(
             profileViewModel = profileViewModel,
@@ -179,8 +175,6 @@ private fun Int.VerifyPin(
             Toast.makeText(context, "Wrong Pin", Toast.LENGTH_SHORT).show()
         }
     }
-
-
 }
 
 @Composable
@@ -212,8 +206,6 @@ private fun Int.SetupPin(
             }
         }
     }
-
-
 }
 
 @Preview(showBackground = true)

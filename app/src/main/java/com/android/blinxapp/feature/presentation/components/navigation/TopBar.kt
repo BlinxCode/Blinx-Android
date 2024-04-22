@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.android.blinxapp.R
-import com.android.blinxapp.feature.presentation.viewmodel.ProfileViewModel
+import com.android.blinxapp.feature.viewmodel.ProfileViewModel
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.glide.GlideImage
 

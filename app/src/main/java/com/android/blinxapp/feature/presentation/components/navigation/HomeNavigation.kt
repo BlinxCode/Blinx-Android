@@ -21,7 +21,7 @@ import com.android.blinxapp.feature.presentation.bvn.BvnConfirmationScreen
 import com.android.blinxapp.feature.presentation.bvn.BvnVerificationScreen
 import com.android.blinxapp.feature.presentation.components.common.paddingValues
 import com.android.blinxapp.feature.presentation.home.HomeScreen
-import com.android.blinxapp.feature.presentation.viewmodel.ProfileViewModel
+import com.android.blinxapp.feature.viewmodel.ProfileViewModel
 import com.android.blinxapp.feature.presentation.wallet.DebitCardInfoView
 import com.android.blinxapp.feature.presentation.wallet.FundNairaWallet
 import com.android.blinxapp.feature.presentation.wallet.FundWalletScreen

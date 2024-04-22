@@ -1,4 +1,4 @@
-package com.android.blinxapp.feature.presentation.viewmodel
+package com.android.blinxapp.feature.viewmodel
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel

@@ -13,7 +13,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavHostController
 import com.android.blinxapp.feature.presentation.components.common.BlinxStatusBarColor
 import com.android.blinxapp.feature.presentation.components.navigation.DashBoardNavigation
-import com.android.blinxapp.feature.presentation.viewmodel.AuthViewModel
+import com.android.blinxapp.feature.viewmodel.AuthViewModel
 import com.android.blinxapp.ui.theme.*
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import dagger.hilt.android.AndroidEntryPoint

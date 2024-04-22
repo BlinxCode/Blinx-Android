@@ -16,7 +16,7 @@ import com.android.blinxapp.feature.presentation.components.common.BlinxStatusBa
 import com.android.blinxapp.feature.presentation.components.navigation.AuthNavigationRoute
 import com.android.blinxapp.feature.presentation.components.navigation.Screen
 import com.android.blinxapp.feature.presentation.components.navigation.SignupNavigation
-import com.android.blinxapp.feature.presentation.viewmodel.AuthViewModel
+import com.android.blinxapp.feature.viewmodel.AuthViewModel
 import com.android.blinxapp.ui.theme.*
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import dagger.hilt.android.AndroidEntryPoint

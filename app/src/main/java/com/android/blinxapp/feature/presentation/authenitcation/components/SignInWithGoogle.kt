@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.android.blinxapp.core.RequestState.*
-import com.android.blinxapp.feature.presentation.viewmodel.AuthViewModel
+import com.android.blinxapp.feature.viewmodel.AuthViewModel
 
 @Composable
 fun SignInWithGoogle(

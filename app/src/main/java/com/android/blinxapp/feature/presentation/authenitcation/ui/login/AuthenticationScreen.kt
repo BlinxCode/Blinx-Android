@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.android.blinxapp.feature.presentation.authenitcation.components.OneTapSignIn
 import com.android.blinxapp.feature.presentation.authenitcation.components.SignInWithGoogle
-import com.android.blinxapp.feature.presentation.viewmodel.AuthViewModel
+import com.android.blinxapp.feature.viewmodel.AuthViewModel
 import com.google.android.gms.auth.api.identity.BeginSignInResult
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.GoogleAuthProvider
