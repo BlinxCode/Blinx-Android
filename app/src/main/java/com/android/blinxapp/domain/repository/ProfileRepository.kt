@@ -5,9 +5,9 @@ import com.android.blinxapp.core.RequestState
 import com.android.blinxapp.domain.model.UserDTO
 
 typealias SignOutResponse = RequestState<Boolean>
-typealias RevokeAccessResponse = RequestState<Boolean>
 typealias UpdateUserPinResponse = RequestState<Boolean>
 typealias GetUserProfileResponse = RequestState<UserDTO>
+typealias PinVerificationResponse = RequestState<Boolean>
 
 interface ProfileRepository {
     val displayName: String
@@ -15,7 +15,9 @@ interface ProfileRepository {
 
     suspend fun signOut(): SignOutResponse
 
-    suspend fun revokeAccess(): RevokeAccessResponse
     suspend fun updateUserPin(user: UserDTO): UpdateUserPinResponse
     suspend fun getUserProfile(): GetUserProfileResponse
+
+
+    fun pinVerification(savedPin: String, inputPin: String): PinVerificationResponse
 }

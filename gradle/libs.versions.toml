@@ -1,40 +1,39 @@
 [versions]
-agp = "8.4.0-alpha10"
-core-ktx = "1.12.0"
+core-ktx = "1.13.1"
 junit = "4.13.2"
-androidx-test-ext-junit = "1.1.5"
-espresso-core = "3.5.1"
-kotlinGradlePlugin = "1.9.10"
-lifecycle-runtime-ktx = "2.7.0"
-activity-compose = "1.8.2"
-compose-bom = "2024.04.00"
-navigation = "2.7.7"
-firebase-auth = "22.3.1"
-reamlDB = "1.11.1"
-dagger-hilt = "2.49"
-google-services = "4.4.1"
-devtools-ksp = "1.9.10-1.0.13"
-core-library8 = "2.0.4"
+androidx-test-ext-junit = "1.2.1"
+espresso-core = "3.6.1"
+
+kotlin = "2.1.0-Beta1"
+kotlinGradlePlugin = "8.7.0-rc01"
+lifecycle-runtime-ktx = "2.8.6"
+activity-compose = "1.9.2"
+compose-bom = "2024.09.03"
+navigation = "2.8.2"
+firebase-auth = "23.0.0"
+dagger-hilt = "2.51.1"
 hilt-navigation = "1.2.0"
-firebase-storage = "20.3.0"
-firebase-boom = "32.8.0"
+google-services = "4.4.2"
+devtools-ksp = "2.1.0-Beta1-1.0.25"
+core-library8 = "2.1.2"
+firebase-storage = "21.0.1"
+firebase-boom = "33.4.0"
 room-ksp = "2.6.1"
-compiler = "1.5.11"
+compiler = "1.5.15"
 splash-screen = "1.0.1"
-onetap = "1.0.7"
 messageBarCompose = "1.0.5"
-coroutines-core = "1.7.3"
-mongodb-realm ="1.11.0"
-coil-image = "2.3.0"
+coroutines-core = "1.8.1"
+coil-image = "2.7.0"
 compose-pinview = "v1.0.5"
 airbnb-lottie = "5.0.3"
 android-chart = "3.1.0"
 glideVersion = "2.1.1"
 constraintLayout = "1.0.1"
 accompanist-pager = "0.31.1-alpha"
-material3 = "1.2.1"
-firebaseFirestore = "24.11.0"
-playServicesAuth = "21.0.0"
+material3 = "1.3.0"
+firebaseFirestore = "25.1.0"
+cred-manager = "1.5.0-alpha05"
+google-id = "1.1.1"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -43,7 +42,6 @@ androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 
 stevdza-messageBarCompose = {group = "com.github.stevdza-san", name = "MessageBarCompose", version.ref = "messageBarCompose"}
-stevdza-onetap = {group = "com.github.stevdza-san", name = "OneTapCompose", version.ref = "onetap"}
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-runtime-ktx" }
 lifecycle-viewmodel-savedstate-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-savedstate", version.ref = "lifecycle-runtime-ktx" }
@@ -63,6 +61,7 @@ philjay-chart = {group = "com.github.PhilJay", name = "MPAndroidChart", version.
 skydoves-image-loader = {group = "com.github.skydoves", name = "landscapist-glide", version.ref ="glideVersion"}
 skydoves-image-placeholder = {group = "com.github.skydoves", name = "landscapist-placeholder", version.ref ="glideVersion"}
 
+
 # Runtime Compose
 compose-lifecycle = {group = "androidx.lifecycle", name ="lifecycle-runtime-compose", version.ref = "lifecycle-runtime-ktx"}
 
@@ -77,9 +76,6 @@ material3-window-size = { group = "androidx.compose.material3", name = "material
 
 #Use Java8 features - Desugar JDK
 core-library8 = {group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "core-library8"}
-
-#MongoDB
-mongodb-realm = {group = "io.realm.kotlin", name ="library-sync", version.ref = "mongodb-realm" }
 
 # Compose Navigation
 compose-navigation = {group = "androidx.navigation", name = "navigation-compose", version.ref ="navigation" }
@@ -101,14 +97,18 @@ androidx-compiler = { group = "androidx.compose.compiler", name = "compiler", ve
 #Coil Image loader
 coil-image = {group ="io.coil-kt", name ="coil-compose", version.ref ="coil-image"}
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
-play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServicesAuth" }
+play-services-auth = { group = "androidx.credentials", name = "credentials-play-services-auth", version.ref = "cred-manager" }
+google-credential-manager = {group = "androidx.credentials", name = "credentials", version.ref = "cred-manager"}
+google-identity-library = { group = "com.google.android.libraries.identity.googleid", name = "googleid", version.ref = "google-id" }
+
 
 [plugins]
-androidApplication = { id = "com.android.application", version.ref = "agp" }
-kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinGradlePlugin" }
-realmDB = { id = "io.realm.kotlin", version.ref = "reamlDB" }
+androidApplication = { id = "com.android.application", version.ref = "kotlinGradlePlugin" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger-hilt" }
 google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
 devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "devtools-ksp" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
 [bundles]
 

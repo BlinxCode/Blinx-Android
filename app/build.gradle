@@ -1,20 +1,20 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
-    alias(libs.plugins.realmDB)
     alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.google.services)
     alias(libs.plugins.devtools.ksp)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
     namespace = "com.android.blinxapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.android.blinxapp"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -24,8 +24,14 @@ android {
         }
     }
 
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     buildTypes {
         release {
+            buildConfigField 'String', 'SERVER_CLIENT_ID', '"YOUR_RELEASE_WEB_CLIENT_ID"'
             proguardFiles(
                     getDefaultProguardFile("proguard-android-optimize.txt"),
                     "proguard-rules.pro"
@@ -33,6 +39,9 @@ android {
         }
 
         debug{
+            debuggable = true
+            buildConfigField 'String', 'SERVER_CLIENT_ID', '"272615090409-uoudljdc9fb8tqii9j1t7r02164f58ij.apps.googleusercontent.com"'
+            applicationIdSuffix ".debug"
             proguardFiles(
                     getDefaultProguardFile("proguard-android-optimize.txt"),
                     "proguard-rules.pro"
@@ -53,8 +62,9 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.3"
+        kotlinCompilerExtensionVersion = "1.5.15"
     }
+
     packaging {
         resources {
             it.excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -68,7 +78,7 @@ dependencies {
     implementation(libs.androidx.compiler)
     implementation libs.firebase.firestore
     implementation libs.play.services.auth
-    platform (libs.firebase.boom)
+    platform(libs.firebase.boom)
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
@@ -84,9 +94,6 @@ dependencies {
     implementation(libs.material3.window.size)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.storage)
-    implementation(libs.hilt.android)
-    implementation(libs.hilt.navigation)
-    implementation(libs.stevdza.onetap)
     implementation(libs.coil.image)
     implementation(libs.jido2015.pinview)
     implementation(libs.material.accompanist.pager)
@@ -95,12 +102,15 @@ dependencies {
     implementation(libs.material.icons.extended)
     implementation(libs.philjay.chart)
     implementation(libs.skydoves.image.loader)
-    implementation(libs.mongodb.realm)
     implementation(libs.compose.constraintlayout)
     implementation(libs.stevdza.messageBarCompose)
     ksp(libs.hilt.ksp)
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation)
+    implementation(libs.google.identity.library)
     ksp(libs.room.ksp)
     implementation(libs.compose.navigation)
+    implementation(libs.google.credential.manager)
     implementation(libs.kotlin.coroutine)
     implementation(libs.splash.screen)
     testImplementation(libs.junit)
@@ -111,6 +121,7 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 
+
     // Desugar JDK
-    coreLibraryDesugaring (libs.core.library8)
+    coreLibraryDesugaring(libs.core.library8)
 }

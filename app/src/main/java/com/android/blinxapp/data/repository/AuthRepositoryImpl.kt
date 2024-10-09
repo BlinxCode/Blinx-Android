@@ -1,16 +1,16 @@
 package com.android.blinxapp.data.repository
 
+import android.content.Context
+import androidx.credentials.GetCredentialRequest
 import android.util.Log
-import com.android.blinxapp.core.Constants.SIGN_IN_REQUEST
-import com.android.blinxapp.core.Constants.SIGN_UP_REQUEST
+import androidx.credentials.CredentialManager
+import androidx.credentials.exceptions.NoCredentialException
 import com.android.blinxapp.core.Constants.USERS
 import com.android.blinxapp.core.RequestState
 import com.android.blinxapp.domain.model.User
 import com.android.blinxapp.domain.repository.AuthRepository
-import com.android.blinxapp.domain.repository.OneTapSignInResponse
+import com.android.blinxapp.domain.repository.AuthCredentialResponse
 import com.android.blinxapp.domain.repository.SignInWithGoogleResponse
-import com.google.android.gms.auth.api.identity.BeginSignInRequest
-import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -18,32 +18,39 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Singleton
 class AuthRepositoryImpl @Inject constructor(
+    private val activityContext: Context,
     private val auth: FirebaseAuth,
-    private var oneTapClient: SignInClient,
-    @Named(SIGN_IN_REQUEST)
-    private var signInRequest: BeginSignInRequest,
-    @Named(SIGN_UP_REQUEST)
-    private var signUpRequest: BeginSignInRequest,
-    private val db: FirebaseFirestore
+    private val db: FirebaseFirestore,
+    private val googleIdOptions: GoogleIdOptions,
 ) : AuthRepository {
     override val isUserAuthenticatedInFirebase = auth.currentUser != null
 
-    override suspend fun oneTapSignInWithGoogle(): OneTapSignInResponse {
+
+    override suspend fun credentialManagerWithGoogle(): AuthCredentialResponse {
         return try {
-            val signInResult = oneTapClient.beginSignIn(signInRequest).await()
-            RequestState.Success(signInResult)
+            val credentialManager = CredentialManager.create(activityContext)
+
+            val request = GetCredentialRequest.Builder()
+                .addCredentialOption(googleIdOptions.googleSignInOptions())
+                .build()
+
+            val result = credentialManager.getCredential(
+                request = request,
+                context = activityContext,
+            )
+
+            val credential = getAuthCredentialFromResult(result)
+            RequestState.Success(credential)
+        } catch (e: NoCredentialException) {
+            Log.d("signInWithGoogleError", "$e")
+            RequestState.Error(Throwable("No credentials available"))
         } catch (e: Exception) {
-            try {
-                val signUpResult = oneTapClient.beginSignIn(signUpRequest).await()
-                RequestState.Success(signUpResult)
-            } catch (e: Exception) {
-                RequestState.Error(e)
-            }
+            Log.d("signInWithGoogleError", "$e")
+            RequestState.Error(Throwable("Unable to get credential"))
         }
     }
 
@@ -65,6 +72,7 @@ class AuthRepositoryImpl @Inject constructor(
             RequestState.Error(e)
         }
     }
+
 
     private suspend fun addUserToFirestore() {
         auth.currentUser?.apply {

@@ -35,9 +35,4 @@ data class UserDTO(
             "userPin" to userPin,
         )
     }
-
-    // Add a function to convert Timestamp to String
-    fun createdAtToString(): String? {
-        return createdAt?.toDate()?.toString()
-    }
 }

@@ -50,5 +50,8 @@
     <string name="i_sent_the_money">I’VE SENT THE MONEY</string>
     <string name="use_your_google_accoun">Use your Google account to sign in to Blinx.com</string>
     <string name="enter_pin">Enter Pin</string>
+    <string name="web_client_id">815498897436-tqa98mofj6ccpsn0akrenn8tlknl00r8.apps.googleusercontent.com</string>
+<!--    <string name="web_client_id">272615090409-0vv45vtvlc782cvci9c0gaf084k33ukg.apps.googleusercontent.com</string>-->
+<!--    <string name="web_client_id">815498897436-o93r2tjapoi0d7p5lutqs4h3ais622cd.apps.googleusercontent.com</string>-->
 
 </resources>
