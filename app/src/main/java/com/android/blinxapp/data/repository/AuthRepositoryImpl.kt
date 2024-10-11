@@ -64,6 +64,7 @@ class AuthRepositoryImpl @Inject constructor(
             Log.d("signInWithGoogleUser", "${authResult.user}")
             val isNewUser = authResult.additionalUserInfo?.isNewUser ?: false
             if (isNewUser) {
+                Log.d("isNewUser", "Add User To Firestore")
                 addUserToFirestore()
             }
             RequestState.Success(true)
@@ -78,6 +79,7 @@ class AuthRepositoryImpl @Inject constructor(
         auth.currentUser?.apply {
             val user = toUser()
             db.collection(USERS).document(uid).set(user).await()
+            Log.d("userAdded", "User Added to Firestore")
         }
     }
 

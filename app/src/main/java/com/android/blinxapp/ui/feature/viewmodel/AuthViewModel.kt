@@ -58,43 +58,4 @@ class AuthViewModel @Inject constructor(
         signInWithGoogleResponse = repo.firebaseSignInWithGoogle(googleCredential)
     }
 
-    suspend fun handleSignIn(result: GetCredentialResponse) {
-// 1
-        val credential = result.credential
-        // GoogleIdToken credential
-
-        when (credential) {
-            is CustomCredential -> {
-// 2
-                if (credential.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
-                    try {
-// 3
-                        val googleIdTokenCredential = GoogleIdTokenCredential
-                            .createFrom(credential.data)
-// 4
-                        val googleIdToken = googleIdTokenCredential.idToken
-
-// 5
-                        val authCredential = GoogleAuthProvider.getCredential(googleIdToken, null)
-// 6
-                        val user = Firebase.auth.signInWithCredential(authCredential).await().user
-// 7
-                        user?.run {
-                            Log.e("TAG", "Update UI State")
-
-                        }
-                    } catch (e: GoogleIdTokenParsingException) {
-                        Log.e("TAG", "Received an invalid google id token response", e)
-                    } catch (e: Exception) {
-                        Log.e("TAG", "Unexpected error")
-                    }
-                }
-            }
-
-            else -> {
-                // Catch any unrecognized credential type here.
-                Log.e("TAG", "Unexpected type of credential")
-            }
-        }
-    }
 }
