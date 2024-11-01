@@ -118,28 +118,6 @@ import com.android.blinxapp.ui.theme.*
         }
     }
 
-@Composable
-    fun LoginText(onLoginButtonClicked: ()-> Unit) {
-
-        Spacer(modifier =Modifier.padding(top = 50.dp))
-        val annotatedString = buildAnnotatedString {
-            append("Already have an account?")
-            withStyle(style = SpanStyle(color =  primaryGreen,
-                fontWeight = FontWeight.Bold)) {
-                append(" Log in")
-            }
-        }
-
-        Text(text = annotatedString,
-            modifier = Modifier.clickable(enabled = true) {
-                onLoginButtonClicked()
-            },
-
-            color = systemColorInverse(),
-            style = Typography.labelSmall,
-            textAlign = TextAlign.Start
-        )
-    }
 
     @SuppressLint("UnrememberedMutableState")
     @Preview(showBackground = true)

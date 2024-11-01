@@ -34,7 +34,6 @@ fun AuthenticationScreen(
         }
 
 
-
     Scaffold(
         modifier = Modifier.background(MaterialTheme.colorScheme.surface),
         content = {

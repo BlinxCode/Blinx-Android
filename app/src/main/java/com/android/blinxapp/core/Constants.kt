@@ -12,6 +12,9 @@ object Constants {
 
     //User fields
 
+    const val WELCOME_BACK_MESSAGE = "Welcome back!"
+    const val WRONG_PIN_MESSAGE = "Wrong Pin"
+
     //Screens
     const val AUTH_SCREEN = "Authentication"
     const val PROFILE_SCREEN = "Profile"

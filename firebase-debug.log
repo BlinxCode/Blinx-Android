@@ -1,0 +1,422 @@
+[debug] [2024-10-16T16:23:18.559Z] ----------------------------------------------------------------------
+[debug] [2024-10-16T16:23:18.570Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions
+[debug] [2024-10-16T16:23:18.571Z] CLI Version:   13.22.0
+[debug] [2024-10-16T16:23:18.571Z] Platform:      darwin
+[debug] [2024-10-16T16:23:18.571Z] Node Version:  v20.15.1
+[debug] [2024-10-16T16:23:18.571Z] Time:          Wed Oct 16 2024 12:23:18 GMT-0400 (Eastern Daylight Time)
+[debug] [2024-10-16T16:23:18.571Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-16T16:23:18.647Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-16T16:23:18.647Z] > authorizing via signed-in user (bashorun.olajide@gmail.com)
+[debug] [2024-10-16T16:23:18.647Z] [iam] checking project blinx-mobile-dev for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-10-16T16:23:18.648Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:18.648Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:18.649Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions [none]
+[debug] [2024-10-16T16:23:18.649Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:18.650Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-10-16T16:23:18.887Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions 200
+[debug] [2024-10-16T16:23:18.887Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-10-16T16:23:18.888Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:18.888Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:18.888Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/blinx-mobile-dev/serviceAccounts/blinx-mobile-dev@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-10-16T16:23:18.888Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/blinx-mobile-dev/serviceAccounts/blinx-mobile-dev@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-10-16T16:23:19.133Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/blinx-mobile-dev/serviceAccounts/blinx-mobile-dev@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-10-16T16:23:19.133Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/blinx-mobile-dev/serviceAccounts/blinx-mobile-dev@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'blinx-mobile-dev'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2024-10-16T16:23:20.552Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:20.552Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:20.553Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/blinx-mobile-dev [none]
+[debug] [2024-10-16T16:23:21.033Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/blinx-mobile-dev 200
+[debug] [2024-10-16T16:23:21.034Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/blinx-mobile-dev {"projectId":"blinx-mobile-dev","projectNumber":"272615090409","displayName":"Blinx Mobile Dev","name":"projects/blinx-mobile-dev","resources":{"hostingSite":"blinx-mobile-dev"},"state":"ACTIVE","etag":"1_9e474df9-b235-4430-8376-61505faa4e8b"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2024-10-16T16:23:21.035Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:21.035Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:21.035Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:21.035Z] Checked if tokens are valid: true, expires at: 1729096960546
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2024-10-16T16:23:21.035Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:21.036Z] Checked if tokens are valid: true, expires at: 1729096960546
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-10-16T16:23:21.036Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:21.036Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:21.036Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-10-16T16:23:21.036Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:21.037Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-10-16T16:23:21.037Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:21.039Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudbuild.googleapis.com [none]
+[debug] [2024-10-16T16:23:21.039Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudbuild.googleapis.com x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:21.041Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/artifactregistry.googleapis.com [none]
+[debug] [2024-10-16T16:23:21.041Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/artifactregistry.googleapis.com x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:21.412Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudbuild.googleapis.com 200
+[debug] [2024-10-16T16:23:21.412Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudbuild.googleapis.com [omitted]
+[warn] ⚠  functions: missing required API cloudbuild.googleapis.com. Enabling now... 
+[debug] [2024-10-16T16:23:21.413Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:21.413Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:21.413Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudbuild.googleapis.com:enable [none]
+[debug] [2024-10-16T16:23:21.413Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudbuild.googleapis.com:enable x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:21.415Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudfunctions.googleapis.com 200
+[debug] [2024-10-16T16:23:21.415Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-10-16T16:23:21.417Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/artifactregistry.googleapis.com 200
+[debug] [2024-10-16T16:23:21.417Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/artifactregistry.googleapis.com [omitted]
+[warn] ⚠  artifactregistry: missing required API artifactregistry.googleapis.com. Enabling now... 
+[debug] [2024-10-16T16:23:21.418Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:21.418Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:21.418Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/artifactregistry.googleapis.com:enable [none]
+[debug] [2024-10-16T16:23:21.418Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/artifactregistry.googleapis.com:enable x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:21.444Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/runtimeconfig.googleapis.com 200
+[debug] [2024-10-16T16:23:21.444Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-10-16T16:23:21.978Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudbuild.googleapis.com:enable 200
+[debug] [2024-10-16T16:23:21.978Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudbuild.googleapis.com:enable [omitted]
+[debug] [2024-10-16T16:23:22.051Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/artifactregistry.googleapis.com:enable 200
+[debug] [2024-10-16T16:23:22.051Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/artifactregistry.googleapis.com:enable [omitted]
+[debug] [2024-10-16T16:23:31.981Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:31.983Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:31.984Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudbuild.googleapis.com [none]
+[debug] [2024-10-16T16:23:31.984Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudbuild.googleapis.com x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:32.052Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:32.053Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:32.054Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/artifactregistry.googleapis.com [none]
+[debug] [2024-10-16T16:23:32.054Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/artifactregistry.googleapis.com x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:32.310Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudbuild.googleapis.com 200
+[debug] [2024-10-16T16:23:32.311Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-10-16T16:23:32.365Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/artifactregistry.googleapis.com 200
+[debug] [2024-10-16T16:23:32.365Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-10-16T16:23:32.369Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:32.369Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:32.370Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/blinx-mobile-dev/adminSdkConfig [none]
+[debug] [2024-10-16T16:23:32.825Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/blinx-mobile-dev/adminSdkConfig 200
+[debug] [2024-10-16T16:23:32.825Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/blinx-mobile-dev/adminSdkConfig {"projectId":"blinx-mobile-dev","storageBucket":"blinx-mobile-dev.appspot.com"}
+[debug] [2024-10-16T16:23:32.825Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:32.825Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:32.825Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/blinx-mobile-dev/configs [none]
+[debug] [2024-10-16T16:23:33.025Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/blinx-mobile-dev/configs 200
+[debug] [2024-10-16T16:23:33.025Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/blinx-mobile-dev/configs {}
+[debug] [2024-10-16T16:23:33.027Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2024-10-16T16:23:33.941Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-10-16T16:23:33.942Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-10-16T16:23:33.945Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-10-16T16:23:33.964Z] Found firebase-functions binary at '/Users/bashorunolajide/AndroidStudioProjects/Blinx-Android/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8690
+
+[debug] [2024-10-16T16:23:34.808Z] Got response from /__/functions.yaml {"endpoints":{"plaidWebhook":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"plaidWebhook"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2024-10-16T16:23:39.837Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:39.837Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:39.838Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/firebaseextensions.googleapis.com [none]
+[debug] [2024-10-16T16:23:39.838Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:40.251Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/firebaseextensions.googleapis.com 200
+[debug] [2024-10-16T16:23:40.252Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/firebaseextensions.googleapis.com [omitted]
+[warn] ⚠  extensions: missing required API firebaseextensions.googleapis.com. Enabling now... 
+[debug] [2024-10-16T16:23:40.253Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:40.253Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:40.253Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/firebaseextensions.googleapis.com:enable [none]
+[debug] [2024-10-16T16:23:40.253Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/firebaseextensions.googleapis.com:enable x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:40.789Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/firebaseextensions.googleapis.com:enable 200
+[debug] [2024-10-16T16:23:40.790Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/firebaseextensions.googleapis.com:enable [omitted]
+[debug] [2024-10-16T16:23:50.791Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:50.792Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:50.792Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/firebaseextensions.googleapis.com [none]
+[debug] [2024-10-16T16:23:50.793Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:51.161Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/firebaseextensions.googleapis.com 200
+[debug] [2024-10-16T16:23:51.161Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/firebaseextensions.googleapis.com [omitted]
+[info] ✔  extensions: required API firebaseextensions.googleapis.com is enabled 
+[debug] [2024-10-16T16:23:51.165Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-16T16:23:51.166Z] > authorizing via signed-in user (bashorun.olajide@gmail.com)
+[debug] [2024-10-16T16:23:51.166Z] [iam] checking project blinx-mobile-dev for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2024-10-16T16:23:51.166Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:51.167Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:51.167Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions [none]
+[debug] [2024-10-16T16:23:51.167Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:51.167Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2024-10-16T16:23:51.286Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions 200
+[debug] [2024-10-16T16:23:51.287Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2024-10-16T16:23:51.288Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:51.288Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:51.291Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/blinx-mobile-dev/instances pageSize=100&pageToken=
+[debug] [2024-10-16T16:23:52.974Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/blinx-mobile-dev/instances 200
+[debug] [2024-10-16T16:23:52.974Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/blinx-mobile-dev/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged /Users/bashorunolajide/AndroidStudioProjects/Blinx-Android/functions (41.3 KB) for uploading 
+[debug] [2024-10-16T16:23:53.031Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:53.031Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:53.031Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/blinx-mobile-dev/locations/-/functions [none]
+[debug] [2024-10-16T16:23:53.597Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/blinx-mobile-dev/locations/-/functions 200
+[debug] [2024-10-16T16:23:53.598Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/blinx-mobile-dev/locations/-/functions {}
+[debug] [2024-10-16T16:23:53.598Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:53.598Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:53.600Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2024-10-16T16:23:54.073Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/-/functions 200
+[debug] [2024-10-16T16:23:54.073Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/-/functions {}
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[debug] [2024-10-16T16:23:54.077Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:54.078Z] Checked if tokens are valid: true, expires at: 1729096960546
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[debug] [2024-10-16T16:23:54.078Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:54.078Z] Checked if tokens are valid: true, expires at: 1729096960546
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[debug] [2024-10-16T16:23:54.078Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:54.078Z] Checked if tokens are valid: true, expires at: 1729096960546
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[debug] [2024-10-16T16:23:54.079Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:54.079Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:54.079Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/run.googleapis.com [none]
+[debug] [2024-10-16T16:23:54.079Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/run.googleapis.com x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:54.080Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/eventarc.googleapis.com [none]
+[debug] [2024-10-16T16:23:54.080Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/eventarc.googleapis.com x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:54.083Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/pubsub.googleapis.com [none]
+[debug] [2024-10-16T16:23:54.083Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/pubsub.googleapis.com x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:54.085Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/storage.googleapis.com [none]
+[debug] [2024-10-16T16:23:54.086Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/storage.googleapis.com x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:54.366Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/run.googleapis.com 200
+[debug] [2024-10-16T16:23:54.366Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/run.googleapis.com [omitted]
+[warn] ⚠  functions: missing required API run.googleapis.com. Enabling now... 
+[debug] [2024-10-16T16:23:54.367Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:54.367Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:54.367Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/run.googleapis.com:enable [none]
+[debug] [2024-10-16T16:23:54.367Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/run.googleapis.com:enable x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:54.376Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/pubsub.googleapis.com 200
+[debug] [2024-10-16T16:23:54.376Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/pubsub.googleapis.com [omitted]
+[info] ✔  functions: required API pubsub.googleapis.com is enabled 
+[debug] [2024-10-16T16:23:54.396Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/storage.googleapis.com 200
+[debug] [2024-10-16T16:23:54.396Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/storage.googleapis.com [omitted]
+[info] ✔  functions: required API storage.googleapis.com is enabled 
+[debug] [2024-10-16T16:23:54.439Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/eventarc.googleapis.com 200
+[debug] [2024-10-16T16:23:54.439Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/eventarc.googleapis.com [omitted]
+[warn] ⚠  functions: missing required API eventarc.googleapis.com. Enabling now... 
+[debug] [2024-10-16T16:23:54.439Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:54.440Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:23:54.440Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/eventarc.googleapis.com:enable [none]
+[debug] [2024-10-16T16:23:54.440Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/eventarc.googleapis.com:enable x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:23:55.005Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/eventarc.googleapis.com:enable 200
+[debug] [2024-10-16T16:23:55.006Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/eventarc.googleapis.com:enable [omitted]
+[debug] [2024-10-16T16:23:55.236Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/run.googleapis.com:enable 200
+[debug] [2024-10-16T16:23:55.236Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/run.googleapis.com:enable [omitted]
+[debug] [2024-10-16T16:24:05.007Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:05.008Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:05.008Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/eventarc.googleapis.com [none]
+[debug] [2024-10-16T16:24:05.008Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/eventarc.googleapis.com x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:24:05.238Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:05.238Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:05.239Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/run.googleapis.com [none]
+[debug] [2024-10-16T16:24:05.239Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/run.googleapis.com x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:24:05.393Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/eventarc.googleapis.com 200
+[debug] [2024-10-16T16:24:05.394Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/eventarc.googleapis.com [omitted]
+[info] ✔  functions: required API eventarc.googleapis.com is enabled 
+[debug] [2024-10-16T16:24:05.634Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/run.googleapis.com 200
+[debug] [2024-10-16T16:24:05.634Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/blinx-mobile-dev/services/run.googleapis.com [omitted]
+[info] ✔  functions: required API run.googleapis.com is enabled 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2024-10-16T16:24:05.636Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:05.636Z] Checked if tokens are valid: true, expires at: 1729096960546
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2024-10-16T16:24:05.636Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:05.636Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:05.637Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/272615090409/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2024-10-16T16:24:05.637Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/272615090409/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2024-10-16T16:24:06.111Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/272615090409/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2024-10-16T16:24:06.112Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/272615090409/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-272615090409@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"115227363507345334803"}}
+[debug] [2024-10-16T16:24:06.346Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/272615090409/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2024-10-16T16:24:06.346Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/272615090409/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-272615090409@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"101675208743521800525"}}
+[debug] [2024-10-16T16:24:06.348Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:06.348Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:06.348Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/blinx-mobile-dev [none]
+[debug] [2024-10-16T16:24:06.639Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/blinx-mobile-dev 200
+[debug] [2024-10-16T16:24:06.639Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/blinx-mobile-dev {"projectId":"blinx-mobile-dev","projectNumber":"272615090409","displayName":"Blinx Mobile Dev","name":"projects/blinx-mobile-dev","resources":{"hostingSite":"blinx-mobile-dev"},"state":"ACTIVE","etag":"1_9e474df9-b235-4430-8376-61505faa4e8b"}
+[debug] [2024-10-16T16:24:06.640Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:06.640Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:06.640Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/blinx-mobile-dev/billingInfo [none]
+[debug] [2024-10-16T16:24:06.893Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/blinx-mobile-dev/billingInfo 200
+[debug] [2024-10-16T16:24:06.894Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/blinx-mobile-dev/billingInfo {"name":"projects/blinx-mobile-dev/billingInfo","projectId":"blinx-mobile-dev","billingAccountName":"billingAccounts/013FDB-9DF917-B4487B","billingEnabled":true}
+[debug] [2024-10-16T16:24:06.896Z] [functions] found 1 new HTTP functions, testing setIamPolicy permission...
+[debug] [2024-10-16T16:24:06.896Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:06.897Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:06.897Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions [none]
+[debug] [2024-10-16T16:24:06.897Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions x-goog-quota-user=projects/blinx-mobile-dev
+[debug] [2024-10-16T16:24:06.897Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions {"permissions":["cloudfunctions.functions.setIamPolicy"]}
+[debug] [2024-10-16T16:24:07.007Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions 200
+[debug] [2024-10-16T16:24:07.007Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/blinx-mobile-dev:testIamPermissions {"permissions":["cloudfunctions.functions.setIamPolicy"]}
+[debug] [2024-10-16T16:24:07.007Z] [functions] found setIamPolicy permission, proceeding with deploy
+[debug] [2024-10-16T16:24:07.008Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:07.009Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:07.009Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2024-10-16T16:24:08.473Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2024-10-16T16:24:08.473Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/gcf-v2-uploads-272615090409-us-central1/f5bee79f-dddb-4cd6-aaeb-9791fa0299c3.zip?GoogleAccessId=service-272615090409@gcf-admin-robot.iam.gserviceaccount.com&Expires=1729097648&Signature=uTOxm5vLr9sSDMZlOq8%2FftFnPuYETxVD65jVPI9m6sa7seIYIz%2FD1r1SfyJiIiGhDHKOt%2B5tqlk2udFvV9g5%2FNkVPAsK%2BwH%2FrNLV%2B57B9Eq1akDs9vkLKumOeqVWwwA3iponUkNkk6ST0K0wkUTcsd1Ai9pfrvhwupJrwVnW1E%2BfPlvW62NS8bh%2FaTCbJwBI6jX4lqyBd8UKn4ylX9SZ7bd4oZVPPE6Bc0mcV8uX1XVFPta2bESL8mWxD6jkTjgLP55%2FMfsd0iUdvkYwXDgz6L6AUuF9%2BrUTfs4W8zlGh1SkgAmpqDzW%2BOGBupSESx87n42zmj01LrHu%2FuHhbW7QOA%3D%3D","storageSource":{"bucket":"gcf-v2-uploads-272615090409-us-central1","object":"f5bee79f-dddb-4cd6-aaeb-9791fa0299c3.zip"}}
+[debug] [2024-10-16T16:24:08.476Z] >>> [apiv2][query] PUT https://storage.googleapis.com/gcf-v2-uploads-272615090409-us-central1/f5bee79f-dddb-4cd6-aaeb-9791fa0299c3.zip GoogleAccessId=service-272615090409%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1729097648&Signature=uTOxm5vLr9sSDMZlOq8%2FftFnPuYETxVD65jVPI9m6sa7seIYIz%2FD1r1SfyJiIiGhDHKOt%2B5tqlk2udFvV9g5%2FNkVPAsK%2BwH%2FrNLV%2B57B9Eq1akDs9vkLKumOeqVWwwA3iponUkNkk6ST0K0wkUTcsd1Ai9pfrvhwupJrwVnW1E%2BfPlvW62NS8bh%2FaTCbJwBI6jX4lqyBd8UKn4ylX9SZ7bd4oZVPPE6Bc0mcV8uX1XVFPta2bESL8mWxD6jkTjgLP55%2FMfsd0iUdvkYwXDgz6L6AUuF9%2BrUTfs4W8zlGh1SkgAmpqDzW%2BOGBupSESx87n42zmj01LrHu%2FuHhbW7QOA%3D%3D
+[debug] [2024-10-16T16:24:08.477Z] >>> [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-272615090409-us-central1/f5bee79f-dddb-4cd6-aaeb-9791fa0299c3.zip [stream]
+[debug] [2024-10-16T16:24:08.728Z] <<< [apiv2][status] PUT https://storage.googleapis.com/gcf-v2-uploads-272615090409-us-central1/f5bee79f-dddb-4cd6-aaeb-9791fa0299c3.zip 200
+[debug] [2024-10-16T16:24:08.729Z] <<< [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-272615090409-us-central1/f5bee79f-dddb-4cd6-aaeb-9791fa0299c3.zip [omitted]
+[info] ✔  functions: functions folder uploaded successfully 
+[info] i  functions: creating Node.js 18 (2nd Gen) function plaidWebhook(us-central1)... 
+[debug] [2024-10-16T16:24:08.739Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:08.739Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:08.739Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/functions functionId=plaidWebhook
+[debug] [2024-10-16T16:24:08.740Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/functions {"name":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","buildConfig":{"runtime":"nodejs18","entryPoint":"plaidWebhook","source":{"storageSource":{"bucket":"gcf-v2-uploads-272615090409-us-central1","object":"f5bee79f-dddb-4cd6-aaeb-9791fa0299c3.zip"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}},"serviceConfig":{"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"blinx-mobile-dev\",\"storageBucket\":\"blinx-mobile-dev.appspot.com\"}","GCLOUD_PROJECT":"blinx-mobile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/blinx-mobile-dev/locations/us-central1/services/plaidWebhook","FUNCTION_TARGET":"plaidWebhook"},"ingressSettings":null,"timeoutSeconds":null,"serviceAccountEmail":null,"availableMemory":"256Mi","minInstanceCount":null,"maxInstanceCount":null,"maxInstanceRequestConcurrency":80,"availableCpu":"1","vpcConnector":null,"vpcConnectorEgressSettings":null},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"ed9bd81a4c64dd8de717f7b0547103125aa4c272"}}
+[debug] [2024-10-16T16:24:09.909Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/functions 200
+[debug] [2024-10-16T16:24:09.909Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/functions {"name":"projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-10-16T16:24:09.921107860Z","target":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","verb":"create","cancelRequested":false,"apiVersion":"v2"},"done":false}
+[debug] [2024-10-16T16:24:09.911Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:09.911Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:09.912Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 [none]
+[debug] [2024-10-16T16:24:10.173Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 200
+[debug] [2024-10-16T16:24:10.174Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 {"name":"projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-10-16T16:24:09.921107860Z","target":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","verb":"create","cancelRequested":false,"apiVersion":"v2"},"done":false}
+[debug] [2024-10-16T16:24:10.675Z] [create-default-us-central1-plaidWebhook] Retrying task index 0
+[debug] [2024-10-16T16:24:10.676Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:10.676Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:10.676Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 [none]
+[debug] [2024-10-16T16:24:10.768Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 200
+[debug] [2024-10-16T16:24:10.769Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 {"name":"projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-10-16T16:24:09.921107860Z","target":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","buildConfig":{"runtime":"nodejs18","entryPoint":"plaidWebhook","source":{"storageSource":{"bucket":"gcf-v2-sources-272615090409-us-central1","object":"plaidWebhook/function-source.zip","generation":"1729095849599255"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/blinx-mobile-dev/serviceAccounts/272615090409-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/blinx-mobile-dev/locations/us-central1/services/plaidwebhook","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"blinx-mobile-dev\",\"storageBucket\":\"blinx-mobile-dev.appspot.com\"}","GCLOUD_PROJECT":"blinx-mobile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/blinx-mobile-dev/locations/us-central1/services/plaidWebhook","FUNCTION_TARGET":"plaidWebhook","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"272615090409-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"ed9bd81a4c64dd8de717f7b0547103125aa4c272"},"environment":"GEN_2"},"stages":[{"name":"BUILD","state":"NOT_STARTED"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION"},"done":false}
+[debug] [2024-10-16T16:24:11.769Z] [create-default-us-central1-plaidWebhook] Retrying task index 0
+[debug] [2024-10-16T16:24:11.770Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:11.770Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:11.770Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 [none]
+[debug] [2024-10-16T16:24:11.975Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 200
+[debug] [2024-10-16T16:24:11.976Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 {"name":"projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-10-16T16:24:09.921107860Z","target":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","buildConfig":{"runtime":"nodejs18","entryPoint":"plaidWebhook","source":{"storageSource":{"bucket":"gcf-v2-sources-272615090409-us-central1","object":"plaidWebhook/function-source.zip","generation":"1729095849599255"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/blinx-mobile-dev/serviceAccounts/272615090409-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/blinx-mobile-dev/locations/us-central1/services/plaidwebhook","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"blinx-mobile-dev\",\"storageBucket\":\"blinx-mobile-dev.appspot.com\"}","GCLOUD_PROJECT":"blinx-mobile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/blinx-mobile-dev/locations/us-central1/services/plaidWebhook","FUNCTION_TARGET":"plaidWebhook","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"272615090409-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"ed9bd81a4c64dd8de717f7b0547103125aa4c272"},"environment":"GEN_2"},"stages":[{"name":"BUILD","state":"NOT_STARTED"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION"},"done":false}
+[debug] [2024-10-16T16:24:13.977Z] [create-default-us-central1-plaidWebhook] Retrying task index 0
+[debug] [2024-10-16T16:24:13.978Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:13.978Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:13.978Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 [none]
+[debug] [2024-10-16T16:24:14.069Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 200
+[debug] [2024-10-16T16:24:14.069Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 {"name":"projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-10-16T16:24:09.921107860Z","target":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","buildConfig":{"runtime":"nodejs18","entryPoint":"plaidWebhook","source":{"storageSource":{"bucket":"gcf-v2-sources-272615090409-us-central1","object":"plaidWebhook/function-source.zip","generation":"1729095849599255"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/blinx-mobile-dev/serviceAccounts/272615090409-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/blinx-mobile-dev/locations/us-central1/services/plaidwebhook","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"blinx-mobile-dev\",\"storageBucket\":\"blinx-mobile-dev.appspot.com\"}","GCLOUD_PROJECT":"blinx-mobile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/blinx-mobile-dev/locations/us-central1/services/plaidWebhook","FUNCTION_TARGET":"plaidWebhook","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"272615090409-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"ed9bd81a4c64dd8de717f7b0547103125aa4c272"},"environment":"GEN_2"},"stages":[{"name":"BUILD","state":"NOT_STARTED"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION"},"done":false}
+[debug] [2024-10-16T16:24:18.071Z] [create-default-us-central1-plaidWebhook] Retrying task index 0
+[debug] [2024-10-16T16:24:18.072Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:18.072Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:18.072Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 [none]
+[debug] [2024-10-16T16:24:18.160Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 200
+[debug] [2024-10-16T16:24:18.161Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 {"name":"projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-10-16T16:24:09.921107860Z","target":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","buildConfig":{"runtime":"nodejs18","entryPoint":"plaidWebhook","source":{"storageSource":{"bucket":"gcf-v2-sources-272615090409-us-central1","object":"plaidWebhook/function-source.zip","generation":"1729095849599255"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/blinx-mobile-dev/serviceAccounts/272615090409-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/blinx-mobile-dev/locations/us-central1/services/plaidwebhook","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"blinx-mobile-dev\",\"storageBucket\":\"blinx-mobile-dev.appspot.com\"}","GCLOUD_PROJECT":"blinx-mobile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/blinx-mobile-dev/locations/us-central1/services/plaidWebhook","FUNCTION_TARGET":"plaidWebhook","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"272615090409-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"ed9bd81a4c64dd8de717f7b0547103125aa4c272"},"environment":"GEN_2"},"stages":[{"name":"BUILD","state":"NOT_STARTED"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION"},"done":false}
+[debug] [2024-10-16T16:24:26.164Z] [create-default-us-central1-plaidWebhook] Retrying task index 0
+[debug] [2024-10-16T16:24:26.165Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:26.166Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:26.166Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 [none]
+[debug] [2024-10-16T16:24:26.323Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 200
+[debug] [2024-10-16T16:24:26.324Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 {"name":"projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-10-16T16:24:09.921107860Z","target":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","buildConfig":{"runtime":"nodejs18","entryPoint":"plaidWebhook","source":{"storageSource":{"bucket":"gcf-v2-sources-272615090409-us-central1","object":"plaidWebhook/function-source.zip","generation":"1729095849599255"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/blinx-mobile-dev/serviceAccounts/272615090409-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/blinx-mobile-dev/locations/us-central1/services/plaidwebhook","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"blinx-mobile-dev\",\"storageBucket\":\"blinx-mobile-dev.appspot.com\"}","GCLOUD_PROJECT":"blinx-mobile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/blinx-mobile-dev/locations/us-central1/services/plaidWebhook","FUNCTION_TARGET":"plaidWebhook","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"272615090409-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"ed9bd81a4c64dd8de717f7b0547103125aa4c272"},"environment":"GEN_2"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/272615090409/locations/us-central1/builds/90093f52-7aa6-441c-8db3-d3579599015f","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/90093f52-7aa6-441c-8db3-d3579599015f?project=272615090409"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION","buildName":"projects/272615090409/locations/us-central1/builds/90093f52-7aa6-441c-8db3-d3579599015f"},"done":false}
+[debug] [2024-10-16T16:24:36.325Z] [create-default-us-central1-plaidWebhook] Retrying task index 0
+[debug] [2024-10-16T16:24:36.326Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:36.326Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:36.326Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 [none]
+[debug] [2024-10-16T16:24:36.467Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 200
+[debug] [2024-10-16T16:24:36.467Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07 {"name":"projects/blinx-mobile-dev/locations/us-central1/operations/operation-1729095848877-6249a7fdadd64-4c114372-80df3a07","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-10-16T16:24:09.921107860Z","endTime":"2024-10-16T16:24:30.370010312Z","target":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/blinx-mobile-dev/locations/us-central1/functions/plaidWebhook","buildConfig":{"runtime":"nodejs18","entryPoint":"plaidWebhook","source":{"storageSource":{"bucket":"gcf-v2-sources-272615090409-us-central1","object":"plaidWebhook/function-source.zip","generation":"1729095849599255"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/blinx-mobile-dev/serviceAccounts/272615090409-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/blinx-mobile-dev/locations/us-central1/services/plaidwebhook","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"blinx-mobile-dev\",\"storageBucket\":\"blinx-mobile-dev.appspot.com\"}","GCLOUD_PROJECT":"blinx-mobile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/blinx-mobile-dev/locations/us-central1/services/plaidWebhook","FUNCTION_TARGET":"plaidWebhook","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"272615090409-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"ed9bd81a4c64dd8de717f7b0547103125aa4c272"},"environment":"GEN_2"},"stages":[{"name":"ARTIFACT_REGISTRY","message":"Deleting function artifacts in Artifact Registry","state":"COMPLETE"},{"name":"SERVICE","message":"Deleting Cloud Run service","state":"COMPLETE","resource":"projects/blinx-mobile-dev/locations/us-central1/services/plaidwebhook"}],"operationType":"CREATE_FUNCTION"},"done":true,"error":{"code":13,"message":"Build failed with status: INTERNAL_ERROR and message: An unexpected error occurred. Refer to build logs: https://console.cloud.google.com/cloud-build/builds;region=us-central1/90093f52-7aa6-441c-8db3-d3579599015f?project=272615090409. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/90093f52-7aa6-441c-8db3-d3579599015f?project=272615090409."}}
+[debug] [2024-10-16T16:24:36.467Z] Got source token undefined for region us-central1
+[error] Build failed with status: INTERNAL_ERROR and message: An unexpected error occurred. Refer to build logs: https://console.cloud.google.com/cloud-build/builds;region=us-central1/90093f52-7aa6-441c-8db3-d3579599015f?project=272615090409. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/90093f52-7aa6-441c-8db3-d3579599015f?project=272615090409.
+[debug] [2024-10-16T16:24:36.479Z] Total Function Deployment time: 27734
+[debug] [2024-10-16T16:24:36.480Z] 1 Functions Deployed
+[debug] [2024-10-16T16:24:36.480Z] 1 Functions Errored
+[debug] [2024-10-16T16:24:36.480Z] 0 Function Deployments Aborted
+[debug] [2024-10-16T16:24:36.480Z] Average Function Deployment time: 27733
+[info] 
+[info] Functions deploy had errors with the following functions:
+	plaidWebhook(us-central1)
+[debug] [2024-10-16T16:24:36.572Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[info] i  functions: cleaning up build files... 
+[debug] [2024-10-16T16:24:36.573Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:36.573Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:36.574Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:36.574Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:36.574Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/blinx-mobile-dev/locations/us-central1/repositories/gcf-artifacts/packages/plaid_webhook [none]
+[debug] [2024-10-16T16:24:36.575Z] >>> [apiv2][query] GET https://us.gcr.io/v2/blinx-mobile-dev/gcf/us-central1/tags/list [none]
+[debug] [2024-10-16T16:24:36.895Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/blinx-mobile-dev/locations/us-central1/repositories/gcf-artifacts/packages/plaid_webhook 404
+[debug] [2024-10-16T16:24:36.896Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/blinx-mobile-dev/locations/us-central1/repositories/gcf-artifacts/packages/plaid_webhook {"error":{"code":404,"message":"Package \"projects/blinx-mobile-dev/locations/us-central1/repositories/gcf-artifacts/packages/plaid_webhook\" was not found.","status":"NOT_FOUND"}}
+[debug] [2024-10-16T16:24:37.037Z] <<< [apiv2][status] GET https://us.gcr.io/v2/blinx-mobile-dev/gcf/us-central1/tags/list 404
+[debug] [2024-10-16T16:24:37.037Z] <<< [apiv2][body] GET https://us.gcr.io/v2/blinx-mobile-dev/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-10-16T16:24:37.038Z] Failed docker command with error  HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"HTTP Error: 404, Not Found","status":404}
+[debug] [2024-10-16T16:24:37.039Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:37.039Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:37.039Z] >>> [apiv2][query] GET https://us.gcr.io/v2/blinx-mobile-dev/gcf/us-central1/tags/list [none]
+[debug] [2024-10-16T16:24:37.217Z] <<< [apiv2][status] GET https://us.gcr.io/v2/blinx-mobile-dev/gcf/us-central1/tags/list 404
+[debug] [2024-10-16T16:24:37.217Z] <<< [apiv2][body] GET https://us.gcr.io/v2/blinx-mobile-dev/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-10-16T16:24:37.217Z] Failed docker command with error  HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"HTTP Error: 404, Not Found","status":404}
+[debug] [2024-10-16T16:24:37.317Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:37.318Z] Checked if tokens are valid: true, expires at: 1729096960546
+[debug] [2024-10-16T16:24:37.318Z] >>> [apiv2][query] GET https://us.gcr.io/v2/blinx-mobile-dev/gcf/us-central1/tags/list [none]
+[debug] [2024-10-16T16:24:37.489Z] <<< [apiv2][status] GET https://us.gcr.io/v2/blinx-mobile-dev/gcf/us-central1/tags/list 404
+[debug] [2024-10-16T16:24:37.489Z] <<< [apiv2][body] GET https://us.gcr.io/v2/blinx-mobile-dev/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-10-16T16:24:37.489Z] Failed docker command with error  HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"HTTP Error: 404, Not Found","status":404}
+[warn] ⚠  functions: Unhandled error cleaning up build images. This could result in a small monthly bill if not corrected. You can attempt to delete these images by redeploying or you can delete them manually at https://console.cloud.google.com/gcr/images/blinx-mobile-dev/us/gcf 
+[debug] [2024-10-16T16:24:37.491Z] Functions deploy failed.
+[debug] [2024-10-16T16:24:37.491Z] {
+  "endpoint": {
+    "id": "plaidWebhook",
+    "project": "blinx-mobile-dev",
+    "region": "us-central1",
+    "entryPoint": "plaidWebhook",
+    "platform": "gcfv2",
+    "runtime": "nodejs18",
+    "httpsTrigger": {},
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "ingressSettings": null,
+    "availableMemoryMb": null,
+    "serviceAccount": null,
+    "timeoutSeconds": null,
+    "maxInstances": null,
+    "minInstances": null,
+    "concurrency": 80,
+    "vpc": null,
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"blinx-mobile-dev\",\"storageBucket\":\"blinx-mobile-dev.appspot.com\"}",
+      "GCLOUD_PROJECT": "blinx-mobile-dev",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/blinx-mobile-dev/locations/us-central1/services/plaidWebhook"
+    },
+    "codebase": "default",
+    "cpu": 1,
+    "targetedByOnly": false,
+    "hash": "ed9bd81a4c64dd8de717f7b0547103125aa4c272"
+  },
+  "op": "create",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "exit": 1,
+    "message": "Build failed with status: INTERNAL_ERROR and message: An unexpected error occurred. Refer to build logs: https://console.cloud.google.com/cloud-build/builds;region=us-central1/90093f52-7aa6-441c-8db3-d3579599015f?project=272615090409. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/90093f52-7aa6-441c-8db3-d3579599015f?project=272615090409.",
+    "original": {
+      "code": 13,
+      "message": "Build failed with status: INTERNAL_ERROR and message: An unexpected error occurred. Refer to build logs: https://console.cloud.google.com/cloud-build/builds;region=us-central1/90093f52-7aa6-441c-8db3-d3579599015f?project=272615090409. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/90093f52-7aa6-441c-8db3-d3579599015f?project=272615090409."
+    },
+    "status": 13,
+    "code": 13
+  }
+}
+[debug] [2024-10-16T16:24:37.523Z] Error: Failed to create function plaidWebhook in region us-central1
+    at /usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:294:27
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Fabricator.createV2Function (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:278:30)
+    at async Fabricator.createEndpoint (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:137:13)
+    at async handle (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:89:17)
+[error] 
+[error] Error: There was an error deploying functions

@@ -36,6 +36,7 @@ cred-manager = "1.5.0-alpha05"
 google-id = "1.1.1"
 appcompat = "1.7.0"
 material = "1.12.0"
+plaid = "4.6.1"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -95,6 +96,7 @@ firebase-boom = { group = "com.google.firebase", name = "firebase-bom", version.
 #Room
 room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room-ksp" }
 androidx-compiler = { group = "androidx.compose.compiler", name = "compiler", version.ref = "compiler" }
+payment-plaid = { group = "com.plaid.link", name = "sdk-core", version.ref = "plaid" }
 
 #Coil Image loader
 coil-image = {group ="io.coil-kt", name ="coil-compose", version.ref ="coil-image"}

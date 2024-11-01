@@ -113,6 +113,7 @@ dependencies {
     implementation(libs.google.credential.manager)
     implementation(libs.kotlin.coroutine)
     implementation(libs.splash.screen)
+    implementation(libs.payment.plaid)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
