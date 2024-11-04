@@ -94,14 +94,10 @@ fun DashboardNavigation(
         startDestination = destinationStr.value
     ) {
         composable(HomeNavigationRoute.HOME.name) {
-            val viewModel: DashboardViewModel = hiltViewModel()
-
-            val loadingState by viewModel.loadingState
 
             isDashboard.value = true
             canNavigateBack.value = false
             HomeScreen(
-                loadingState = loadingState,
                 profileViewModel.displayName,
                 walletClick = {
                     navController.navigate(HomeNavigationRoute.WALLET.name)
@@ -111,20 +107,7 @@ fun DashboardNavigation(
                 },
                 bvnCardClick = {
                     navController.navigate(HomeNavigationRoute.BVN.name)
-                },
-                linkBankCardClick = {
-                    viewModel.setLoading(true)
-                    viewModel.createPlaidLink(
-                        onSuccess = {
-                            Log.d("createPlaidLink", "Triggered")
-                            viewModel.setLoading(false)
-                        },
-                        onError = {}
-                    )
-                    //  navController.navigate(DashboardNavigationRoute.LINK_BANK.name)
-                },
-
-
+                }
             )
         }
 

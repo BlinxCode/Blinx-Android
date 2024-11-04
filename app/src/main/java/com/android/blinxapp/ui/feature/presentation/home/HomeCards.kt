@@ -25,7 +25,6 @@ import com.android.blinxapp.ui.theme.secondaryGrey
 import com.android.blinxapp.ui.theme.white
 import com.android.blinxapp.ui.theme.yellow
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ComposeCard(onClicked: () -> Unit, painterResource: Painter, title: String, message: String) {
 

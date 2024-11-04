@@ -9,6 +9,7 @@ object Constants {
 
     //Collection References
     const val USERS = "users"
+    const val PLAID = "plaid"
 
     //User fields
 

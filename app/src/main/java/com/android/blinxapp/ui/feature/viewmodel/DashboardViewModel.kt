@@ -22,32 +22,21 @@ class DashboardViewModel @Inject constructor(
     private val dispatchProvider: DispatchProvider
 ): ViewModel() {
 
-    var loadingState = mutableStateOf(false)
+    private val _plaidLinkUiState = MutableStateFlow<createPlaidLinkResponse>(RequestState.Loading)
+    val plaidLinkUiState = _plaidLinkUiState.asStateFlow()
 
-    fun setLoading(loading: Boolean){
-        loadingState.value = loading
-    }
-
-//    private val _plaidLinkUiState = MutableStateFlow<createPlaidLinkResponse>(RequestState.Loading)
-//    val plaidLinkUiState = _plaidLinkUiState.asStateFlow()
-
-
-    fun createPlaidLink(
-        onSuccess: () -> Unit,
-        onError: (Exception)-> Unit
-    ){
+    fun createPlaidLink(){
         viewModelScope.launch(dispatchProvider.io) {
-            when (createLinkUseCase.invoke()){
+            _plaidLinkUiState.value = RequestState.Loading // Set loading state immediately
+
+            when (val result = createLinkUseCase.invoke()){
                 is RequestState.Error -> withContext(Dispatchers.Main ){
-                    onError(Exception("User is not logged in.")) }
-                RequestState.Loading ->  loadingState
+                    _plaidLinkUiState.value = RequestState.Error(result.error) }
+                RequestState.Loading ->  RequestState.Loading
                 is RequestState.Success -> {
-                    withContext(Dispatchers.Main){
-                        onSuccess()
-                    }
+                    _plaidLinkUiState.value = RequestState.Success(result.data)
                 }
             }
         }
     }
-
 }
