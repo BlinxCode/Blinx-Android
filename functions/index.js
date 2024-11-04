@@ -3,9 +3,14 @@ import {onRequest} from "firebase-functions/v2/https";
 import logger from "firebase-functions/logger";
 import express from "express";
 import axios from "axios";
+import { initializeApp } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
+import { onDocumentCreated } from "firebase-functions/v2/firestore";
 
+//Initialize app
+initializeApp();
 
-// WEBHOOK CONNECTION LISTENER
+// WEBHOOK CONNECTION LISTENER TO PLAID
 const app = express();
 
 // Middleware to automatically parse JSON request bodies
@@ -57,42 +62,50 @@ export const plaidWebhook = onRequest(app);
 // END OF WEBHOOK CONNECTION LISTENER
 
 
-
-
 // Plaid Link Token creation function
-export const createPlaidLinkToken = onRequest(async (req, res) => {
-  // Use environment variables or Firebase config for sensitive data
-  const PLAID_CLIENT_ID = "66dbbd2a020d87001aba4e67"
-  const PLAID_SECRET = "ee68bc1cbda56c95630d400c79d958"
-  const PLAID_ENVIRONMENT = "sandbox"; // Change to 'development' or 'production' as needed
+const db = getFirestore();
 
-const randomUserId = Math.random().toString(36).substring(2, 15); // Temporary, unique ID for testing
+// Access your environment variables directly (you may need a workaround as V2 doesn’t support `functions.config()`)
+const PLAID_CLIENT_ID = process.env.PLAID_CLIENT_ID; // Example of using Node environment variables
+const PLAID_SECRET = process.env.PLAID_SECRET;
+const PLAID_ENVIRONMENT = process.env.PLAID_ENVIRONMENT;
 
-//  const userId = req.body.userId; // Ensure you get a unique user ID from the client or generate one for each request
+// Firestore trigger using V2 for when a document is created in the "plaid/{userId}" collection
+export const createPlaidLinkTokenOnCreate = onDocumentCreated("plaid/{userId}", async (event) => {
+    const userId = event.params.userId; // Extract userId from the document path
+    const data = event.data?.data();
 
-  try {
-    const response = await axios.post(`https://${PLAID_ENVIRONMENT}.plaid.com/link/token/create`, {
-      client_id: PLAID_CLIENT_ID,
-      secret: PLAID_SECRET,
-      user: {
-        client_user_id: randomUserId,
-      },
-      client_name: "Blinx App",
-      products: ["auth"],
-      country_codes: ["US"],
-      language: "en",
-      webhook: "https://plaidwebhook-2mtyrazniq-uc.a.run.app",
-      android_package_name: "com.android.blinxapp.debug"
-    }, {
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    });
+    if (data && data.createLink === "Yes") {
+        try {
+            const response = await axios.post(`https://${PLAID_ENVIRONMENT}.plaid.com/link/token/create`, {
+                client_id: PLAID_CLIENT_ID,
+                secret: PLAID_SECRET,
+                user: {
+                    client_user_id: userId,
+                },
+                client_name: "Blinx App",
+                products: ["auth"],
+                country_codes: ["US"],
+                language: "en",
+                webhook: "https://plaidwebhook-2mtyrazniq-uc.a.run.app",
+                android_package_name: "com.android.blinxapp.debug"
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
 
-    // Send the Plaid link token back to the client
-    res.status(200).json(response.data);
-  } catch (error) {
-    logger.error("Error creating Plaid link token", { error: error.message });
-    res.status(500).json({ error: "Failed to create Plaid link token" });
-  }
+            console.log("Plaid link token created successfully:", response.data);
+
+            // Update Firestore with the Plaid response data and set `createLink` to "No"
+            await db.collection('plaid').doc(userId).update({
+                linkToken: response.data.link_token,
+                createdAt: new Date(),
+                createLink: "No"
+            });
+
+        } catch (error) {
+            console.error("Error creating Plaid link token:", error.message);
+        }
+    }
 });
