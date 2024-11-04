@@ -1,4 +1,4 @@
-package com.android.blinxapp.data.repository
+package com.android.blinxapp.data.repository.authentication
 
 import android.content.Context
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption

@@ -1,5 +1,6 @@
 package com.android.blinxapp.ui.feature.presentation.components.navigation
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,6 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -26,7 +28,7 @@ import com.android.blinxapp.ui.feature.presentation.wallet.DebitCardInfoView
 import com.android.blinxapp.ui.feature.presentation.wallet.FundNairaWallet
 import com.android.blinxapp.ui.feature.presentation.wallet.FundWalletScreen
 import com.android.blinxapp.ui.feature.presentation.wallet.FundWithBankTransferScreen
-
+import com.android.blinxapp.ui.feature.viewmodel.DashboardViewModel
 
 @Composable
 fun DashBoardNavigation(navController: NavHostController
@@ -84,7 +86,7 @@ fun DashboardNavigation(
     isDashboard: MutableState<Boolean>,
     topBarTitle: MutableState<String>,
     destinationStr: MutableState<String>,
-    profileViewModel: ProfileViewModel
+    profileViewModel: ProfileViewModel,
 ) {
 
     NavHost(
@@ -92,9 +94,14 @@ fun DashboardNavigation(
         startDestination = destinationStr.value
     ) {
         composable(HomeNavigationRoute.HOME.name) {
+            val viewModel: DashboardViewModel = hiltViewModel()
+
+            val loadingState by viewModel.loadingState
+
             isDashboard.value = true
             canNavigateBack.value = false
             HomeScreen(
+                loadingState = loadingState,
                 profileViewModel.displayName,
                 walletClick = {
                     navController.navigate(HomeNavigationRoute.WALLET.name)
@@ -106,8 +113,18 @@ fun DashboardNavigation(
                     navController.navigate(HomeNavigationRoute.BVN.name)
                 },
                 linkBankCardClick = {
+                    viewModel.setLoading(true)
+                    viewModel.createPlaidLink(
+                        onSuccess = {
+                            Log.d("createPlaidLink", "Triggered")
+                            viewModel.setLoading(false)
+                        },
+                        onError = {}
+                    )
                     //  navController.navigate(DashboardNavigationRoute.LINK_BANK.name)
                 },
+
+
             )
         }
 
@@ -183,4 +200,3 @@ fun DashboardNavigation(
         }
     }
 }
-

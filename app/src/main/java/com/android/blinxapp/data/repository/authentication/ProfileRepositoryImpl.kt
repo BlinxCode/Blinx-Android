@@ -1,4 +1,4 @@
-package com.android.blinxapp.data.repository
+package com.android.blinxapp.data.repository.authentication
 
 import android.util.Log
 import com.android.blinxapp.core.Constants.USERS

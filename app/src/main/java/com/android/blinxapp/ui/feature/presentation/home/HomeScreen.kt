@@ -14,6 +14,7 @@ import com.android.blinxapp.ui.feature.presentation.components.common.CommonTitl
 
 @Composable
 fun HomeScreen(
+    loadingState: Boolean,
     displayName: String,
     walletClick: () -> Unit,
     automationCardClick: () -> Unit,
@@ -21,6 +22,7 @@ fun HomeScreen(
     linkBankCardClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+
 
     val scrollState = rememberScrollState()
     Column(
@@ -98,6 +100,7 @@ fun HomeScreenScaffoldPreview() {
         bvnCardClick = {},
         linkBankCardClick = {},
         modifier = Modifier
-            .padding( start = 16.dp, end = 16.dp)
+            .padding( start = 16.dp, end = 16.dp),
+        loadingState = false
     )
 }

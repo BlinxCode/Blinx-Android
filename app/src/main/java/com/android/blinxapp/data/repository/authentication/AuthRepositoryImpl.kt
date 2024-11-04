@@ -1,4 +1,4 @@
-package com.android.blinxapp.data.repository
+package com.android.blinxapp.data.repository.authentication
 
 import android.content.Context
 import androidx.credentials.GetCredentialRequest
@@ -8,9 +8,9 @@ import androidx.credentials.exceptions.NoCredentialException
 import com.android.blinxapp.core.Constants.USERS
 import com.android.blinxapp.core.RequestState
 import com.android.blinxapp.domain.model.User
-import com.android.blinxapp.domain.repository.AuthRepository
-import com.android.blinxapp.domain.repository.AuthCredentialResponse
-import com.android.blinxapp.domain.repository.SignInWithGoogleResponse
+import com.android.blinxapp.domain.repository.authentication.AuthRepository
+import com.android.blinxapp.domain.repository.authentication.AuthCredentialResponse
+import com.android.blinxapp.domain.repository.authentication.SignInWithGoogleResponse
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
